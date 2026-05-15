@@ -1,0 +1,23 @@
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import Header from './Header';
+
+const meta: Meta<typeof Header> = {
+	title: 'Components/Header',
+	component: Header,
+};
+
+export default meta;
+type Story = StoryObj<typeof Header>;
+
+export const Default: Story = {
+	args: {
+		items: [
+			{ label: 'About', href: '/about' },
+			{ label: 'Work', href: '/work' },
+			{ label: 'Skills', href: '/skills' },
+			{ label: 'Contact', href: '/contact' },
+		],
+		currentPath: '/work',
+		logo: <div className="w-12 h-12 bg-sage-1 rounded-full" />,
+	},
+};
