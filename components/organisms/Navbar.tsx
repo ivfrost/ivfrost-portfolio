@@ -5,10 +5,9 @@ import NavItem, { NavLinkData } from '../molecules/NavItem';
 
 interface NavbarProps {
 	items: NavLinkData[];
-	variant?: 'light' | 'dark';
 }
 
-export default function Navbar({ items, variant = 'light' }: NavbarProps) {
+export default function Navbar({ items }: NavbarProps) {
 	const [activeHref, setActiveHref] = useState('');
 
 	useEffect(() => {
@@ -34,7 +33,7 @@ export default function Navbar({ items, variant = 'light' }: NavbarProps) {
 	}, [items]);
 
 	return (
-		<nav className="flex items-center gap-8 px-6 py-4 max-w-fit font-mono bg-transparent">
+		<nav className="flex items-center gap-8 py-4 max-w-fit font-mono bg-transparent">
 			{items.map((item) => (
 				<NavItem
 					key={item.href}

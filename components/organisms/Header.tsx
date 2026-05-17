@@ -18,24 +18,26 @@ export default function Header({ items, logo, className }: HeaderProps) {
 	return (
 		<header
 			className={cx(
-				'sticky top-0 z-50 w-full h-16 flex items-center border-b border-borde',
+				'sticky top-0 z-50 w-full h-16 flex items-center border-b border-border',
 				'bg-background/80 backdrop-blur-md transition-colors',
 				className,
 			)}
 		>
 			<Container className="flex justify-between items-center w-full">
-				{logo ? (
-					<Link href="/">{logo}</Link>
-				) : (
-					<Link href="/">
-						<span
-							className="font-mono text-sm text-text-meta tracking-wider
+				<span className="hidden sm:block">
+					{logo ? (
+						<Link href="/">{logo}</Link>
+					) : (
+						<Link href="/">
+							<span
+								className="font-mono text-sm text-text-meta tracking-wider
 						 lowercase"
-						>
-							pablo villena
-						</span>
-					</Link>
-				)}
+							>
+								pablo villena
+							</span>
+						</Link>
+					)}
+				</span>
 
 				<Navbar items={items} />
 

@@ -1,9 +1,9 @@
-import DiamondSVG from '@/components/atoms/DiamondSVG';
-import CertCard from '@/components/molecules/CertCard';
 import ExperienceTimeline from '@/components/organisms/ExperienceTimeline';
 import Header from '@/components/organisms/Header';
 import Hero from '@/components/organisms/Hero';
 import Section from '@/components/organisms/Section';
+import ProjectList from '@/components/organisms/ProjectList';
+import { projects } from '@/data/projects';
 
 export default function Home() {
 	return (
@@ -18,8 +18,9 @@ export default function Home() {
 			<main>
 				<Hero
 					name="Pablo Villena"
-					role="Full stack developer"
-					status="available"
+					role="Desarrollador Full stack"
+					status="disponible"
+					openTo="nuevas oportunidades"
 					stack={[
 						'React',
 						'Next.js',
@@ -28,7 +29,11 @@ export default function Home() {
 						'Java',
 						'Spring',
 					]}
+					location="Remoto o Málaga"
+					certCompanies={['Frontend Masters', 'Udemy']}
+					certCount={17}
 				/>
+
 				{/* <Section id="certifications" title="Certifications" variant="subtle">
 					<div className="grid gap-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
 						<CertCard
@@ -67,6 +72,10 @@ export default function Home() {
 						/>
 					</div>
 				</Section> */}
+				<Section id="selected-work" title="Proyectos destacados">
+					<ProjectList items={projects} />
+				</Section>
+
 				<Section id="experience" title="Experience">
 					<ExperienceTimeline
 						entries={[

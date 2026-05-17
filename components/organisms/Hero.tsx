@@ -5,6 +5,10 @@ interface HeroProps {
 	role?: string;
 	status?: string;
 	stack?: string[];
+	openTo?: string;
+	location?: string;
+	certCompanies?: string[];
+	certCount?: number;
 	className?: string;
 }
 
@@ -13,11 +17,15 @@ export default function Hero({
 	role,
 	status,
 	stack = [],
+	openTo,
+	location,
+	certCompanies = [],
+	certCount,
 	className,
 }: HeroProps) {
 	return (
 		<section
-			className={`py-14 bg-background border-b border-border ${className}`}
+			className={`pt-16 pb-0 bg-background border-b border-border ${className}`}
 		>
 			<Container>
 				{/* Name + status */}
@@ -26,13 +34,14 @@ export default function Hero({
 						{name}
 					</h1>
 					<p className="font-mono text-sm text-text-meta tracking-wider">
-						{role} · {status}
+						{role}
+						{status ? ` · ${status}` : ''}
 					</p>
 				</div>
 
 				{/* Three column strip */}
-				<div className="grid grid-cols-3 border-t border-border pt-6">
-					<div className="pr-8 border-r border-border">
+				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-3 border-t border-border py-8">
+					<div>
 						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
 							Stack
 						</span>
@@ -41,25 +50,25 @@ export default function Hero({
 						</p>
 					</div>
 
-					<div className="px-8 border-r border-border">
+					<div className="sm:justify-self-center">
 						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
-							Currently
+							Actualmente
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed">
-							Open to full-time roles
+							Abierto a {openTo || 'oportunidades'}
 							<br />
-							Remote or Málaga-based
+							{location || 'Ubicación no especificada'}
 						</p>
 					</div>
 
-					<div className="pl-8">
+					<div className="sm:justify-self-end">
 						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
-							Certifications
+							Certificaciones
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed">
-							Frontend Masters · Udemy
+							{certCompanies.length > 0 ? certCompanies.join(' · ') : '—'}
 							<br />
-							17 completed
+							{certCount != null ? `${certCount} completadas` : ''}
 						</p>
 					</div>
 				</div>

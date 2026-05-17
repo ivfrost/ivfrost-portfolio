@@ -6,39 +6,38 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <ColorPalette>
 	<ColorItem
-		title="Frost Whites"
-		subtitle="Clean surface and background tints"
+		title="Background"
+		subtitle="Default page surface and supporting borders"
 		colors={{
-			'frost-0': '#ffffff',
-			'frost-1': '#f5f6f2',
-			'frost-2': '#e8ebe1',
-			'frost-3': '#dfe2d8',
-			'frost-4': '#c4c8bc',
+			background: '#eaede4',
+			'border-subtle': '#e2e5dc',
+			border: '#d4d8ce',
 		}}
 	/>
 	<ColorItem
-		title="Sage Greens"
-		subtitle="Leaf mid-tones and accents"
+		title="Ink"
+		subtitle="Primary text and dark accents"
 		colors={{
-			'sage-1': '#cdd4c2',
-			'sage-2': '#a8b89a',
-			'sage-3': '#7d9470',
-			'sage-4': '#536647',
-			'sage-5': '#334030',
+			ink: '#181c1a',
+			'ink-mid': '#242b26',
+			'ink-lite': '#545e56',
 		}}
 	/>
 	<ColorItem
-		title="Inks"
-		subtitle="Typography and deep accents"
+		title="Sage"
+		subtitle="Accent tones and interactive states"
 		colors={{
-			ink: '#1e231b',
-			'ink-mid': '#3a4135',
-			'ink-lite': '#606859',
+			'sage-3': '#6b7d6e',
+			'sage-4': '#445249',
+			'sage-5': '#252e28',
 		}}
 	/>
 	<ColorItem
-		title="Global Background"
-		subtitle="Default page surface"
-		colors={{ bg: '#eaede4' }}
+		title="Text Roles"
+		subtitle="Muted supporting copy and metadata"
+		colors={{
+			'text-meta': '#a0a898',
+			'text-muted': '#606859',
+		}}
 	/>
 </ColorPalette>
