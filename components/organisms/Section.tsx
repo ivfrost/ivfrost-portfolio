@@ -10,11 +10,11 @@ interface SectionProps {
 	className?: string;
 }
 
-const sectionVariants = cva([`pb-10 bg-frost-1 border-t relative`], {
+const sectionVariants = cva([`pb-10 bg-background border-b relative`], {
 	variants: {
 		variant: {
-			default: 'bg-frost-2 border-sage-1',
-			subtle: 'bg-frost-1 border-sage-1',
+			default: 'bg-background border-frost-3',
+			subtle: 'bg-frost-1 border-sage-3',
 		},
 	},
 	defaultVariants: {

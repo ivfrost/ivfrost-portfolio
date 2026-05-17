@@ -1,50 +1,69 @@
-import React from 'react';
-import Button from '../atoms/Button';
-import DecorativeRule from '../atoms/DecorativeRule';
 import Container from '../layout/Container';
-import SnowflakeSVG from '../atoms/SnowflakeSVG';
 
 interface HeroProps {
-	titleContent: React.ReactNode;
-	ruleContent?: React.ReactNode;
-	subtitle?: string;
+	name?: string;
+	role?: string;
+	status?: string;
+	stack?: string[];
 	className?: string;
 }
 
 export default function Hero({
-	titleContent,
-	ruleContent,
-	subtitle,
+	name,
+	role,
+	status,
+	stack = [],
 	className,
 }: HeroProps) {
-	const baseStyles = `py-10 bg-frost-2 border-sage-1 relative`;
-	const containerStyles = `flex flex-col items-start space-y-6`;
-
 	return (
-		<section className={`${baseStyles} ${className}`}>
-			<Container className={containerStyles}>
-				<DecorativeRule>{ruleContent}</DecorativeRule>
-				<h1 className="text-7xl font-medium leading-14 tracking-tight text-sage-4">
-					{titleContent}
-				</h1>
-				{subtitle && (
-					<p className="leading-normal text-2xl font-medium italic text-ink-lite max-w-md">
-						{subtitle}
+		<section
+			className={`py-14 bg-background border-b border-border ${className}`}
+		>
+			<Container>
+				{/* Name + status */}
+				<div className="mb-8">
+					<h1 className="text-6xl font-normal tracking-tight text-ink leading-none mb-2">
+						{name}
+					</h1>
+					<p className="font-mono text-sm text-text-meta tracking-wider">
+						{role} · {status}
 					</p>
-				)}
-				<div className="flex gap-4">
-					<Button type="button" variant="primary" size="medium">
-						View Work
-					</Button>
-					<Button type="button" variant="outline" size="medium">
-						Get in Touch
-					</Button>
+				</div>
+
+				{/* Three column strip */}
+				<div className="grid grid-cols-3 border-t border-border pt-6">
+					<div className="pr-8 border-r border-border">
+						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
+							Stack
+						</span>
+						<p className="text-sm text-text-muted leading-relaxed">
+							{stack.length > 0 ? stack.join(' · ') : 'No stack information'}
+						</p>
+					</div>
+
+					<div className="px-8 border-r border-border">
+						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
+							Currently
+						</span>
+						<p className="text-sm text-text-muted leading-relaxed">
+							Open to full-time roles
+							<br />
+							Remote or Málaga-based
+						</p>
+					</div>
+
+					<div className="pl-8">
+						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
+							Certifications
+						</span>
+						<p className="text-sm text-text-muted leading-relaxed">
+							Frontend Masters · Udemy
+							<br />
+							17 completed
+						</p>
+					</div>
 				</div>
 			</Container>
-			<SnowflakeSVG
-				className="absolute right-16 top-1/2 -translate-y-1/2 text-sage-1 opacity-60"
-				size={200}
-			/>
 		</section>
 	);
 }

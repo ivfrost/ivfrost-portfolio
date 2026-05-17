@@ -10,29 +10,27 @@ export default function Home() {
 		<>
 			<Header
 				items={[
-					{ label: 'Skills', href: '#certifications' },
-					{ label: 'Experience', href: '#experience' },
+					{ label: 'work', href: '#work' },
+					{ label: 'about', href: '#about' },
+					{ label: 'contact', href: '#contact' },
 				]}
-				logo={<div className="w-12 h-12 bg-sage-1 rounded-full" />}
 			/>
 			<main>
 				<Hero
-					titleContent={
-						<div>
-							Hi, I&apos;m <span className="text-ink"> Ipsum</span>
-						</div>
-					}
-					subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-					ruleContent={
-						<div className="flex items-center gap-1">
-							<span>Full Stack Developer</span>
-							<DiamondSVG className="mx-2 w-1.25 h-1.25" />
-							<span>Open to Work</span>
-						</div>
-					}
+					name="Pablo Villena"
+					role="Full stack developer"
+					status="available"
+					stack={[
+						'React',
+						'Next.js',
+						'Node.js',
+						'TypeScript',
+						'Java',
+						'Spring',
+					]}
 				/>
-				<Section id="certifications" title="Certifications" variant="subtle">
-					<div className="grid gap-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+				{/* <Section id="certifications" title="Certifications" variant="subtle">
+					<div className="grid gap-4 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
 						<CertCard
 							title="AWS Certified Solutions Architect – Associate"
 							issuer="Amazon Web Services (AWS)"
@@ -68,7 +66,7 @@ export default function Home() {
 							date="Jun, 2024"
 						/>
 					</div>
-				</Section>
+				</Section> */}
 				<Section id="experience" title="Experience">
 					<ExperienceTimeline
 						entries={[

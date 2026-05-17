@@ -14,7 +14,7 @@ export default function ExperienceTimeline({
 	entries,
 }: ExperienceTimelineProps) {
 	return (
-		<div className="relative space-y-4">
+		<div className="relative space-y-3">
 			{entries.map((entry, index) => (
 				<ExperienceEntry
 					key={index}

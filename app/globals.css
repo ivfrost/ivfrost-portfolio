@@ -1,56 +1,58 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Frost Whites */
-	--color-frost-0: #ffffff;
-	--color-frost-1: #f5f6f2;
-	--color-frost-2: #e8ebe1;
-	--color-frost-3: #dfe2d8;
-	--color-frost-4: #c4c8bc;
-
-	/* Sage Greens */
-	--color-sage-1: #cdd4c2;
-	--color-sage-2: #a8b89a;
-	--color-sage-3: #7d9470;
-	--color-sage-4: #536647;
-	--color-sage-5: #334030;
-
-	/* Inks */
-	--color-ink: #1e231b;
-	--color-ink-mid: #3a4135;
-	--color-ink-lite: #606859;
-
-	/* Warm Sage Background */
+	/* Background */
 	--color-background: #eaede4;
-	--font-sans: var(--font-cormorant-garamond);
+
+	/* Ink — text */
+	--color-ink: #181c1a;
+	--color-ink-mid: #242b26;
+	--color-ink-lite: #545e56;
+
+	/* Sage — accents, hover states */
+	--color-sage-3: #6b7d6e;
+	--color-sage-4: #445249;
+	--color-sage-5: #252e28;
+
+	/* Borders */
+	--color-border: #d4d8ce;
+	--color-border-subtle: #e2e5dc;
+
+	/* Text roles */
+	--color-text-meta: #a0a898;
+	--color-text-muted: #606859;
+
+	/* Fonts */
+	--font-sans: var(--font-inter);
 	--font-mono: var(--font-ibm-plex-mono);
 
-	--text-xs: 0.65rem;
-	--text-sm: 0.75rem;
-	--text-base: 0.875rem;
-	--text-md: 0.9375rem;
-	--text-lg: 1rem;
-	--text-xl: 1.325rem;
-	--text-2xl: 1.625rem;
-	--text-4xl: 2.5rem;
-	--text-7xl: 5rem;
+	/* Type scale */
+	--text-xs: 0.75rem;
+	--text-sm: 0.875rem;
+	--text-base: 1rem;
+	--text-md: 1.0625rem;
+	--text-lg: 1.125rem;
+	--text-xl: 1.25rem;
+	--text-2xl: 1.5rem;
+	--text-4xl: 2.25rem;
+	--text-7xl: 4.5rem;
 }
 
 @layer base {
 	h1 {
-		@apply text-7xl text-ink;
+		@apply text-7xl text-ink font-normal tracking-tight;
 	}
 	h2 {
-		@apply text-4xl text-ink;
+		@apply text-4xl text-ink font-normal;
 	}
 	h3 {
-		@apply text-2xl text-ink;
+		@apply text-2xl text-ink font-normal;
 	}
 	h4 {
 		@apply text-xl text-ink;
 	}
 	p {
-		@apply text-md text-ink;
+		@apply text-md text-ink-lite;
 	}
 }
 
@@ -59,21 +61,9 @@ html {
 }
 
 body {
-	color: var(--foreground);
-	font-family: var(--font-sans), serif;
-	background-color: var(--sage-1);
-	position: relative;
-}
-
-body::after {
-	content: '';
-	position: fixed;
-	inset: 0;
-	z-index: 1;
-	pointer-events: none;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M0 0 L12 12 M12 0 L0 12 M6 0 L0 6 L6 12 L12 6 Z' stroke='%23334030' stroke-width='0.4' fill='none'/%3E%3C/svg%3E");
-	background-size: 12px 12px;
-	opacity: 0.056;
+	color: var(--color-ink);
+	font-family: var(--font-sans), sans-serif;
+	background-color: var(--color-background);
 }
 
 code,

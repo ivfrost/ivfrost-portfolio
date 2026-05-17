@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react';
 import NavItem, { NavLinkData } from '../molecules/NavItem';
 
-export default function Navbar({ items }: { items: NavLinkData[] }) {
-	const [activeHref, setActiveHref] = useState('');
+interface NavbarProps {
+	items: NavLinkData[];
+	variant?: 'light' | 'dark';
+}
 
-	const baseStyles = `flex items-center gap-8 px-6 py-4 max-w-fit font-mono
-	 bg-transparent`;
+export default function Navbar({ items, variant = 'light' }: NavbarProps) {
+	const [activeHref, setActiveHref] = useState('');
 
 	useEffect(() => {
 		const observers: IntersectionObserver[] = [];
@@ -32,7 +34,7 @@ export default function Navbar({ items }: { items: NavLinkData[] }) {
 	}, [items]);
 
 	return (
-		<nav className={baseStyles}>
+		<nav className="flex items-center gap-8 px-6 py-4 max-w-fit font-mono bg-transparent">
 			{items.map((item) => (
 				<NavItem
 					key={item.href}

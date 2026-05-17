@@ -7,7 +7,7 @@ export default function SectionHeading({
 	text,
 	className,
 }: SectionHeadingProps) {
-	const baseStyles = `text-4xl font-semibold text-ink-mid tracking-tight`;
+	const baseStyles = `font-mono text-[10px] text-sage-3 tracking-wider uppercase block mb-2`;
 
 	return <h2 className={`${baseStyles} ${className}`}>{text}</h2>;
 }

@@ -1,7 +1,6 @@
 'use client';
 
-import { cva } from 'class-variance-authority';
-import DiamondSVG from '../atoms/DiamondSVG';
+import { cva, cx } from 'class-variance-authority';
 
 export interface NavLinkData {
 	label: string;
@@ -15,14 +14,14 @@ interface NavItemProps extends NavLinkData {
 
 const navItemVariants = cva(
 	[
-		'flex items-center gap-2 uppercase font-medium tracking-widest',
-		'transition-colors font-mono text-ink-lite',
+		'flex items-center gap-2 lowercase font-mono text-sm tracking-wider',
+		'transition-colors cursor-pointer',
 	],
 	{
 		variants: {
 			isActive: {
-				true: 'hover:text-ink-lite cursor-default',
-				false: 'hover:text-ink',
+				true: 'text-ink cursor-default',
+				false: 'text-text-meta hover:text-ink',
 			},
 		},
 	},
@@ -44,9 +43,9 @@ export default function NavItem({
 	return (
 		<button
 			onClick={handleClick}
-			className={navItemVariants({ isActive, className })}
+			className={cx(navItemVariants({ isActive }), className)}
 		>
-			{isActive && <DiamondSVG size="0.6em" className="shrink-0" />}
+			{isActive && <span className="text-text-meta">·</span>}
 			{label}
 		</button>
 	);

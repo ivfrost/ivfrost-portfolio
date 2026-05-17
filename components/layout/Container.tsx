@@ -4,7 +4,7 @@ interface ContainerProps {
 }
 
 export default function Container({ children, className }: ContainerProps) {
-	const baseStyles = `mx-auto max-w-7xl items-center px-8`;
+	const baseStyles = `mx-auto w-full max-w-5xl px-16`;
 
 	return <div className={`${baseStyles} ${className}`}>{children}</div>;
 }
