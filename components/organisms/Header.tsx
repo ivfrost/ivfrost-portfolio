@@ -19,7 +19,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 		<header
 			className={cx(
 				'sticky top-0 z-50 w-full h-16 flex items-center border-b border-border',
-				'bg-background/80 backdrop-blur-md transition-colors',
+				'bg-background',
 				className,
 			)}
 		>
@@ -48,7 +48,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 						rel="noopener noreferrer"
 						className="text-text-meta hover:text-ink transition-colors"
 					>
-						<TbBrandGithub strokeWidth={1.5} size={17} />
+						<TbBrandGithub strokeWidth={1.5} size={20} />
 					</a>
 					<a
 						href="https://www.linkedin.com/in/pablo-villena-ariza-88910b3a2/"
@@ -56,13 +56,13 @@ export default function Header({ items, logo, className }: HeaderProps) {
 						rel="noopener noreferrer"
 						className="text-text-meta hover:text-ink transition-colors"
 					>
-						<TbBrandLinkedin strokeWidth={1.5} size={17} />
+						<TbBrandLinkedin strokeWidth={1.5} size={20} />
 					</a>
 					<a
 						href="mailto:vlpablo@proton.me"
 						className="text-text-meta hover:text-ink transition-colors"
 					>
-						<Mail strokeWidth={1.5} size={17} />
+						<Mail strokeWidth={1.5} size={20} />
 					</a>
 				</div>
 			</Container>

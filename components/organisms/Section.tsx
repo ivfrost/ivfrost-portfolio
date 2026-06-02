@@ -5,22 +5,25 @@ import Container from '../layout/Container';
 interface SectionProps {
 	id?: string;
 	title: string;
-	variant?: 'default' | 'subtle';
+	variant?: 'default' | 'alt';
 	children: React.ReactNode;
 	className?: string;
 }
 
-const sectionVariants = cva([`py-10 bg-background border-b relative`], {
-	variants: {
-		variant: {
-			default: 'bg-background border-border',
-			subtle: 'bg-background border-border-subtle',
+const sectionVariants = cva(
+	[`py-10 bg-background relative border-b border-border`],
+	{
+		variants: {
+			variant: {
+				default: 'bg-background',
+				alt: 'bg-background-alt',
+			},
+		},
+		defaultVariants: {
+			variant: 'default',
 		},
 	},
-	defaultVariants: {
-		variant: 'default',
-	},
-});
+);
 
 export default function Section({
 	id,

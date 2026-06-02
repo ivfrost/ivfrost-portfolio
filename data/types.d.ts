@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 export interface Project {
 	number: string;
 	name: string;
@@ -7,3 +9,12 @@ export interface Project {
 	stack: string[];
 	href?: string;
 }
+
+export type Experience = {
+	title: string;
+	company: string;
+	location: string;
+	modality: string;
+	dateRange: string;
+	description: ReactNode;
+};

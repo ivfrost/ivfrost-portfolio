@@ -3,7 +3,6 @@ import Container from '../layout/Container';
 interface HeroProps {
 	name?: string;
 	role?: string;
-	status?: string;
 	stack?: string[];
 	openTo?: string;
 	location?: string;
@@ -15,12 +14,9 @@ interface HeroProps {
 export default function Hero({
 	name,
 	role,
-	status,
 	stack = [],
 	openTo,
 	location,
-	certCompanies = [],
-	certCount,
 	className,
 }: HeroProps) {
 	return (
@@ -30,19 +26,18 @@ export default function Hero({
 			<Container>
 				{/* Name + status */}
 				<div className="mb-8">
-					<h1 className="text-6xl font-normal tracking-tight text-ink leading-none mb-2">
+					<h1 className="text-4xl lg:text-6xl font-normal tracking-tight text-ink leading-none mb-2">
 						{name}
 					</h1>
 					<p className="font-mono text-sm text-text-meta tracking-wider">
 						{role}
-						{status ? ` · ${status}` : ''}
 					</p>
 				</div>
 
 				{/* Three column strip */}
-				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-3 border-t border-border py-8">
+				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 border-t border-border py-8">
 					<div>
-						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
+						<span className="font-mono text-sm text-text-meta tracking-wider uppercase block mb-2">
 							Stack
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed">
@@ -51,24 +46,13 @@ export default function Hero({
 					</div>
 
 					<div className="sm:justify-self-center">
-						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
+						<span className="font-mono text-sm text-text-meta tracking-wider uppercase block mb-2">
 							Actualmente
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed">
 							Abierto a {openTo || 'oportunidades'}
 							<br />
 							{location || 'Ubicación no especificada'}
-						</p>
-					</div>
-
-					<div className="sm:justify-self-end">
-						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
-							Certificaciones
-						</span>
-						<p className="text-sm text-text-muted leading-relaxed">
-							{certCompanies.length > 0 ? certCompanies.join(' · ') : '—'}
-							<br />
-							{certCount != null ? `${certCount} completadas` : ''}
 						</p>
 					</div>
 				</div>

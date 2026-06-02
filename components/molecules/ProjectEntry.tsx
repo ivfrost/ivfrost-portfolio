@@ -1,8 +1,6 @@
 'use client';
 import { Project } from '@/data/types';
-import Link from 'next/link';
 import { BsArrowUpRight, BsStar } from 'react-icons/bs';
-import { TbPhoto } from 'react-icons/tb';
 
 export default function ProjectEntry({
 	number,
@@ -22,8 +20,8 @@ export default function ProjectEntry({
 				{number}
 			</span>
 
-			{/* Name + description */}
-			<div className="flex flex-col gap-1 flex-1 min-w-0">
+			{/* Name + go to project + description */}
+			<div className="flex flex-col gap-2 flex-1 min-w-0">
 				<div className="flex items-baseline gap-3 min-w-0">
 					<h3 className="text-base lg:text-md font-base text-text-muted flex items-center shrink-0">
 						<span className="group-hover:underline group-hover:decoration-text-muted underline-offset-4">
@@ -31,38 +29,33 @@ export default function ProjectEntry({
 						</span>
 						{stars > 0 && (
 							<span className="text-xs inline-flex items-center gap-1 text-text-meta ml-1.5">
-								<BsStar size={11} /> {stars}
+								<BsStar size={12} /> {stars}
 							</span>
 						)}
+						{href && (
+							<BsArrowUpRight
+								size={12}
+								className="text-text-meta mt-0.5 ml-1.5"
+							/>
+						)}
 					</h3>
-					<p className="hidden md:block text-sm text-text-meta min-w-0 flex-1">
-						{description}
-					</p>
 				</div>
-				<p className="block md:hidden text-sm text-text-meta">{description}</p>
-				<span className="block md:hidden text-xs text-text-meta">
-					{stack.join(' · ')}
-				</span>
+				<p className="text-sm text-text-meta">{description}</p>
+				{
+					/* Stack mobile */
+					<span className="block md:hidden text-xs text-text-meta text-start">
+						{stack.join(' · ')}
+					</span>
+				}
 			</div>
 
-			{/* Stack + arrow */}
+			{/* Stack desktop */}
 			<div className="flex items-start gap-4 shrink-0">
-				<span className="hidden md:block text-xs text-text-meta max-w-36 text-right">
-					{stack.join(' · ')}
-				</span>
-				{href && (
-					<>
-						<BsArrowUpRight className="hidden md:block text-text-meta size-3 mt-0.5" />
-						<Link
-							href={href}
-							target="_blank"
-							className="md:hidden"
-							onClick={(e) => e.stopPropagation()}
-						>
-							<BsArrowUpRight className="text-text-meta size-4" />
-						</Link>
-					</>
-				)}
+				<div className="flex gap-2 flex-wrap">
+					<span className="hidden md:block text-xs text-text-meta max-w-72 text-right">
+						{stack.join(' · ')}
+					</span>
+				</div>
 			</div>
 		</div>
 	);

@@ -1,26 +1,22 @@
 import ExperienceEntry from '../molecules/ExperienceEntry';
+import type { Experience } from '@/data/types';
 
 interface ExperienceTimelineProps {
-	entries: {
-		title: string;
-		company: string;
-		location: string;
-		dateRange: string;
-		description: string;
-	}[];
+	entries: Experience[];
 }
 
 export default function ExperienceTimeline({
 	entries,
 }: ExperienceTimelineProps) {
 	return (
-		<div className="relative space-y-3">
-			{entries.map((entry, index) => (
+		<div className="relative space-y-6 divide-y divide-border divide-dotted ">
+			{entries.map((entry, idx) => (
 				<ExperienceEntry
-					key={index}
+					key={idx}
 					title={entry.title}
 					company={entry.company}
 					location={entry.location}
+					modality={entry.modality}
 					dateRange={entry.dateRange}
 					description={entry.description}
 				/>

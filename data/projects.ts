@@ -24,13 +24,6 @@ export const projects: Project[] = [
 	},
 	{
 		number: '04',
-		name: 'personal-portfolio',
-		description: 'Mi portfolio personal construido con Next.js',
-		stack: ['Next.js', 'TypeScript'],
-		href: 'https://github.com/ivfrost/personal-portfolio',
-	},
-	{
-		number: '05',
 		name: 'joplin-adwaita-theme',
 		description: 'Tema Adwaita para el editor de notas Joplin',
 		stars: 26,

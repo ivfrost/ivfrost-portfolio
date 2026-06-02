@@ -1,8 +1,10 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Background */
+	/* Background and surfaces */
 	--color-background: #eaede4;
+	--color-background-alt: #e8ebe1;
+	--color-badge: #dfe3d8;
 
 	/* Ink — text */
 	--color-ink: #181c1a;
@@ -19,15 +21,16 @@
 	--color-border-subtle: #e2e5dc;
 
 	/* Text roles */
-	--color-text-meta: #a0a898;
-	--color-text-muted: #606859;
+	--color-text-meta: #6e7a6e;
+	--color-text-muted: #3d4a3f;
+	--color-text-muted-lite: #5a6457;
 
 	/* Fonts */
 	--font-sans: var(--font-inter);
 	--font-mono: var(--font-ibm-plex-mono);
 
 	/* Type scale */
-	--text-xs: 0.75rem;
+	--text-xs: 0.85rem;
 	--text-sm: 0.875rem;
 	--text-base: 1rem;
 	--text-md: 1.0625rem;
@@ -52,7 +55,7 @@
 		@apply text-xl text-ink;
 	}
 	p {
-		@apply text-md text-ink-lite;
+		@apply text-md text-text-muted text-base leading-relaxed;
 	}
 }
 
