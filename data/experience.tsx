@@ -10,7 +10,7 @@ const experience: Experience[] = [
 		modality: 'Prácticas',
 		dateRange: 'Mar 2026 - Jun 2026',
 		summary:
-			'Trabajé en dos proyectos en equipo con roles distintos: backend y DevOps en el primero, lenguaje de diseño y arquitectura de componentes en el segundo. En ambos ejercí de integrador de ramas del equipo.',
+			'Durante mis prácticas en Zaitec participé en dos proyectos: en uno me encargué del desarrollo completo del backend, en el otro del lenguaje de diseño y arquitectura de componentes. Ejercí de integrador de ramas del equipo en ambos.',
 		description: (
 			<div className="flex flex-col gap-8">
 				<section className="flex flex-col gap-2">
@@ -24,17 +24,15 @@ const experience: Experience[] = [
 						</h4>
 					</Link>
 					<p>
-						Plataforma de visitas educativas en 360 grados con panel de
-						administración. Asumí prácticamente toda la capa de servidor — una
-						API REST con Express.js, autenticación JWT con rotación de tokens,
-						CRUD de puntos de interés con control de acceso por roles,
-						trazabilidad de cambios y paginación por cursor — además del
-						pipeline de despliegue completo en tres entornos con Docker, Coolify
-						y GitHub Actions. Migré el backend íntegramente a TypeScript y
-						apliqué hardening con Helmet, Zod y rate limiting diferenciado. En
-						frontend extraje la gestión de centro a su propio contexto,
-						implementé el refresco automático de tokens y unifiqué el lenguaje
-						visual.
+						Plataforma educativa con recorridos en 360° y panel de
+						administración multi-rol. Asumí prácticamente toda la capa de
+						servidor — API REST con Express.js, autenticación JWT con rotación
+						de tokens, RBAC, trazabilidad de cambios y paginación por cursor —
+						además del pipeline de despliegue en tres entornos con Docker,
+						Coolify y GitHub Actions. Migré el backend a TypeScript e implementé
+						hardening con Helmet, Zod y rate limiting. En frontend, extraje la
+						gestión de centros a su propio contexto, implementé el refresco
+						automático de tokens y unifiqué el lenguaje visual.
 					</p>
 					<p className="text-xs ml-auto text-text-meta mt-1">
 						Express.js · TypeScript · Docker · JWT · Drizzle ORM · MinIO · Zod ·
@@ -48,17 +46,17 @@ const experience: Experience[] = [
 							Web 100 Caños
 							<BsArrowUpRight
 								size={12}
-								className="inline-block ml-1.5 text-muted-meta"
+								className="inline-block ml-1.5 text-text-meta"
 							/>
 						</h4>
 					</Link>
 					<p>
 						SPA de oleoturismo para una finca en Málaga. Me encargué del
 						lenguaje de diseño completo — tema Tailwind de marca, tipografía,
-						componentes base reutilizables — y de que el resultado final se
-						ajustara al mockup en cualquier dispositivo. También mejoré la
-						seguridad de un servidor de email creado por un compañero añadiendo
-						protección XSS, rate limiting y envío de confirmación al cliente.
+						componentes base reutilizables — y garanticé la fidelidad al mockup
+						en todos los dispositivos. También mejoré la seguridad de un
+						servidor de email creado por un compañero añadiendo protección XSS,
+						rate limiting y envío de confirmación al cliente.
 					</p>
 					<p className="text-xs ml-auto text-text-meta mt-1">
 						React · Tailwind CSS · Vite · Node.js · Nodemailer · i18n

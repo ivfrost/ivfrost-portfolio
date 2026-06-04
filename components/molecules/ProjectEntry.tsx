@@ -52,7 +52,7 @@ export default function ProjectEntry({
 			{/* Stack desktop */}
 			<div className="flex items-start gap-4 shrink-0">
 				<div className="flex gap-2 flex-wrap">
-					<span className="hidden md:block text-xs text-text-meta max-w-72 text-right">
+					<span className="hidden md:block text-xs text-text-meta max-w-82 text-right">
 						{stack.join(' · ')}
 					</span>
 				</div>

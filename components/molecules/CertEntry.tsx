@@ -5,8 +5,8 @@ import { GoPin } from 'react-icons/go';
 interface CertEntryProps {
 	title: string;
 	date: string;
-	issuer: string;
-	pinned: boolean;
+	issuer?: string;
+	pinned?: boolean;
 	credentialUrl?: string;
 }
 

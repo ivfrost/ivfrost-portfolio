@@ -6,7 +6,7 @@ export interface CertListProps {
 		issuer: string;
 		date: string;
 		href?: string;
-		pinned: boolean;
+		pinned?: boolean;
 	}[];
 }
 

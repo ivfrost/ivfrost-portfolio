@@ -24,5 +24,6 @@ export type Cert = {
 	title: string;
 	issuer: string;
 	date: string;
+	pinned?: boolean;
 	href?: string;
 };

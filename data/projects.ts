@@ -30,4 +30,18 @@ export const projects: Project[] = [
 		stack: ['SCSS'],
 		href: 'https://github.com/ivfrost/joplin-adwaita-theme',
 	},
+	{
+		number: '05',
+		name: 'visitas-virtuales-zaitec',
+		description: 'Plataforma 360° para visitas a centros educativos',
+		stack: ['React', 'TypeScript', 'Express', 'PostgreSQL', 'MinIO'],
+		href: 'https://github.com/jaimemoya-bit/VisitasVirtualesZaitec',
+	},
+	{
+		number: '06',
+		name: 'web-100-canos',
+		description: 'SPA de oleoturismo para la finca 100 Caños',
+		stack: ['React', 'TypeScript'],
+		href: 'https://100canos.com',
+	},
 ];
