@@ -9,16 +9,14 @@ export default function ExperienceEntry({
 	location,
 	modality,
 	dateRange,
+	summary,
 	description,
 }: Experience) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className="relative">
-			<div
-				className="cursor-pointer space-y-1 border-text-meta pb-6"
-				onClick={() => setIsOpen(!isOpen)}
-			>
+		<div className="relative space-y-6 pb-8">
+			<div className="relative space-y-2">
 				<div className="flex justify-between">
 					<h3 className="text-base text-text-muted font-sans font-medium">
 						{title}
@@ -38,20 +36,24 @@ export default function ExperienceEntry({
 						<span>·</span>
 						<span>{modality}</span>
 					</div>
+				</div>
+			</div>
+
+			<p>{summary}</p>
+			{isOpen ? <>{description}</> : null}
+			{summary && description && (
+				<button
+					className="absolute right-0 bottom-0 cursor-pointer flex items-center gap-1 text-text-meta text-sm"
+					onClick={() => setIsOpen(!isOpen)}
+				>
+					<span>{isOpen ? 'Ver menos' : 'Ver más'}</span>
 					<ChevronDown
 						size={16}
 						strokeWidth={1.75}
 						className={`text-text-meta cursor-pointer transition-transform duration-200 transform-rotate-0 ${isOpen ? 'rotate-180' : ''}`}
 					/>
-				</div>
-			</div>
-			<div className={`${isOpen ? 'border-t border-border pt-12' : ''} `}>
-				<div
-					className={`${isOpen ? 'block' : 'hidden'} mx-auto max-w-prose-sm lg:max-w-prose-lg rounded relative *:text-base *:text-text-muted *:leading-relaxed`}
-				>
-					{description}
-				</div>
-			</div>
+				</button>
+			)}
 		</div>
 	);
 }

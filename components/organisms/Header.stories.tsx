@@ -17,7 +17,6 @@ export const Default: Story = {
 			{ label: 'Skills', href: '/skills' },
 			{ label: 'Contact', href: '/contact' },
 		],
-		currentPath: '/work',
 		logo: <div className="w-12 h-12 bg-sage-1 rounded-full" />,
 	},
 };

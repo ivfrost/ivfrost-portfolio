@@ -9,20 +9,10 @@ export const experience: Experience[] = [
 		location: 'Remoto',
 		modality: 'Prácticas',
 		dateRange: 'Mar 2026 - Jun 2026',
+		summary:
+			'Trabajé en dos proyectos en equipo con roles distintos: backend y DevOps en el primero, lenguaje de diseño y arquitectura de componentes en el segundo. En ambos ejercí de integrador de ramas del equipo.',
 		description: (
 			<div className="flex flex-col gap-8">
-				<section className="flex flex-col gap-2">
-					<h4 className="font-mono text-xs uppercase tracking-wider text-text-meta">
-						Rol principal
-					</h4>
-					<p className="text-sm text-text-muted leading-relaxed">
-						Durante mis prácticas en Zaitec trabajé en dos proyectos en equipo
-						con roles distintos: backend y DevOps en el primero, lenguaje de
-						diseño y arquitectura de componentes en el segundo. En ambos ejercí
-						de integrador de ramas del equipo.
-					</p>
-				</section>
-
 				<section className="flex flex-col gap-2">
 					<Link href="https://visitasvirtuales.dedyn.io/" target="_blank">
 						<h4 className="font-mono text-xs hover:underline hover:underline-offset-4 uppercase tracking-wider text-text-meta flex items-center">
@@ -33,7 +23,7 @@ export const experience: Experience[] = [
 							/>
 						</h4>
 					</Link>
-					<p className="text-sm text-text-muted leading-relaxed">
+					<p>
 						Plataforma de visitas educativas en 360 grados con panel de
 						administración. Asumí prácticamente toda la capa de servidor — una
 						API REST con Express.js, autenticación JWT con rotación de tokens,
@@ -46,7 +36,7 @@ export const experience: Experience[] = [
 						implementé el refresco automático de tokens y unifiqué el lenguaje
 						visual.
 					</p>
-					<p className="text-xs ml-auto text-text-meta mt-1">
+					<p>
 						Express.js · TypeScript · Docker · JWT · Drizzle ORM · MinIO · Zod ·
 						React
 					</p>
@@ -62,7 +52,7 @@ export const experience: Experience[] = [
 							/>
 						</h4>
 					</Link>
-					<p className="text-sm text-text-muted leading-relaxed">
+					<p>
 						SPA de oleoturismo para una finca en Málaga. Me encargué del
 						lenguaje de diseño completo — tema Tailwind de marca, tipografía,
 						componentes base reutilizables — y de que el resultado final se

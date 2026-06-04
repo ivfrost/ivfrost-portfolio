@@ -45,7 +45,6 @@ export default function NavItem({
 			onClick={handleClick}
 			className={cx(navItemVariants({ isActive }), className)}
 		>
-			{isActive && <span className="text-text-meta">·</span>}
 			{label}
 		</button>
 	);

@@ -16,5 +16,6 @@ export type Experience = {
 	location: string;
 	modality: string;
 	dateRange: string;
-	description: ReactNode;
+	summary?: string;
+	description?: ReactNode;
 };

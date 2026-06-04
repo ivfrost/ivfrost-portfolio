@@ -17,6 +17,5 @@ export const Default: Story = {
 			{ label: 'Skills', href: '/skills' },
 			{ label: 'Contact', href: '/contact' },
 		],
-		currentPath: '/work',
 	},
 };

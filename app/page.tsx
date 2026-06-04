@@ -5,7 +5,6 @@ import Section from '@/components/organisms/Section';
 import ProjectList from '@/components/organisms/ProjectList';
 import { projects } from '@/data/projects';
 import { experience } from '@/data/experience';
-import CertCard from '@/components/molecules/CertCard';
 import CertList from '@/components/organisms/CertList';
 
 export default function Home() {
@@ -13,9 +12,9 @@ export default function Home() {
 		<>
 			<Header
 				items={[
-					{ label: 'work', href: '#work' },
-					{ label: 'about', href: '#about' },
-					{ label: 'contact', href: '#contact' },
+					{ label: 'work', href: '#selected-work' },
+					{ label: 'experience', href: '#experience' },
+					{ label: 'certs', href: '#certifications' },
 				]}
 			/>
 			<main>
@@ -32,8 +31,6 @@ export default function Home() {
 						'Spring',
 					]}
 					location="Remoto o Málaga"
-					certCompanies={['Frontend Masters', 'Udemy']}
-					certCount={17}
 				/>
 
 				<Section id="selected-work" title="Proyectos destacados" variant="alt">

@@ -6,8 +6,6 @@ interface HeroProps {
 	stack?: string[];
 	openTo?: string;
 	location?: string;
-	certCompanies?: string[];
-	certCount?: number;
 	className?: string;
 }
 
