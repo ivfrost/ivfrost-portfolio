@@ -4,7 +4,8 @@ import Hero from '@/components/organisms/Hero';
 import Section from '@/components/organisms/Section';
 import ProjectList from '@/components/organisms/ProjectList';
 import { projects } from '@/data/projects';
-import { experience } from '@/data/experience';
+import experience from '@/data/experience';
+import certs from '@/data/certs';
 import CertList from '@/components/organisms/CertList';
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
 					{ label: 'work', href: '#selected-work' },
 					{ label: 'experience', href: '#experience' },
 					{ label: 'certs', href: '#certifications' },
+					{ label: 'contact', href: '#contact' },
 				]}
 			/>
 			<main>
@@ -41,23 +43,7 @@ export default function Home() {
 					<ExperienceTimeline entries={experience} />
 				</Section>
 				<Section id="certifications" title="Certificaciones" variant="alt">
-					<CertList
-						items={[
-							{
-								title: 'Complete Intro to React, v7',
-								issuer: 'Frontend Masters',
-								date: 'Mar, 2024',
-								href: 'https://www.frontendmasters.com/certificates/...',
-							},
-							{
-								title:
-									'React - The Complete Guide (incl Hooks, React Router, Redux)',
-								issuer: 'Udemy',
-								date: 'Feb, 2024',
-								href: 'https://www.udemy.com/certificate/...',
-							},
-						]}
-					/>
+					<CertList items={certs} />
 				</Section>
 			</main>
 		</>

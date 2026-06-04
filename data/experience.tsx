@@ -2,7 +2,7 @@ import Link from 'next/link';
 import type { Experience } from './types';
 import { BsArrowUpRight } from 'react-icons/bs';
 
-export const experience: Experience[] = [
+const experience: Experience[] = [
 	{
 		title: 'Desarrollador Full Stack',
 		company: 'Zaitec',
@@ -68,3 +68,5 @@ export const experience: Experience[] = [
 		),
 	},
 ];
+
+export default experience;

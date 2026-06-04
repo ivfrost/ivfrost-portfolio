@@ -19,3 +19,10 @@ export type Experience = {
 	summary?: string;
 	description?: ReactNode;
 };
+
+export type Cert = {
+	title: string;
+	issuer: string;
+	date: string;
+	href?: string;
+};
