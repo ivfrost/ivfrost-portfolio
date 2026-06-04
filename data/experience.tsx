@@ -36,7 +36,7 @@ const experience: Experience[] = [
 						implementé el refresco automático de tokens y unifiqué el lenguaje
 						visual.
 					</p>
-					<p>
+					<p className="text-xs ml-auto text-text-meta mt-1">
 						Express.js · TypeScript · Docker · JWT · Drizzle ORM · MinIO · Zod ·
 						React
 					</p>
