@@ -22,7 +22,10 @@ export default function Navbar({ items }: NavbarProps) {
 				([entry]) => {
 					if (entry.isIntersecting) setActiveHref(href);
 				},
-				{ threshold: 0.3 },
+				{
+					rootMargin: '-30% 0px -70% 0px',
+					threshold: 0,
+				},
 			);
 
 			observer.observe(el);
