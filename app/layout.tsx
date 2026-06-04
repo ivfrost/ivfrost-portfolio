@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Inter } from 'next/font/google';
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 
 const ibmPlexMono = IBM_Plex_Mono({
 	variable: '--font-ibm-plex-mono',
@@ -31,7 +32,10 @@ export default function RootLayout({
 			className={`${inter.variable} ${ibmPlexMono.variable} h-full antialiased`}
 			style={{ scrollBehavior: 'smooth' }}
 		>
-			<body className="flex min-h-full flex-col bg-pattern">{children}</body>
+			<body className="flex min-h-full flex-col bg-pattern">
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	);
 }
