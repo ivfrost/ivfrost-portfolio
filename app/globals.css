@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
-	/* Background and surfaces */
+	/* Background */
 	--color-background: #eaede4;
 	--color-background-alt: #e8ebe1;
 	--color-badge: #dfe3d8;
