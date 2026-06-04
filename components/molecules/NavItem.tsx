@@ -35,8 +35,22 @@ export default function NavItem({
 }: NavItemProps) {
 	const handleClick = (e: React.MouseEvent) => {
 		e.preventDefault();
+
 		const target = document.querySelector(href);
-		target?.scrollIntoView({ behavior: 'smooth' });
+		if (!target) return;
+
+		// Detect your sticky header height (h-16 = 64px)
+		const header = document.querySelector('header');
+		const headerOffset = header?.clientHeight ?? 64;
+
+		const elementPosition = target.getBoundingClientRect().top;
+		const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+		window.scrollTo({
+			top: offsetPosition,
+			behavior: 'smooth',
+		});
+
 		window.history.pushState(null, '', href);
 	};
 
