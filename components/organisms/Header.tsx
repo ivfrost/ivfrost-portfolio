@@ -19,7 +19,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 		<header
 			className={cx(
 				'sticky top-0 z-50 w-full h-16 flex items-center border-b border-border',
-				'bg-background',
+				'bg-background text-text-meta',
 				className,
 			)}
 		>
@@ -30,7 +30,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 					) : (
 						<Link href="/">
 							<span
-								className="font-mono text-sm text-text-meta tracking-wider
+								className="font-mono text-sm tracking-wider
 						 lowercase"
 							>
 								pablo villena
@@ -41,12 +41,12 @@ export default function Header({ items, logo, className }: HeaderProps) {
 
 				<Navbar items={items} />
 
-				<div className="flex gap-5 items-center">
+				<div className="hidden sm:flex gap-5 items-center">
 					<a
 						href="https://github.com/ivfrost"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-text-meta hover:text-ink transition-colors"
+						className="hover:text-ink transition-colors"
 					>
 						<TbBrandGithub strokeWidth={1.5} size={20} />
 					</a>
@@ -54,13 +54,13 @@ export default function Header({ items, logo, className }: HeaderProps) {
 						href="https://www.linkedin.com/in/pablo-villena-ariza-88910b3a2/"
 						target="_blank"
 						rel="noopener noreferrer"
-						className="text-text-meta hover:text-ink transition-colors"
+						className="hover:text-ink transition-colors"
 					>
 						<TbBrandLinkedin strokeWidth={1.5} size={20} />
 					</a>
 					<a
 						href="mailto:vlpablo@proton.me"
-						className="text-text-meta hover:text-ink transition-colors"
+						className="hover:text-ink transition-colors"
 					>
 						<Mail strokeWidth={1.5} size={20} />
 					</a>

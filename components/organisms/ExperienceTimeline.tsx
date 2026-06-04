@@ -9,7 +9,7 @@ export default function ExperienceTimeline({
 	entries,
 }: ExperienceTimelineProps) {
 	return (
-		<>
+		<div className="divide-y space-y-4 divide-border-subtle">
 			{entries.map((entry, idx) => (
 				<ExperienceEntry
 					key={idx}
@@ -22,6 +22,6 @@ export default function ExperienceTimeline({
 					description={entry.description}
 				/>
 			))}
-		</>
+		</div>
 	);
 }
