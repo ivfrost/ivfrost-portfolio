@@ -54,9 +54,9 @@ const experience: Experience[] = [
 						SPA de oleoturismo para una finca en Málaga. Me encargué del
 						lenguaje de diseño completo — tema Tailwind de marca, tipografía,
 						componentes base reutilizables — y garanticé la fidelidad al mockup
-						en todos los dispositivos. También mejoré la seguridad de un
-						servidor de email creado por un compañero añadiendo protección XSS,
-						rate limiting y envío de confirmación al cliente.
+						en todos los dispositivos. También reforcé el módulo de envío de
+						emails de un compañero, integrado en Express con Nodemailer,
+						añadiendo protección XSS, rate limiting y confirmación al cliente.
 					</p>
 					<p className="text-xs ml-auto text-text-meta mt-1">
 						React · Tailwind CSS · Vite · Node.js · Nodemailer · i18n

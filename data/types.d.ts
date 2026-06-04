@@ -5,7 +5,6 @@ export interface Project {
 	name: string;
 	description: string;
 	stars?: number;
-	images?: string[];
 	stack: string[];
 	href?: string;
 }
@@ -26,4 +25,12 @@ export type Cert = {
 	date: string;
 	pinned?: boolean;
 	href?: string;
+};
+
+export type Education = {
+	title: string;
+	institution: string;
+	location: string;
+	dateRange: string;
+	summary?: ReactNode;
 };

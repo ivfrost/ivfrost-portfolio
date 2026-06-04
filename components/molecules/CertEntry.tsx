@@ -1,10 +1,13 @@
-import Link from 'next/link';
+'use client';
 import { BsArrowUpRight } from 'react-icons/bs';
 import { GoPin } from 'react-icons/go';
+import Entry from './Entry';
 
 interface CertEntryProps {
 	title: string;
-	date: string;
+	titleMeta?: string;
+	date?: string;
+	dateMeta?: boolean;
 	issuer?: string;
 	pinned?: boolean;
 	credentialUrl?: string;
@@ -12,44 +15,39 @@ interface CertEntryProps {
 
 export default function CertEntry({
 	title,
+	titleMeta,
 	date,
+	dateMeta,
 	issuer,
 	pinned,
 	credentialUrl,
 }: CertEntryProps) {
-	const content = (
-		<div className="relative flex flex-col gap-3 pr-24">
-			<h4
-				className={`text-base lg:text-md font-base text-text-muted flex items-center gap-2 ${credentialUrl ? 'group-hover:underline' : null} group-hover:decoration-text-muted underline-offset-4`}
-			>
-				<span>{title}</span>
-				{pinned && <GoPin size={12} className="text-text-meta" />}
-				{credentialUrl && (
-					<BsArrowUpRight size={12} className="text-text-meta ml-1.5" />
-				)}
-			</h4>
+	const issuerNoBrackets = issuer
+		? issuer.replace(/\(.*?\)/g, '').trim()
+		: null;
 
-			<span className="absolute flex items-center gap-x-2 right-0 top-0 text-xs text-text-meta">
-				{pinned ? <p className="text-text-meta">{issuer} ·</p> : null}
-				{date}
-			</span>
-		</div>
-	);
+	const computedMeta =
+		[titleMeta ?? issuerNoBrackets, dateMeta && date ? date : null]
+			.filter(Boolean)
+			.join(' · ') || undefined;
 
 	return (
-		<div className="group">
-			{credentialUrl ? (
-				<Link
-					href={credentialUrl}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="block"
-				>
-					{content}
-				</Link>
-			) : (
-				content
-			)}
-		</div>
+		<Entry
+			title={title}
+			titleIcons={
+				pinned || credentialUrl ? (
+					<>
+						{pinned && <GoPin size={12} className="text-text-meta" />}
+						{credentialUrl && (
+							<BsArrowUpRight size={12} className="text-text-meta" />
+						)}
+					</>
+				) : undefined
+			}
+			titleMeta={computedMeta}
+			onClick={() => credentialUrl && window.open(credentialUrl, '_blank')}
+		>
+			{!dateMeta && date && <p className="text-xs">{date}</p>}
+		</Entry>
 	);
 }

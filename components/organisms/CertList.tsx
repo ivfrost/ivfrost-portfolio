@@ -1,4 +1,6 @@
+'use client';
 import CertEntry from '../molecules/CertEntry';
+import { useState } from 'react';
 
 export interface CertListProps {
 	items: {
@@ -19,43 +21,54 @@ export default function CertList({ items }: CertListProps) {
 			if (!groups[item.issuer]) {
 				groups[item.issuer] = [];
 			}
-
 			groups[item.issuer].push(item);
 			return groups;
 		}, {});
 
 	return (
 		<>
-			<div className="space-y-6 border-b border-border pb-8">
-				<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta">
-					PINNED
-				</h3>
-				{pinnedItems.map((item, idx) => (
-					<CertEntry
-						key={item.title + idx}
-						title={item.title}
-						date={item.date}
-						issuer={item.issuer}
-						credentialUrl={item.href}
-						pinned
-					/>
-				))}
+			<div className="pb-8">
+				<section>
+					<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
+						CERTIFICACIONES
+					</h3>
+					<h4 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
+						DESTACADOS
+					</h4>
+					<div className="divide-y divide-border space-y-6">
+						{pinnedItems.map((item, idx) => {
+							const issuerNoBrackets = item.issuer
+								.replace(/\(.*?\)/g, '')
+								.trim();
+							return (
+								<CertEntry
+									key={item.title + idx}
+									title={item.title}
+									titleMeta={
+										item.date
+											? issuerNoBrackets + ` · ${item.date}`
+											: issuerNoBrackets
+									}
+									credentialUrl={item.href}
+									pinned={item.pinned}
+								/>
+							);
+						})}
+					</div>
+				</section>
 			</div>
-			<div className="space-y-6 pt-8">
+			<div className="pt-8">
 				{Object.entries(groupedItems).map(([issuer, issuerItems]) => (
-					<section
-						className="pb-6 space-y-6"
-						key={issuer + issuerItems[0].title}
-					>
-						<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta">
+					<section className="pb-6" key={issuer + issuerItems[0].title}>
+						<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
 							{issuer}
 						</h3>
-						<div className="space-y-6">
+						<div className="divide-y divide-border space-y-6">
 							{issuerItems.map((item) => (
 								<CertEntry
 									key={item.title}
 									title={item.title}
-									date={item.date}
+									titleMeta={item.date}
 									credentialUrl={item.href}
 								/>
 							))}

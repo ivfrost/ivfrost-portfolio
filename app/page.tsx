@@ -7,16 +7,18 @@ import { projects } from '@/data/projects';
 import experience from '@/data/experience';
 import certs from '@/data/certs';
 import CertList from '@/components/organisms/CertList';
+import EducationTimeline from '@/components/organisms/EducationTimeline';
+import education from '@/data/education';
 
 export default function Home() {
 	return (
 		<>
 			<Header
 				items={[
-					{ label: 'work', href: '#selected-work' },
-					{ label: 'experience', href: '#experience' },
-					{ label: 'certs', href: '#certifications' },
-					{ label: 'contact', href: '#contact' },
+					{ label: 'proyectos', href: '#selected-work' },
+					{ label: 'experiencia', href: '#experience' },
+					{ label: 'formación', href: '#learning' },
+					{ label: 'contacto', href: '#contact' },
 				]}
 			/>
 			<main>
@@ -42,7 +44,9 @@ export default function Home() {
 				<Section id="experience" title="Experiencia profesional">
 					<ExperienceTimeline entries={experience} />
 				</Section>
-				<Section id="certifications" title="Certificaciones" variant="alt">
+				<Section id="learning" title="Formación" variant="alt">
+					<EducationTimeline entries={education} />
+					<hr className="h-px mb-8 border-border" />
 					<CertList items={certs} />
 				</Section>
 			</main>

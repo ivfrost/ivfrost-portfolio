@@ -36,7 +36,7 @@ export default function Navbar({ items }: NavbarProps) {
 	}, [items]);
 
 	return (
-		<nav className="flex gap-8 py-4 justify-between sm:justify-center font-mono bg-transparent w-full sm:w-auto">
+		<nav className="flex gap-4 sm:gap-8 py-4 justify-between sm:justify-center font-mono bg-transparent w-full sm:w-auto">
 			{items.map((item) => (
 				<NavItem
 					key={item.href}

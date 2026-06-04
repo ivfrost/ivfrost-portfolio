@@ -1,12 +1,14 @@
 import { cva } from 'class-variance-authority';
+import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps {
 	type: 'button' | 'submit' | 'reset';
 	variant?: 'primary' | 'outline' | 'ghost';
-	modifier?: 'full-width';
+	modifier?: 'full-width' | 'icon-only';
 	size?: 'small' | 'medium' | 'large';
 	tone?: 'light' | 'dark';
 	children: React.ReactNode;
+	className?: string;
 	onClick?: () => void;
 }
 
@@ -31,6 +33,7 @@ const buttonVariants = cva(
 			},
 			modifier: {
 				'full-width': 'w-full',
+				'icon-only': 'p-2',
 			},
 			size: {
 				small: 'px-4 pt-2.25 pb-3.75 text-sm',
@@ -38,6 +41,23 @@ const buttonVariants = cva(
 				large: 'px-10 pt-4.25 pb-5.75 text-lg',
 			},
 		},
+		compoundVariants: [
+			{
+				modifier: 'icon-only',
+				size: 'small',
+				className: 'p-2 px-2 pt-2 pb-2',
+			},
+			{
+				modifier: 'icon-only',
+				size: 'medium',
+				className: 'p-2 px-2 pt-2 pb-2',
+			},
+			{
+				modifier: 'icon-only',
+				size: 'large',
+				className: 'p-2 px-2 pt-2 pb-2',
+			},
+		],
 		defaultVariants: {
 			variant: 'primary',
 			tone: 'light',
@@ -53,12 +73,21 @@ export default function Button({
 	tone,
 	size,
 	children,
+	className,
 	onClick,
 }: ButtonProps) {
 	return (
 		<button
 			type={type}
-			className={buttonVariants({ variant, modifier, size, tone })}
+			className={twMerge(
+				buttonVariants({
+					variant,
+					modifier,
+					size: modifier === 'icon-only' ? undefined : size,
+					tone,
+				}),
+				className,
+			)}
 			onClick={onClick}
 		>
 			{children}

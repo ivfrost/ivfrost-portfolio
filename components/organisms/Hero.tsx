@@ -35,16 +35,16 @@ export default function Hero({
 				{/* Three column strip */}
 				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 border-t border-border py-8">
 					<div>
-						<span className="font-mono text-sm text-text-meta tracking-wider uppercase block mb-2">
+						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
 							Stack
 						</span>
-						<p className="text-sm text-text-muted leading-relaxed">
+						<p className="text-sm text-text-muted leading-relaxed space-x-2">
 							{stack.length > 0 ? stack.join(' · ') : 'No stack information'}
 						</p>
 					</div>
 
-					<div className="sm:justify-self-center">
-						<span className="font-mono text-sm text-text-meta tracking-wider uppercase block mb-2">
+					<div className="sm:justify-self-start">
+						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
 							Actualmente
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed">

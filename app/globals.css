@@ -4,7 +4,7 @@
 	/* Background */
 	--color-background: #eaede4;
 	--color-background-alt: #e8ebe1;
-	--color-badge: #dfe3d8;
+	--color-button: #dfe3d8;
 
 	/* Ink — text */
 	--color-ink: #181c1a;
@@ -30,8 +30,8 @@
 	--font-mono: var(--font-ibm-plex-mono);
 
 	/* Type scale */
-	--text-xs: 0.85rem;
-	--text-sm: 0.875rem;
+	--text-xs: 0.825rem;
+	--text-sm: 0.9rem;
 	--text-base: 1rem;
 	--text-md: 1.0625rem;
 	--text-lg: 1.125rem;
