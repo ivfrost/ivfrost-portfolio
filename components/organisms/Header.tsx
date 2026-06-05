@@ -60,7 +60,8 @@ export default function Header({ items, logo, className }: HeaderProps) {
 			<header
 				className={cx(
 					'sticky top-0 left-0 z-50 flex items-center',
-					'text-text-meta sm:hidden',
+					'text-text-meta sm:hidden bg-background',
+					isOpen ? 'bg-background-nav-open' : 'bg-background',
 					className,
 				)}
 			>

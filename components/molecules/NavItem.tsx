@@ -58,7 +58,6 @@ export default function NavItem({
 		const target = document.querySelector(href);
 		if (!target) return;
 
-		// Detect your sticky header height (h-16 = 64px)
 		const header = document.querySelector('header');
 		const headerOffset = header?.clientHeight ?? 64;
 
@@ -72,7 +71,7 @@ export default function NavItem({
 		});
 
 		window.history.pushState(null, '', href);
-		setTimeout(() => onNavigate?.(), 425);
+		setTimeout(() => onNavigate?.(), 500);
 	};
 
 	return (
