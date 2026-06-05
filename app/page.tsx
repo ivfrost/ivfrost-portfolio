@@ -18,7 +18,7 @@ export default function Home() {
 					{ label: 'proyectos', href: '#selected-work' },
 					{ label: 'experiencia', href: '#experience' },
 					{ label: 'formación', href: '#learning' },
-					{ label: 'contacto', href: '#contact' },
+					// { label: 'contacto', href: '#contact' },
 				]}
 			/>
 			<main>

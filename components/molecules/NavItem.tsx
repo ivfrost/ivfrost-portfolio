@@ -73,7 +73,7 @@ export default function NavItem({
 			scrollTimeout = window.setTimeout(() => {
 				window.removeEventListener('scroll', handleScrollEnd);
 				onNavigate?.();
-			}, 120); // fires when scrolling *stops*
+			}, 120);
 		};
 
 		window.addEventListener('scroll', handleScrollEnd);
