@@ -65,13 +65,25 @@ export default function NavItem({
 		const offsetPosition =
 			elementPosition + window.scrollY - headerOffset + (isMobile ? -60 : 0);
 
+		let scrollTimeout: number | null = null;
+
+		const handleScrollEnd = () => {
+			if (scrollTimeout) clearTimeout(scrollTimeout);
+
+			scrollTimeout = window.setTimeout(() => {
+				window.removeEventListener('scroll', handleScrollEnd);
+				onNavigate?.();
+			}, 120); // fires when scrolling *stops*
+		};
+
+		window.addEventListener('scroll', handleScrollEnd);
+
 		window.scrollTo({
 			top: offsetPosition,
 			behavior: 'smooth',
 		});
 
 		window.history.pushState(null, '', href);
-		setTimeout(() => onNavigate?.(), 500);
 	};
 
 	return (
