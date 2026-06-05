@@ -14,11 +14,10 @@ import socials from '@/data/socials';
 
 interface HeaderProps {
 	items: NavLinkData[];
-	logo?: React.ReactNode;
 	className?: string;
 }
 
-export default function Header({ items, logo, className }: HeaderProps) {
+export default function Header({ items, className }: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showNameInMobileBar, setShowNameInMobileBar] = useState(false);
 
@@ -51,17 +50,6 @@ export default function Header({ items, logo, className }: HeaderProps) {
 				)}
 			>
 				<Container className="flex justify-between items-center w-full">
-					<span className="hidden sm:block">
-						{logo ? (
-							<Link href="/">{logo}</Link>
-						) : (
-							<Link href="/">
-								<span className="font-mono text-sm tracking-wider lowercase hover:text-ink transition-colors">
-									pablo villena
-								</span>
-							</Link>
-						)}
-					</span>
 					<Navbar items={items} />
 					<Socialbar socials={socials} />
 				</Container>
@@ -70,7 +58,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 			{/* MOBILE HEADER */}
 			<header
 				className={cx(
-					'sticky top-0 left-0 z-50 flex items-center',
+					'sticky top-0 left-0 z-50 flex items-center border-b-transparent w-full',
 					'text-text-meta sm:hidden bg-background gap-px',
 					isOpen ? 'bg-background-nav-open' : 'bg-background',
 					className,
@@ -110,7 +98,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 
 				{showNameInMobileBar && !isOpen && (
 					<Link href="/">
-						<span className="font-mono text-base tracking-wider lowercase hover:text-ink transition-colors">
+						<span className="font-mono text-base tracking-wider capitalize hover:text-ink transition-colors">
 							pablo villena
 						</span>
 					</Link>
@@ -127,7 +115,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 						>
 							<div className="flex flex-col gap-8">
 								<Link href="/">
-									<span className="font-mono text-base tracking-wider lowercase hover:text-ink transition-colors">
+									<span className="font-mono text-base tracking-wider capitalize hover:text-ink transition-colors">
 										pablo villena
 									</span>
 								</Link>

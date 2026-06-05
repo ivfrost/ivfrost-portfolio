@@ -21,7 +21,7 @@ export default function ExperienceEntry({
 			{/* Header */}
 			<div className="space-y-2">
 				<div className="flex justify-between">
-					<h3 className="text-base text-text-muted font-medium">{title}</h3>
+					<h3 className="text-base text-ink-subtle font-medium">{title}</h3>
 					<span className="hidden sm:block text-xs text-text-meta">
 						{dateRange}
 					</span>

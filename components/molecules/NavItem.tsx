@@ -97,12 +97,12 @@ export default function NavItem({
 					<motion.div
 						initial={{ opacity: 0, y: 4 }}
 						animate={{ opacity: 1, y: 0 }}
-						className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-full rounded-full bg-ink-lite"
+						className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-full rounded-full bg-ink-subtle"
 					/>
 				) : (
 					<motion.div
 						layoutId="underline"
-						className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-full rounded-full bg-ink-lite"
+						className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-full rounded-full bg-ink-subtle"
 						transition={{ type: 'spring', stiffness: 500, damping: 30 }}
 					/>
 				))}

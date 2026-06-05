@@ -13,7 +13,7 @@ export default function EducationEntry({
 			<div className="space-y-2">
 				<div className="flex justify-between">
 					<section>
-						<h4 className="text-base text-text-muted font-medium">{title}</h4>
+						<h4 className="text-base text-ink-subtle font-medium">{title}</h4>
 						<span className="hidden sm:block text-xs text-text-meta">
 							{institution}
 							{dateRange ? ` · ${dateRange}` : ''}

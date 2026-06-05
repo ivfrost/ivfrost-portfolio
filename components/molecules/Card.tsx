@@ -16,7 +16,7 @@ export default function Card({
 
 	return (
 		<div
-			className={`${baseStyles} ${className} ${hasLeftRule ? 'border-sage-3 border-l-4' : ''}`}
+			className={`${baseStyles} ${className} ${hasLeftRule ? 'border-accent-3 border-l-4' : ''}`}
 		>
 			<h4 className="font-sans text-lg text-ink-mid font-medium tracking-tight">
 				{title}

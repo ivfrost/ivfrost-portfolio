@@ -24,8 +24,8 @@ const buttonVariants = cva(
 			variant: {
 				primary: 'bg-ink text-frost-1 hover:bg-ink-mid',
 				outline:
-					'border border-sage-3 text-ink-lite hover:border-ink-lite hover:text-ink',
-				ghost: 'text-ink-lite hover:text-ink',
+					'border border-accent-3 text-ink-subtle hover:border-ink-subtle hover:text-ink',
+				ghost: 'text-ink-subtle hover:text-ink',
 			},
 			tone: {
 				light: '',
