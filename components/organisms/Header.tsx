@@ -3,12 +3,11 @@
 import Container from '../layout/Container';
 import type { NavLinkData } from '../molecules/NavItem';
 import Navbar from './Navbar';
-import { Menu } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cx } from 'class-variance-authority';
 import Link from 'next/link';
 import Button from '../atoms/Button';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Socialbar from '../organisms/Socialbar';
 import socials from '@/data/socials';
@@ -21,6 +20,19 @@ interface HeaderProps {
 
 export default function Header({ items, logo, className }: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
+	const [showNameInMobileBar, setShowNameInMobileBar] = useState(false);
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const threshold = 80;
+			setShowNameInMobileBar(window.scrollY > threshold);
+		};
+
+		handleScroll();
+		window.addEventListener('scroll', handleScroll, { passive: true });
+
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, []);
 
 	useEffect(() => {
 		document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -44,10 +56,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 							<Link href="/">{logo}</Link>
 						) : (
 							<Link href="/">
-								<span
-									className="font-mono text-sm tracking-wider
-						 lowercase hover:text-ink transition-colors"
-								>
+								<span className="font-mono text-sm tracking-wider lowercase hover:text-ink transition-colors">
 									pablo villena
 								</span>
 							</Link>
@@ -57,10 +66,12 @@ export default function Header({ items, logo, className }: HeaderProps) {
 					<Socialbar socials={socials} />
 				</Container>
 			</header>
+
+			{/* MOBILE HEADER */}
 			<header
 				className={cx(
 					'sticky top-0 left-0 z-50 flex items-center',
-					'text-text-meta sm:hidden bg-background',
+					'text-text-meta sm:hidden bg-background gap-px',
 					isOpen ? 'bg-background-nav-open' : 'bg-background',
 					className,
 				)}
@@ -70,9 +81,8 @@ export default function Header({ items, logo, className }: HeaderProps) {
 					type="button"
 					variant="ghost"
 					modifier="icon-only"
-					className="z-50 bg-background shadow-sm shadow-ink/16 rounded-md m-2 p-2"
+					className="z-60 bg-transparent m-2 p-2"
 				>
-					{' '}
 					<AnimatePresence mode="wait">
 						{isOpen ? (
 							<motion.div
@@ -97,6 +107,15 @@ export default function Header({ items, logo, className }: HeaderProps) {
 						)}
 					</AnimatePresence>
 				</Button>
+
+				{showNameInMobileBar && !isOpen && (
+					<Link href="/">
+						<span className="font-mono text-base tracking-wider lowercase hover:text-ink transition-colors">
+							pablo villena
+						</span>
+					</Link>
+				)}
+
 				<AnimatePresence>
 					{isOpen && (
 						<motion.nav
@@ -104,18 +123,28 @@ export default function Header({ items, logo, className }: HeaderProps) {
 							animate={{ x: 0 }}
 							exit={{ x: '-100%' }}
 							transition={{ duration: 0.2 }}
-							className="fixed top-0 left-0 bg-background-nav h-full flex flex-col justify-between pt-26 pb-13 px-18 gap-10 text-lg shadow-lg shadow-ink/16 rounded-md"
+							className="fixed top-0 left-0 bg-background-nav h-full flex flex-col justify-between pt-3 pb-13 px-15 gap-10 text-lg shadow-lg shadow-ink/16 rounded-md z-50"
 						>
-							<Navbar
-								items={items}
-								isMobile
-								onNavigate={() => setIsOpen(false)}
-							/>
+							<div className="flex flex-col gap-8">
+								<Link href="/">
+									<span className="font-mono text-base tracking-wider lowercase hover:text-ink transition-colors">
+										pablo villena
+									</span>
+								</Link>
+
+								<Navbar
+									items={items}
+									isMobile
+									onNavigate={() => setIsOpen(false)}
+								/>
+							</div>
+
 							<Socialbar isMobile socials={socials} />
 						</motion.nav>
 					)}
 				</AnimatePresence>
 			</header>
+
 			{isOpen && (
 				<div
 					className="fixed inset-0 bg-ink/40 z-40"
