@@ -57,7 +57,7 @@ export default function CertList({ items }: CertListProps) {
 					</div>
 				</section>
 			</div>
-			<div className="pt-8">
+			<div>
 				{Object.entries(groupedItems).map(([issuer, issuerItems]) => (
 					<section className="pb-6" key={issuer + issuerItems[0].title}>
 						<h3 className="font-mono text-sm tracking-wider text-text-meta-lite mb-6">

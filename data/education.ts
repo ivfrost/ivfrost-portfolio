@@ -3,7 +3,7 @@ import type { Education } from './types';
 const education: Education[] = [
 	{
 		title: 'Grado Superior en Desarrollo de Aplicaciones Multiplataforma',
-		institution: 'MEDAC Davante',
+		institution: 'Davante MEDAC',
 		location: 'Remoto',
 		dateRange: '2024 - 2026',
 		summary:

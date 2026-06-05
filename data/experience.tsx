@@ -5,7 +5,7 @@ import { BsArrowUpRight } from 'react-icons/bs';
 const experience: Experience[] = [
 	{
 		title: 'Desarrollador Full Stack',
-		company: 'Master SAU',
+		company: 'Master Distancia SAU',
 		location: 'Remoto',
 		modality: 'Prácticas',
 		dateRange: 'Mar 2026 - Jun 2026',
