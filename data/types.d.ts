@@ -34,3 +34,10 @@ export type Education = {
 	dateRange: string;
 	summary?: ReactNode;
 };
+
+export type SocialLinkData = {
+	href: string;
+	label: string;
+	isMobile?: boolean;
+	icon: ComponentType<{ size?: number; strokeWidth?: number }>;
+};

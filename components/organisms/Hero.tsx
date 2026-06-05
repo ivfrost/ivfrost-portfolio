@@ -24,10 +24,10 @@ export default function Hero({
 			<Container>
 				{/* Name + status */}
 				<div className="mb-8">
-					<h1 className="text-4xl lg:text-6xl font-normal tracking-tight text-ink leading-none mb-2">
+					<h1 className="text-4xl -ml-1 lg:text-6xl font-normal tracking-tight text-ink-mid leading-none mb-2">
 						{name}
 					</h1>
-					<p className="font-mono text-sm text-text-meta tracking-wider">
+					<p className="font-sans text-lg lg:text-xl text-text-meta tracking-wider">
 						{role}
 					</p>
 				</div>
@@ -35,7 +35,7 @@ export default function Hero({
 				{/* Three column strip */}
 				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 border-t border-border py-8">
 					<div>
-						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
+						<span className="font-mono text-base tracking-wider text-text-meta mb-2 lowercase block">
 							Stack
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed space-x-2">
@@ -44,8 +44,8 @@ export default function Hero({
 					</div>
 
 					<div className="sm:justify-self-start">
-						<span className="font-mono text-xs text-text-meta tracking-wider uppercase block mb-2">
-							Actualmente
+						<span className="font-mono text-base tracking-wider text-text-meta mb-2 lowercase block">
+							Estado
 						</span>
 						<p className="text-sm text-text-muted leading-relaxed">
 							Abierto a {openTo || 'oportunidades'}

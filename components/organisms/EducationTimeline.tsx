@@ -8,6 +8,9 @@ interface EducationTimelineProps {
 export default function EducationTimeline({ entries }: EducationTimelineProps) {
 	return (
 		<div className="divide-y space-y-4 divide-border-subtle">
+			<h3 className="font-mono text-base tracking-wider text-text-meta mb-6">
+				estudios
+			</h3>
 			{entries.map((entry, idx) => (
 				<EducationEntry
 					key={idx}

@@ -5,9 +5,11 @@ import NavItem, { NavLinkData } from '../molecules/NavItem';
 
 interface NavbarProps {
 	items: NavLinkData[];
+	isMobile?: boolean;
+	onNavigate?: () => void;
 }
 
-export default function Navbar({ items }: NavbarProps) {
+export default function Navbar({ items, isMobile, onNavigate }: NavbarProps) {
 	const [activeHref, setActiveHref] = useState('');
 
 	useEffect(() => {
@@ -36,13 +38,17 @@ export default function Navbar({ items }: NavbarProps) {
 	}, [items]);
 
 	return (
-		<nav className="flex gap-4 sm:gap-8 py-4 justify-between sm:justify-center font-mono bg-transparent w-full sm:w-auto">
+		<nav
+			className={`flex gap-4 sm:gap-8 py-4 justify-between sm:justify-center font-mono bg-transparent w-full sm:w-auto ${isMobile ? 'flex-col gap-8' : ''}`}
+		>
 			{items.map((item) => (
 				<NavItem
 					key={item.href}
 					label={item.label}
 					href={item.href}
+					isMobile={isMobile}
 					isActive={activeHref === item.href}
+					onNavigate={onNavigate}
 				/>
 			))}
 		</nav>

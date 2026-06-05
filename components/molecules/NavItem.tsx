@@ -10,21 +10,37 @@ export interface NavLinkData {
 
 interface NavItemProps extends NavLinkData {
 	isActive: boolean;
+	isMobile?: boolean;
 	className?: string;
+	onNavigate?: () => void;
 }
 
 const navItemVariants = cva(
 	[
-		'flex items-center gap-2 lowercase font-mono text-sm tracking-wider',
+		'flex items-center gap-2 lowercase font-mono tracking-wider',
 		'transition-colors cursor-pointer relative',
 	],
 	{
 		variants: {
 			isActive: {
-				true: 'text-ink-mid cursor-default',
-				false: 'text-text-meta hover:text-ink-mid',
+				true: 'cursor-default',
+				false: 'hover:text-ink-mid',
+			},
+			isMobile: {
+				true: 'text-xl font-mono w-fit',
+				false: 'text-sm',
 			},
 		},
+		defaultVariants: {
+			isActive: false,
+			isMobile: false,
+		},
+		compoundVariants: [
+			{ isMobile: false, isActive: false, class: 'text-text-meta' },
+			{ isMobile: false, isActive: true, class: 'text-ink-mid' },
+			{ isMobile: true, isActive: false, class: 'text-ink-mid' },
+			{ isMobile: true, isActive: true, class: 'text-ink' },
+		],
 	},
 );
 
@@ -32,6 +48,8 @@ export default function NavItem({
 	label,
 	href,
 	isActive,
+	isMobile,
+	onNavigate,
 	className,
 }: NavItemProps) {
 	const handleClick = (e: React.MouseEvent) => {
@@ -45,7 +63,8 @@ export default function NavItem({
 		const headerOffset = header?.clientHeight ?? 64;
 
 		const elementPosition = target.getBoundingClientRect().top;
-		const offsetPosition = elementPosition + window.scrollY - headerOffset;
+		const offsetPosition =
+			elementPosition + window.scrollY - headerOffset + (isMobile ? -60 : 0);
 
 		window.scrollTo({
 			top: offsetPosition,
@@ -53,21 +72,29 @@ export default function NavItem({
 		});
 
 		window.history.pushState(null, '', href);
+		setTimeout(() => onNavigate?.(), 425);
 	};
 
 	return (
 		<button
 			onClick={handleClick}
-			className={cx(navItemVariants({ isActive }), className)}
+			className={cx(navItemVariants({ isActive, isMobile }), className)}
 		>
 			{label}
-			{isActive && (
-				<motion.div
-					layoutId="underline"
-					className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-[1px] w-full rounded-full bg-ink-lite"
-					transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-				/>
-			)}
+			{isActive &&
+				(isMobile ? (
+					<motion.div
+						initial={{ opacity: 0, y: 4 }}
+						animate={{ opacity: 1, y: 0 }}
+						className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-full rounded-full bg-ink-lite"
+					/>
+				) : (
+					<motion.div
+						layoutId="underline"
+						className="absolute left-1/2 -translate-x-1/2 -bottom-1 h-px w-full rounded-full bg-ink-lite"
+						transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+					/>
+				))}
 		</button>
 	);
 }

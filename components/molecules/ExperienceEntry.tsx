@@ -17,7 +17,7 @@ export default function ExperienceEntry({
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className="relative space-y-4 pb-4">
+		<div className="relative space-y-8 pb-4">
 			{/* Header */}
 			<div className="space-y-2">
 				<div className="flex justify-between">

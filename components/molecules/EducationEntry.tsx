@@ -13,9 +13,6 @@ export default function EducationEntry({
 			<div className="space-y-2">
 				<div className="flex justify-between">
 					<section>
-						<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
-							ESTUDIOS
-						</h3>
 						<h4 className="text-base text-text-muted font-medium">{title}</h4>
 						<span className="hidden sm:block text-xs text-text-meta">
 							{institution}

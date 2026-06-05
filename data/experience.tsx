@@ -5,12 +5,12 @@ import { BsArrowUpRight } from 'react-icons/bs';
 const experience: Experience[] = [
 	{
 		title: 'Desarrollador Full Stack',
-		company: 'Zaitec',
+		company: 'Master SAU',
 		location: 'Remoto',
 		modality: 'Prácticas',
 		dateRange: 'Mar 2026 - Jun 2026',
 		summary:
-			'Durante mis prácticas en Zaitec participé en dos proyectos: en uno me encargué del desarrollo completo del backend, en el otro del lenguaje de diseño y arquitectura de componentes. Ejercí de integrador de ramas del equipo en ambos.',
+			'Durante mis prácticas participé en dos proyectos: en uno me encargué del desarrollo completo del backend, en el otro del lenguaje de diseño y arquitectura de componentes. Ejercí de integrador de ramas del equipo en ambos.',
 		description: (
 			<div className="flex flex-col gap-8">
 				<section className="flex flex-col gap-2">
@@ -34,7 +34,7 @@ const experience: Experience[] = [
 						gestión de centros a su propio contexto, implementé el refresco
 						automático de tokens y unifiqué el lenguaje visual.
 					</p>
-					<p className="text-xs ml-auto text-text-meta mt-1">
+					<p className="text-xs sm:ml-auto text-text-meta mt-1">
 						Express.js · TypeScript · Docker · JWT · Drizzle ORM · MinIO · Zod ·
 						React
 					</p>
@@ -58,7 +58,7 @@ const experience: Experience[] = [
 						emails de un compañero, integrado en Express con Nodemailer,
 						añadiendo protección XSS, rate limiting y confirmación al cliente.
 					</p>
-					<p className="text-xs ml-auto text-text-meta mt-1">
+					<p className="text-xs sm:ml-auto text-text-meta mt-1">
 						React · Tailwind CSS · Vite · Node.js · Nodemailer · i18n
 					</p>
 				</section>

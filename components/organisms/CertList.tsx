@@ -29,11 +29,11 @@ export default function CertList({ items }: CertListProps) {
 		<>
 			<div className="pb-8">
 				<section>
-					<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
-						CERTIFICACIONES
+					<h3 className="font-mono text-base tracking-wider text-text-meta mb-6">
+						certificaciones
 					</h3>
-					<h4 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
-						DESTACADOS
+					<h4 className="font-mono text-sm  tracking-wider text-text-meta-lite mb-6">
+						destacadas
 					</h4>
 					<div className="divide-y divide-border space-y-6">
 						{pinnedItems.map((item, idx) => {
@@ -60,7 +60,7 @@ export default function CertList({ items }: CertListProps) {
 			<div className="pt-8">
 				{Object.entries(groupedItems).map(([issuer, issuerItems]) => (
 					<section className="pb-6" key={issuer + issuerItems[0].title}>
-						<h3 className="font-mono text-xs uppercase tracking-wider text-text-meta mb-6">
+						<h3 className="font-mono text-sm tracking-wider text-text-meta-lite mb-6">
 							{issuer}
 						</h3>
 						<div className="divide-y divide-border space-y-6">

@@ -3,14 +3,15 @@
 import Container from '../layout/Container';
 import type { NavLinkData } from '../molecules/NavItem';
 import Navbar from './Navbar';
-import { Mail, Menu } from 'lucide-react';
-import { TbBrandLinkedin, TbBrandGithub } from 'react-icons/tb';
+import { Menu } from 'lucide-react';
 import { cx } from 'class-variance-authority';
 import Link from 'next/link';
 import Button from '../atoms/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Socialbar from '../organisms/Socialbar';
+import socials from '@/data/socials';
 
 interface HeaderProps {
 	items: NavLinkData[];
@@ -20,6 +21,13 @@ interface HeaderProps {
 
 export default function Header({ items, logo, className }: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
+
+	useEffect(() => {
+		document.body.style.overflow = isOpen ? 'hidden' : '';
+		return () => {
+			document.body.style.overflow = '';
+		};
+	}, [isOpen]);
 
 	return (
 		<>
@@ -38,40 +46,15 @@ export default function Header({ items, logo, className }: HeaderProps) {
 							<Link href="/">
 								<span
 									className="font-mono text-sm tracking-wider
-						 lowercase"
+						 lowercase hover:text-ink transition-colors"
 								>
 									pablo villena
 								</span>
 							</Link>
 						)}
 					</span>
-
 					<Navbar items={items} />
-
-					<div className="hidden sm:flex gap-5 items-center">
-						<a
-							href="https://github.com/ivfrost"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="hover:text-ink transition-colors"
-						>
-							<TbBrandGithub strokeWidth={1.5} size={20} />
-						</a>
-						<a
-							href="https://www.linkedin.com/in/pablo-villena-ariza-88910b3a2/"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="hover:text-ink transition-colors"
-						>
-							<TbBrandLinkedin strokeWidth={1.5} size={20} />
-						</a>
-						<a
-							href="mailto:vlpablo@proton.me"
-							className="hover:text-ink transition-colors"
-						>
-							<Mail strokeWidth={1.5} size={20} />
-						</a>
-					</div>
+					<Socialbar socials={socials} />
 				</Container>
 			</header>
 			<header
@@ -86,7 +69,7 @@ export default function Header({ items, logo, className }: HeaderProps) {
 					type="button"
 					variant="ghost"
 					modifier="icon-only"
-					className="bg-button m-2"
+					className="z-50 bg-background shadow-sm shadow-ink/16 rounded-md m-2 p-2"
 				>
 					{' '}
 					<AnimatePresence mode="wait">
@@ -113,7 +96,31 @@ export default function Header({ items, logo, className }: HeaderProps) {
 						)}
 					</AnimatePresence>
 				</Button>
+				<AnimatePresence>
+					{isOpen && (
+						<motion.nav
+							initial={{ x: '-100%' }}
+							animate={{ x: 0 }}
+							exit={{ x: '-100%' }}
+							transition={{ duration: 0.2 }}
+							className="fixed top-0 left-0 bg-background-nav h-full flex flex-col justify-between pt-26 pb-13 px-18 gap-10 text-lg shadow-lg shadow-ink/16 rounded-md"
+						>
+							<Navbar
+								items={items}
+								isMobile
+								onNavigate={() => setIsOpen(false)}
+							/>
+							<Socialbar isMobile socials={socials} />
+						</motion.nav>
+					)}
+				</AnimatePresence>
 			</header>
+			{isOpen && (
+				<div
+					className="fixed inset-0 bg-ink/40 z-40"
+					onClick={() => setIsOpen(false)}
+				/>
+			)}
 		</>
 	);
 }

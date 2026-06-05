@@ -4,6 +4,7 @@
 	/* Background */
 	--color-background: #eaede4;
 	--color-background-alt: #e8ebe1;
+	--color-background-nav: #e2e6db;
 	--color-button: #dfe3d8;
 
 	/* Ink — text */
@@ -21,7 +22,8 @@
 	--color-border-subtle: #e2e6e2;
 
 	/* Text roles */
-	--color-text-meta: #6e7a6e;
+	--color-text-meta: #5a6b5a;
+	--color-text-meta-lite: #7a8e7a;
 	--color-text-muted: #3d4a3f;
 	--color-text-muted-lite: #5a6457;
 

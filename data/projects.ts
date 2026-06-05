@@ -38,3 +38,5 @@ export const projects: Project[] = [
 		href: 'https://github.com/ivfrost/joplin-adwaita-theme',
 	},
 ];
+
+export default projects;
