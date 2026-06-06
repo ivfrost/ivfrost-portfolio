@@ -11,6 +11,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Socialbar from '../organisms/Socialbar';
 import socials from '@/data/socials';
+import { MenuToggle } from '../atoms/MenuToggle';
 
 interface HeaderProps {
 	items: NavLinkData[];
@@ -44,7 +45,7 @@ export default function Header({ items, className }: HeaderProps) {
 		<>
 			<header
 				className={cx(
-					'sticky top-0 z-50 w-full h-16 flex items-center border-b border-border',
+					'sticky top-0 z-50 w-full flex items-center outline-b outline-border',
 					'bg-background text-text-meta hidden sm:flex',
 					className,
 				)}
@@ -58,43 +59,16 @@ export default function Header({ items, className }: HeaderProps) {
 			{/* MOBILE HEADER */}
 			<header
 				className={cx(
-					'sticky top-0 left-0 z-50 flex items-center border-b-transparent w-full',
+					'sticky top-0 left-0 min-h-12 z-50 flex items-center border-b border-border',
 					'text-text-meta sm:hidden bg-background gap-px',
-					isOpen ? 'bg-background-nav-open' : 'bg-background',
 					className,
 				)}
 			>
-				<Button
+				<MenuToggle
+					isOpen={isOpen}
 					onClick={() => setIsOpen(!isOpen)}
-					type="button"
-					variant="ghost"
-					modifier="icon-only"
-					className="z-60 bg-transparent m-2 p-2"
-				>
-					<AnimatePresence mode="wait">
-						{isOpen ? (
-							<motion.div
-								key="x"
-								initial={{ rotate: -90, opacity: 0 }}
-								animate={{ rotate: 0, opacity: 1 }}
-								exit={{ rotate: 90, opacity: 0 }}
-								transition={{ duration: 0.15 }}
-							>
-								<X size={24} />
-							</motion.div>
-						) : (
-							<motion.div
-								key="menu"
-								initial={{ rotate: 90, opacity: 0 }}
-								animate={{ rotate: 0, opacity: 1 }}
-								exit={{ rotate: -90, opacity: 0 }}
-								transition={{ duration: 0.15 }}
-							>
-								<Menu size={24} />
-							</motion.div>
-						)}
-					</AnimatePresence>
-				</Button>
+					className="p-4"
+				/>
 
 				{showNameInMobileBar && !isOpen && (
 					<Link href="/">
@@ -103,23 +77,31 @@ export default function Header({ items, className }: HeaderProps) {
 						</span>
 					</Link>
 				)}
+			</header>
+			<AnimatePresence>
+				{isOpen && (
+					<motion.nav
+						initial={{ x: '-100%' }}
+						animate={{ x: 0 }}
+						exit={{ x: '-100%' }}
+						transition={{ duration: 0.2 }}
+						className="fixed top-0 left-0 bg-background-nav h-full flex flex-col justify-between text-lg shadow-lg shadow-ink/16 z-90"
+					>
+						<div className="flex justify-start items-center">
+							<MenuToggle
+								isOpen={isOpen}
+								onClick={() => setIsOpen(!isOpen)}
+								className="p-4"
+							/>
+							<Link href="/">
+								<span className="font-mono text-base tracking-wider capitalize hover:text-ink transition-colors">
+									pablo villena
+								</span>
+							</Link>
+						</div>
 
-				<AnimatePresence>
-					{isOpen && (
-						<motion.nav
-							initial={{ x: '-100%' }}
-							animate={{ x: 0 }}
-							exit={{ x: '-100%' }}
-							transition={{ duration: 0.2 }}
-							className="fixed top-0 left-0 bg-background-nav h-full flex flex-col justify-between pt-3 pb-13 px-15 gap-10 text-lg shadow-lg shadow-ink/16 rounded-md z-50"
-						>
-							<div className="flex flex-col gap-8">
-								<Link href="/">
-									<span className="font-mono text-base tracking-wider capitalize hover:text-ink transition-colors">
-										pablo villena
-									</span>
-								</Link>
-
+						<div className="h-full flex flex-col justify-between px-14">
+							<div className="flex flex-col h-full justify-center">
 								<Navbar
 									items={items}
 									isMobile
@@ -127,15 +109,14 @@ export default function Header({ items, className }: HeaderProps) {
 								/>
 							</div>
 
-							<Socialbar isMobile socials={socials} />
-						</motion.nav>
-					)}
-				</AnimatePresence>
-			</header>
-
+							<Socialbar isMobile socials={socials} className="py-10" />
+						</div>
+					</motion.nav>
+				)}
+			</AnimatePresence>
 			{isOpen && (
 				<div
-					className="fixed inset-0 bg-ink/40 z-40"
+					className="fixed inset-0 bg-ink/40 z-80"
 					onClick={() => setIsOpen(false)}
 				/>
 			)}
