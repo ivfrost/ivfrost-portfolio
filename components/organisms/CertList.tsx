@@ -22,14 +22,17 @@ export default function CertList({ items }: CertListProps) {
 		.filter((item) => !item.pinned)
 		.sort((a, b) => b.date.localeCompare(a.date));
 	const [isOpen, setIsOpen] = useState(false);
-	const certEntryRef = useRef<HTMLDivElement>(null);
-	const [certItemHeight, setCertItemHeight] = useState(70);
+	const firstEntryRef = useRef<HTMLDivElement>(null);
+	const fourthEntryRef = useRef<HTMLDivElement>(null);
+	const [entriesHeight, setEntriesHeight] = useState(70);
 
 	useEffect(() => {
-		if (certEntryRef.current) {
-			const entryHeight =
-				certEntryRef.current.getBoundingClientRect().height - 1;
-			setCertItemHeight(entryHeight);
+		if (firstEntryRef.current && fourthEntryRef.current) {
+			const entryOneTop = firstEntryRef.current.getBoundingClientRect().top;
+			const entryFourBottom =
+				fourthEntryRef.current.getBoundingClientRect().bottom;
+			const entryHeight = entryFourBottom - entryOneTop;
+			setEntriesHeight(entryHeight - 1);
 		}
 	}, []);
 
@@ -76,7 +79,7 @@ export default function CertList({ items }: CertListProps) {
 								height: isOpen
 									? 'auto'
 									: recentItems.length > 5
-										? `${certItemHeight * 5}px`
+										? `${entriesHeight}px`
 										: 'auto',
 							}}
 							style={{ overflow: 'hidden' }}
@@ -88,7 +91,13 @@ export default function CertList({ items }: CertListProps) {
 									.trim();
 								return (
 									<CertEntry
-										ref={idx === 0 ? certEntryRef : null}
+										ref={
+											idx === 0
+												? firstEntryRef
+												: idx === 3
+													? fourthEntryRef
+													: null
+										}
 										key={item.title + idx}
 										title={item.title}
 										titleMeta={
