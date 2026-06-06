@@ -8,6 +8,7 @@ interface SectionProps {
 	variant?: 'default' | 'alt';
 	children: React.ReactNode;
 	className?: string;
+	headerClasses?: string;
 }
 
 const sectionVariants = cva(
@@ -31,11 +32,12 @@ export default function Section({
 	variant,
 	children,
 	className,
+	headerClasses,
 }: SectionProps) {
 	return (
 		<section id={id} className={`${sectionVariants({ variant })} ${className}`}>
 			<Container>
-				<SectionHeader text={title} />
+				<SectionHeader text={title} className={headerClasses} />
 				{children}
 			</Container>
 		</section>

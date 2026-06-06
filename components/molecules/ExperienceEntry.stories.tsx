@@ -14,7 +14,8 @@ export const Default: Story = {
 		title: 'Software Engineer',
 		company: 'Tech Company',
 		location: 'San Francisco, CA',
-		dateRange: 'Jan 2020 — Present',
+		startDate: '01/2020',
+		endDate: '01/2022',
 		description:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 	},

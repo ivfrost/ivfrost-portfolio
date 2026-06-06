@@ -37,9 +37,13 @@ export default function ContactForm({ className }: ContactFormProps) {
 
 	return (
 		<form
-			className={`flex flex-col gap-6 ${className}`}
+			className={`flex flex-col gap-4 sm:gap-8 ${className}`}
 			onSubmit={handleSubmit}
 		>
+			<p>
+				¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y
+				te respondo lo antes posible.
+			</p>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				<Input
 					label="Nombre"
@@ -65,7 +69,7 @@ export default function ContactForm({ className }: ContactFormProps) {
 				value={formData.message}
 				minLength={10}
 				maxLength={1000}
-				rows={5}
+				rows={3}
 				onChange={(value) => setFormData({ ...formData, message: value })}
 				required
 			/>

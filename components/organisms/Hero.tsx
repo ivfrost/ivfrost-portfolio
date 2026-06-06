@@ -1,8 +1,11 @@
+'use client';
+import Button from '../atoms/Button';
 import Container from '../layout/Container';
 
 interface HeroProps {
 	name?: string;
 	role?: string;
+	about?: string;
 	stack?: string[];
 	openTo?: string;
 	location?: string;
@@ -12,6 +15,7 @@ interface HeroProps {
 export default function Hero({
 	name,
 	role,
+	about,
 	stack = [],
 	openTo,
 	location,
@@ -19,37 +23,53 @@ export default function Hero({
 }: HeroProps) {
 	return (
 		<section
-			className={`pt-16 pb-0 bg-background border-b border-border ${className}`}
+			className={`pt-16 pb-8 bg-background border-b border-border ${className}`}
 		>
 			<Container>
-				{/* Name + role */}
-				<div className="mb-8 text-start">
-					<h1 className="text-4xl -ml-0.5 lg:text-6xl capitalize font-normal tracking-tight text-ink leading-none mb-2">
-						{name}
-					</h1>
-					<h2 className="text-ink-subtle-lite mb-2 capitalize">{role}</h2>
-				</div>
-
-				{/* Three column strip */}
-				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 py-8 border-t border-border-subtle">
+				<div className="flex flex-col gap-8">
 					<div>
-						<span className="font-mono text-base tracking-wider text-text-meta-lite mb-2 lowercase block">
-							Stack
-						</span>
-						<p className="text-sm text-ink-subtle leading-relaxed space-x-2">
-							{stack.length > 0 ? stack.join(' · ') : 'No stack information'}
-						</p>
+						<h1 className="text-4xl -ml-0.5 lg:text-6xl font-normal tracking-tight text-ink leading-none mb-2">
+							{name}
+						</h1>
+						<h2 className="text-ink-subtle-lite capitalize">{role}</h2>
 					</div>
 
-					<div className="sm:justify-self-start">
-						<span className="font-mono text-base tracking-wider text-text-meta-lite mb-2 lowercase block">
-							Estado
-						</span>
-						<p className="text-sm text-ink-subtle leading-relaxed">
-							Abierto a {openTo || 'oportunidades'}
-							<br />
-							{location || 'Ubicación no especificada'}
-						</p>
+					{about && (
+						<div className="flex flex-col sm:flex-row sm:justify-between gap-4">
+							<p className="text-sm text-ink-subtle leading-relaxed max-w-prose">
+								{about}
+							</p>
+							<Button
+								variant="outline"
+								type="button"
+								size="small"
+								className="self-start shrink-0 w-full sm:w-auto"
+								onClick={() =>
+									document
+										.getElementById('contact')
+										?.scrollIntoView({ behavior: 'smooth' })
+								}
+							>
+								Contáctame
+							</Button>
+						</div>
+					)}
+
+					<div className="flex flex-col sm:flex-row gap-8 border-t border-border pt-6">
+						<div className="flex-1">
+							<h4 className="mb-2 text-base text-text-meta-lite">stack</h4>
+							<p>
+								{stack.length > 0 ? stack.join(' · ') : 'No stack information'}
+							</p>
+						</div>
+						<div className="flex-1">
+							<h4 className="mb-2 text-base text-text-meta-lite">estado</h4>
+							<p>
+								Abierto a {openTo || 'oportunidades'}
+								<br />
+								{location || 'Ubicación no especificada'}
+							</p>
+						</div>
 					</div>
 				</div>
 			</Container>

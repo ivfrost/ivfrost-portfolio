@@ -26,6 +26,7 @@ export default function Home() {
 				<Hero
 					name="Pablo Villena"
 					role="Desarrollador Full Stack"
+					about="Desarrollo software con foco en backend y arquitectura. Soy autodidacta por naturaleza — si algo me interesa, lo aprendo. Mantengo un homelab con Proxmox y uso Linux como sistema principal."
 					openTo="nuevas oportunidades"
 					stack={[
 						'React',
@@ -50,7 +51,7 @@ export default function Home() {
 					<hr className="h-12 border-transparent" />
 					<CertList items={certs} />
 				</Section>
-				<Section id="contact" title="Contacto">
+				<Section id="contact" title="Contacto" headerClasses="mb-8 sm:mb-10!">
 					<ContactForm />
 				</Section>
 			</main>
