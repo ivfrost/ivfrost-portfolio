@@ -29,14 +29,6 @@ export const projects: Project[] = [
 		stack: ['React', 'TypeScript'],
 		href: 'https://100canos.com',
 	},
-	{
-		number: '05',
-		name: 'joplin-adwaita-theme',
-		description: 'Tema Adwaita para el editor de notas Joplin',
-		stars: 26,
-		stack: ['SCSS'],
-		href: 'https://github.com/ivfrost/joplin-adwaita-theme',
-	},
 ];
 
 export default projects;
