@@ -11,17 +11,19 @@ const certs: Cert[] = [
 	{
 		title: 'React Performance, v2',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/gsEzESQdBd/react-performance-v2-frontendmasters.pdf',
 		date: '2026-04',
-		pinned: true,
 	},
 	{
 		title: 'Complete Intro to Containers, v2',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/fNQjbTScAe/complete-intro-containers-v2-frontendmasters.pdf',
 		date: '2026-04',
 	},
 	{
 		title: 'Cross-Platform Mobile Apps with Flutter',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/boSKcKQkpY/flutter-frontendmasters.pdf',
 		date: '2026-03',
 	},
 	{
@@ -33,6 +35,7 @@ const certs: Cert[] = [
 	{
 		title: 'State Management at Scale in React & Next.js',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/ByBKQsDZCh/react-nextjs-state-frontendmasters.pdf',
 		date: '2026-04',
 	},
 	{
@@ -45,43 +48,57 @@ const certs: Cert[] = [
 	{
 		title: 'Next.js Fundamentals, v4',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/bCWFkdHrBA/next-js-v4-frontendmasters.pdf',
 		date: '2026-02',
 	},
 	{
 		title: 'React and TypeScript, v3',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/hUofbjHgZn/react-typescript-v3-frontendmasters.pdf',
 		date: '2026-02',
 	},
 	{
 		title: 'Intermediate React, v6: RSCs, Hooks, & Performance',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/dVjsrZPBjd/intermediate-react-v6-frontendmasters.pdf',
 		date: '2026-02',
 	},
 	{
 		title: 'Complete Intro to React, v9',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/hixpadIGiV/complete-react-v9-frontendmasters.pdf',
 		date: '2026-02',
+	},
+	{
+		title: 'Enterprise Java with Spring Boot',
+		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/wUbVJunCnV/spring-boot-frontendmasters.pdf',
+		date: '2026-01',
+		pinned: true,
 	},
 	{
 		title: 'Tailwind CSS 4+',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/XQKnWntAkM/tailwind-css-v2-frontendmasters.pdf',
 		date: '2025-11',
 	},
 	{
 		title: 'Introduction to Kotlin and Android Development',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/gLTCmWdvqh/android-kotlin-frontendmasters.pdf',
 		date: '2025-10',
 	},
 	{
 		title: 'Vue 3 Fundamentals',
 		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/VcBlSkIIXh/vue-fundamentals-frontendmasters.pdf',
 		date: '2025-11',
 	},
 	{
 		title: '15 Days of SQL: The Complete SQL Masterclass 2025',
 		issuer: 'Udemy',
-		date: '2025-04',
 		href: 'https://www.udemy.com/certificate/UC-182b5751-eb21-4573-b6b4-c487fc84e2a0/',
+		date: '2025-04',
 	},
 	{
 		title: 'Spring Boot 4 REST APIs: Building Modern REST APIs',

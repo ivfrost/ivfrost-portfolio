@@ -1,6 +1,6 @@
 'use client';
-import { ExternalLink } from 'lucide-react';
 import Entry from './Entry';
+import { TbFileCertificate } from 'react-icons/tb';
 
 interface CertEntryProps {
 	title: string;
@@ -8,8 +8,8 @@ interface CertEntryProps {
 	date?: string;
 	dateMeta?: boolean;
 	issuer?: string;
-	pinned?: boolean;
 	credentialUrl?: string;
+	ref?: React.Ref<HTMLDivElement>;
 }
 
 export default function CertEntry({
@@ -18,8 +18,8 @@ export default function CertEntry({
 	date,
 	dateMeta,
 	issuer,
-	pinned,
 	credentialUrl,
+	ref,
 }: CertEntryProps) {
 	const issuerNoBrackets = issuer
 		? issuer.replace(/\(.*?\)/g, '').trim()
@@ -32,10 +32,16 @@ export default function CertEntry({
 
 	return (
 		<Entry
+			ref={ref}
+			className="cert-entry"
 			title={title}
 			titleIcons={
 				credentialUrl ? (
-					<ExternalLink size={14} className="ml-1.5 inline-flex" />
+					<TbFileCertificate
+						size={15}
+						strokeWidth={1.75}
+						className="ml-1.5 inline-flex"
+					/>
 				) : undefined
 			}
 			titleMeta={computedMeta}

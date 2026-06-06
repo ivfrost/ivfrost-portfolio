@@ -2,7 +2,7 @@
 import { ChevronDown } from 'lucide-react';
 import CertEntry from '../molecules/CertEntry';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Button from '../atoms/Button';
 import { formatDate } from '@/lib/utils';
 
@@ -22,6 +22,16 @@ export default function CertList({ items }: CertListProps) {
 		.filter((item) => !item.pinned)
 		.sort((a, b) => b.date.localeCompare(a.date));
 	const [isOpen, setIsOpen] = useState(false);
+	const certEntryRef = useRef<HTMLDivElement>(null);
+	const [certItemHeight, setCertItemHeight] = useState(70);
+
+	useEffect(() => {
+		if (certEntryRef.current) {
+			const entryHeight =
+				certEntryRef.current.getBoundingClientRect().height - 1;
+			setCertItemHeight(entryHeight);
+		}
+	}, []);
 
 	return (
 		<>
@@ -48,7 +58,6 @@ export default function CertList({ items }: CertListProps) {
 											: issuerNoBrackets
 									}
 									credentialUrl={item.href}
-									pinned={item.pinned}
 								/>
 							);
 						})}
@@ -64,7 +73,11 @@ export default function CertList({ items }: CertListProps) {
 						<motion.div
 							initial={false}
 							animate={{
-								height: isOpen ? 'auto' : recentItems.length > 5 ? 430 : 'auto',
+								height: isOpen
+									? 'auto'
+									: recentItems.length > 5
+										? `${certItemHeight * 5}px`
+										: 'auto',
 							}}
 							style={{ overflow: 'hidden' }}
 							className="divide-y divide-border-subtle space-y-6"
@@ -75,6 +88,7 @@ export default function CertList({ items }: CertListProps) {
 									.trim();
 								return (
 									<CertEntry
+										ref={idx === 0 ? certEntryRef : null}
 										key={item.title + idx}
 										title={item.title}
 										titleMeta={

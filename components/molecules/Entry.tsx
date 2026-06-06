@@ -8,7 +8,9 @@ interface EntryProps {
 	titleMeta?: ReactNode;
 	number?: string;
 	children: ReactNode;
+	className?: string;
 	onClick?: () => void;
+	ref?: React.Ref<HTMLDivElement>;
 }
 
 export default function Entry({
@@ -18,12 +20,15 @@ export default function Entry({
 	titleMeta,
 	number,
 	children,
+	className,
 	onClick,
+	ref,
 }: EntryProps) {
 	return (
 		<div
+			ref={ref}
 			onClick={onClick}
-			className={`group pb-4 flex gap-4 sm:gap-6 sm:pb-6 items-baseline ${onClick ? 'cursor-pointer' : ''}`}
+			className={`group pb-4 flex gap-4 sm:gap-6 sm:pb-6 items-baseline ${onClick ? 'cursor-pointer' : ''} ${className}`}
 		>
 			{number && (
 				<span className="hidden md:block text-text-meta font-mono text-sm shrink-0">
