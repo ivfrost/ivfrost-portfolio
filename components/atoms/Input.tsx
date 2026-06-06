@@ -10,6 +10,12 @@ export interface InputProps {
 	minLength?: number;
 	maxLength?: number;
 	rows?: number;
+	onFocus?: (
+		e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => void;
+	onBlur?: (
+		e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>,
+	) => void;
 	onChange?: (value: string) => void;
 	className?: string;
 }
@@ -21,6 +27,8 @@ export default function Input({
 	minLength,
 	maxLength,
 	rows,
+	onFocus,
+	onBlur,
 	required = false,
 	type = 'text',
 	onChange,
@@ -44,6 +52,8 @@ export default function Input({
 					name={name}
 					value={value}
 					rows={rows}
+					onFocus={onFocus}
+					onBlur={onBlur}
 					minLength={minLength}
 					maxLength={maxLength}
 					required={required}
@@ -56,6 +66,7 @@ export default function Input({
 					type={type}
 					name={name}
 					value={value}
+					onFocus={onFocus}
 					required={required}
 					onChange={onChange ? (e) => onChange(e.target.value) : undefined}
 					className={`${base} px-4 py-2`}

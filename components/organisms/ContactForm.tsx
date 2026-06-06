@@ -6,6 +6,7 @@ import Button from '../atoms/Button';
 import Input from '../atoms/Input';
 import { sendContact } from '@/actions/contact';
 import { toast } from 'sonner';
+import { motion } from 'framer-motion';
 
 interface ContactFormProps {
 	className?: string;
@@ -17,6 +18,8 @@ export default function ContactForm({ className }: ContactFormProps) {
 		email: '',
 		message: '',
 	});
+
+	const [rows, setRows] = useState(3);
 
 	const handleSubmit = async (e: React.SubmitEvent) => {
 		e.preventDefault();
@@ -61,18 +64,25 @@ export default function ContactForm({ className }: ContactFormProps) {
 					required
 				/>
 			</div>
-
-			<Input
-				label="Mensaje"
-				name="message"
-				as="textarea"
-				value={formData.message}
-				minLength={10}
-				maxLength={1000}
-				rows={3}
-				onChange={(value) => setFormData({ ...formData, message: value })}
-				required
-			/>
+			<motion.div
+				animate={{ height: rows === 5 ? '180px' : '130px' }}
+				transition={{ duration: 0.25, ease: 'easeInOut' }}
+				className="overflow-hidden"
+			>
+				<Input
+					label="Mensaje"
+					name="message"
+					as="textarea"
+					value={formData.message}
+					minLength={10}
+					maxLength={1000}
+					rows={rows}
+					onFocus={() => setRows(5)}
+					onBlur={() => !formData.message.length && setRows(3)}
+					onChange={(value) => setFormData({ ...formData, message: value })}
+					required
+				/>
+			</motion.div>
 
 			<Button
 				type="submit"
@@ -81,7 +91,7 @@ export default function ContactForm({ className }: ContactFormProps) {
 				size="small"
 			>
 				<span>Enviar mensaje</span>
-				<IoPaperPlaneOutline size={16} className="ml-2" />
+				<IoPaperPlaneOutline size={15} className="ml-2" />
 			</Button>
 		</form>
 	);

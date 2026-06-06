@@ -63,10 +63,11 @@ export default function ExperienceEntry({
 					onClick={() => setIsOpen(!isOpen)}
 					className="w-full sm:w-auto sm:ml-auto mt-6"
 				>
-					<div className="flex items-center">
+					<div className="flex items-center text-ink-subtle hover:text-ink transition-colors">
 						<span>{isOpen ? 'Mostrar menos' : 'Mostrar más'}</span>
 						<ChevronDown
-							size={16}
+							size={17}
+							strokeWidth={1.5}
 							className={`ml-2 transition-transform ${
 								isOpen ? 'rotate-180' : 'rotate-0'
 							}`}

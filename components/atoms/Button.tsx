@@ -28,7 +28,7 @@ const buttonVariants = cva(
 
 				outline:
 					'border-t border-b border-ink-subtle/40 text-ink-subtle ' +
-					'hover:border-ink hover:text-ink',
+					'hover:border-ink-subtle hover:text-ink',
 
 				ghost: 'text-ink-subtle hover:text-ink',
 			},

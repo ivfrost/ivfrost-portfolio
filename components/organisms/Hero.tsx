@@ -1,6 +1,10 @@
 'use client';
+import { BiMailSend } from 'react-icons/bi';
 import Button from '../atoms/Button';
 import Container from '../layout/Container';
+import { TbMailSpark } from 'react-icons/tb';
+import { MdOutlineAlternateEmail } from 'react-icons/md';
+import { BsArrowRight } from 'react-icons/bs';
 
 interface HeroProps {
 	name?: string;
@@ -50,7 +54,8 @@ export default function Hero({
 										?.scrollIntoView({ behavior: 'smooth' })
 								}
 							>
-								Contáctame
+								<span>Contáctame</span>
+								<BsArrowRight size={14} className="ml-2" />
 							</Button>
 						</div>
 					)}

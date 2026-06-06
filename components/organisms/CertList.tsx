@@ -64,7 +64,7 @@ export default function CertList({ items }: CertListProps) {
 						<motion.div
 							initial={false}
 							animate={{
-								height: isOpen ? 'auto' : recentItems.length > 5 ? 470 : 'auto',
+								height: isOpen ? 'auto' : recentItems.length > 5 ? 430 : 'auto',
 							}}
 							style={{ overflow: 'hidden' }}
 							className="divide-y divide-border-subtle space-y-6"
@@ -96,11 +96,12 @@ export default function CertList({ items }: CertListProps) {
 								recentItems.length > 5 ? 'block' : 'hidden'
 							}`}
 						>
-							<div className="flex items-center w-full justify-center">
+							<div className="flex items-center text-ink-subtle hover:text-ink transition-colors">
 								<span>{isOpen ? 'Mostrar menos' : 'Mostrar más'}</span>
 								<ChevronDown
-									size={16}
-									className={`ml-2 transition-transform ${
+									size={17}
+									strokeWidth={1.5}
+									className={`ml-2 transition-transform text-ink-subtle ${
 										isOpen ? 'rotate-180' : 'rotate-0'
 									}`}
 								/>
