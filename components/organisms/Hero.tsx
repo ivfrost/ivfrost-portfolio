@@ -22,20 +22,18 @@ export default function Hero({
 			className={`pt-16 pb-0 bg-background border-b border-border ${className}`}
 		>
 			<Container>
-				{/* Name + status */}
-				<div className="mb-8 text-center sm:text-start">
-					<h1 className="text-4xl -ml-0.5 lg:text-6xl capitalize font-normal tracking-tight text-ink-mid leading-none mb-2">
+				{/* Name + role */}
+				<div className="mb-8 text-start">
+					<h1 className="text-4xl -ml-0.5 lg:text-6xl capitalize font-normal tracking-tight text-ink leading-none mb-2">
 						{name}
 					</h1>
-					<p className="text-lg font-sans lg:text-xl tracking-wider text-text-meta mb-2 capitalize block">
-						{role}
-					</p>
+					<h2 className="text-ink-subtle-lite mb-2 capitalize">{role}</h2>
 				</div>
 
 				{/* Three column strip */}
-				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 py-8 border-t border-border">
+				<div className="flex flex-col gap-6 sm:grid sm:grid-cols-2 py-8 border-t border-border-subtle">
 					<div>
-						<span className="font-sans text-lg tracking-wider text-text-meta mb-2 lowercase block">
+						<span className="font-mono text-base tracking-wider text-text-meta-lite mb-2 lowercase block">
 							Stack
 						</span>
 						<p className="text-sm text-ink-subtle leading-relaxed space-x-2">
@@ -44,7 +42,7 @@ export default function Hero({
 					</div>
 
 					<div className="sm:justify-self-start">
-						<span className="font-sans text-lg tracking-wider text-text-meta mb-2 lowercase block">
+						<span className="font-mono text-base tracking-wider text-text-meta-lite mb-2 lowercase block">
 							Estado
 						</span>
 						<p className="text-sm text-ink-subtle leading-relaxed">

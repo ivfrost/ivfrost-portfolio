@@ -13,7 +13,7 @@ export type Experience = {
 	title: string;
 	company: string;
 	location: string;
-	modality: string;
+	modality?: string;
 	dateRange: string;
 	summary?: string;
 	description?: ReactNode;

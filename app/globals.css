@@ -7,8 +7,7 @@
 	--color-background-nav-open: #969993;
 	--color-button: #e0e4d8;
 
-	--color-ink: #0f1410;
-	--color-ink-mid: #1a211b;
+	--color-ink: #1a211b;
 	--color-ink-subtle: #3d4a3e;
 	--color-ink-subtle-lite: #5a6b5c;
 
@@ -28,16 +27,19 @@
 
 @layer base {
 	h1 {
-		@apply text-7xl text-ink font-normal tracking-tight;
+		@apply text-5xl text-ink font-normal tracking-tighter mb-4 font-sans;
 	}
 	h2 {
-		@apply text-4xl text-ink font-normal;
+		@apply text-2xl text-ink tracking-normal mb-3.5 font-normal font-sans;
 	}
 	h3 {
-		@apply text-2xl text-ink font-normal;
+		@apply text-xl text-ink font-normal mb-2.25 tracking-normal font-sans;
 	}
 	h4 {
-		@apply text-xl text-ink;
+		@apply text-lg text-text-meta font-normal font-mono tracking-wider mb-8 lowercase;
+	}
+	h5 {
+		@apply text-base text-text-meta-lite font-normal font-mono tracking-wider mb-6;
 	}
 	p {
 		@apply text-sm text-ink-subtle leading-relaxed;

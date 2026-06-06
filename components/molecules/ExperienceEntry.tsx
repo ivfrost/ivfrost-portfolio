@@ -4,42 +4,31 @@ import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
+import Entry from './Entry';
 
 export default function ExperienceEntry({
 	title,
 	company,
 	location,
-	modality,
 	dateRange,
+	modality,
 	summary,
 	description,
 }: Experience) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div className="relative space-y-8 pb-4">
-			{/* Header */}
-			<div className="space-y-2">
-				<div className="flex justify-between">
-					<h3 className="text-base text-ink-subtle font-medium">{title}</h3>
-					<span className="hidden sm:block text-xs text-text-meta">
-						{dateRange}
-					</span>
-				</div>
-
-				<span className="block sm:hidden text-xs text-text-meta">
-					{dateRange}
-				</span>
-
-				<div className="flex items-center gap-2 text-sm text-text-meta">
-					<span>{company}</span>
-					<span>·</span>
-					<span>{location}</span>
-					<span>·</span>
-					<span>{modality}</span>
-				</div>
-			</div>
-
+		<Entry
+			title={title}
+			subtitle={
+				company +
+				(location ? ` · ${location}` : '') +
+				(modality ? ` · ${modality}` : '')
+			}
+			titleMeta={dateRange}
+			titleIcons={undefined}
+			onClick={undefined}
+		>
 			{/* Summary */}
 			<p>{summary}</p>
 
@@ -67,7 +56,7 @@ export default function ExperienceEntry({
 			{summary && description && (
 				<button
 					onClick={() => setIsOpen(!isOpen)}
-					className="flex ml-auto items-center cursor-pointer gap-1 text-text-meta text-sm hover:text-ink transition-colors"
+					className="flex mt-6 ml-auto items-center cursor-pointer gap-1 text-text-meta text-sm hover:text-ink transition-colors"
 				>
 					<span>{isOpen ? 'Leer menos' : 'Leer más'}</span>
 					<ChevronDown
@@ -79,6 +68,6 @@ export default function ExperienceEntry({
 					/>
 				</button>
 			)}
-		</div>
+		</Entry>
 	);
 }

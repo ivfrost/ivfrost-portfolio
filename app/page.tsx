@@ -46,7 +46,7 @@ export default function Home() {
 				</Section>
 				<Section id="learning" title="Formación" variant="alt">
 					<EducationTimeline entries={education} />
-					<hr className="h-px mb-8 border-border" />
+					<hr className="h-12 border-transparent" />
 					<CertList items={certs} />
 				</Section>
 			</main>

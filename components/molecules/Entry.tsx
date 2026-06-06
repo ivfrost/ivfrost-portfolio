@@ -1,7 +1,9 @@
+'use client';
 import { ReactNode } from 'react';
 
 interface EntryProps {
-	title: string;
+	title: ReactNode | string;
+	subtitle?: string;
 	titleIcons?: ReactNode;
 	titleMeta?: ReactNode;
 	number?: string;
@@ -11,6 +13,7 @@ interface EntryProps {
 
 export default function Entry({
 	title,
+	subtitle,
 	titleIcons,
 	titleMeta,
 	number,
@@ -28,21 +31,36 @@ export default function Entry({
 				</span>
 			)}
 			<div className="flex flex-col gap-px flex-1 min-w-0">
-				<div className="flex sm:justify-between flex-col sm:flex-row sm:items-center gap-1">
-					<h3 className="flex items-center shrink-0">
-						<span className="flex gap-0.75 sm:gap-1 items-center">
-							<span className="text-base! group-hover:underline text-ink group-hover:decoration-ink-subtle underline-offset-4">
-								{title}
-								{titleIcons && (
-									<span className="text-text-meta inline-flex align-middle gap-px sm:gap-1 ml-1">
-										{titleIcons}
-									</span>
-								)}
-							</span>
+				<div className="flex sm:justify-between flex-col sm:flex-row gap-1">
+					<h3 className="flex flex-col items-start gap-y-1 shrink-0">
+						<span
+							className={`${onClick ? 'group-hover:underline group-hover:decoration-ink-subtle underline-offset-4' : ''}`}
+						>
+							{title}
+							{titleIcons && (
+								<span className="text-text-meta-lite inline-flex items-center gap-px sm:gap-1 ml-1">
+									{titleIcons}
+								</span>
+							)}
 						</span>
+						{subtitle && (
+							<span className="hidden tracking-normal sm:inline text-xs text-text-meta">
+								{subtitle}
+							</span>
+						)}
+						{titleMeta && (
+							<span className="text-xs block sm:hidden tracking-normal text-text-meta-lite sm:text-right sm:ml-auto">
+								{titleMeta}
+							</span>
+						)}
+						{subtitle && (
+							<span className="inline sm:hidden text-xs text-text-meta">
+								{subtitle}
+							</span>
+						)}
 					</h3>
 					{titleMeta && (
-						<span className="text-xs text-text-meta sm:text-right sm:ml-auto">
+						<span className="text-sm hidden sm:block tracking-normal text-text-meta-lite sm:text-right sm:ml-auto">
 							{titleMeta}
 						</span>
 					)}

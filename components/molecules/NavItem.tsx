@@ -24,7 +24,7 @@ const navItemVariants = cva(
 		variants: {
 			isActive: {
 				true: 'cursor-default',
-				false: 'hover:text-ink-mid',
+				false: 'hover:text-ink',
 			},
 			isMobile: {
 				true: 'text-xl font-mono w-fit',
@@ -37,8 +37,8 @@ const navItemVariants = cva(
 		},
 		compoundVariants: [
 			{ isMobile: false, isActive: false, class: 'text-text-meta' },
-			{ isMobile: false, isActive: true, class: 'text-ink-mid' },
-			{ isMobile: true, isActive: false, class: 'text-ink-mid' },
+			{ isMobile: false, isActive: true, class: 'text-ink' },
+			{ isMobile: true, isActive: false, class: 'text-ink' },
 			{ isMobile: true, isActive: true, class: 'text-ink' },
 		],
 	},

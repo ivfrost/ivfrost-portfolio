@@ -1,5 +1,7 @@
 'use client';
+import { ChevronDown } from 'lucide-react';
 import CertEntry from '../molecules/CertEntry';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export interface CertListProps {
@@ -11,31 +13,32 @@ export interface CertListProps {
 		pinned?: boolean;
 	}[];
 }
+const formatDate = (date: string) => {
+	const [year, month] = date.split('-');
+	return new Date(parseInt(year), parseInt(month) - 1).toLocaleDateString(
+		'es-ES',
+		{ month: 'short', year: 'numeric' },
+	);
+};
 
 export default function CertList({ items }: CertListProps) {
 	const pinnedItems = items.filter((item) => !!item.pinned);
-
-	const groupedItems = items
+	const recentItems = items
 		.filter((item) => !item.pinned)
-		.reduce<Record<string, CertListProps['items']>>((groups, item) => {
-			if (!groups[item.issuer]) {
-				groups[item.issuer] = [];
-			}
-			groups[item.issuer].push(item);
-			return groups;
-		}, {});
+		.sort((a, b) => b.date.localeCompare(a.date));
+	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<>
-			<div className="pb-8">
+			<div className="pb-12">
 				<section>
-					<h3 className="font-mono text-base tracking-wider text-text-meta mb-6">
+					<h3 className="font-mono text-lg tracking-wider text-text-meta-lite mb-10 lowercase block">
 						certificaciones
 					</h3>
-					<h4 className="font-mono text-sm  tracking-wider text-text-meta-lite mb-6">
-						destacadas
-					</h4>
 					<div className="divide-y divide-border space-y-6">
+						<h4 className="font-mono text-sm tracking-wider text-text-meta-lite mb-4 pb-1 lowercase block">
+							destacadas
+						</h4>
 						{pinnedItems.map((item, idx) => {
 							const issuerNoBrackets = item.issuer
 								.replace(/\(.*?\)/g, '')
@@ -46,7 +49,7 @@ export default function CertList({ items }: CertListProps) {
 									title={item.title}
 									titleMeta={
 										item.date
-											? issuerNoBrackets + ` · ${item.date}`
+											? issuerNoBrackets + ` · ${formatDate(item.date)}`
 											: issuerNoBrackets
 									}
 									credentialUrl={item.href}
@@ -58,23 +61,57 @@ export default function CertList({ items }: CertListProps) {
 				</section>
 			</div>
 			<div>
-				{Object.entries(groupedItems).map(([issuer, issuerItems]) => (
-					<section className="pb-6" key={issuer + issuerItems[0].title}>
-						<h3 className="font-mono text-sm tracking-wider text-text-meta-lite mb-6">
-							{issuer}
-						</h3>
-						<div className="divide-y divide-border space-y-6">
-							{issuerItems.map((item) => (
-								<CertEntry
-									key={item.title}
-									title={item.title}
-									titleMeta={item.date}
-									credentialUrl={item.href}
-								/>
-							))}
-						</div>
-					</section>
-				))}
+				<section>
+					<div className="space-y-6">
+						<h4 className="font-mono text-sm tracking-wider text-text-meta-lite mb-4 pb-1 lowercase block border-b border-border-subtle">
+							más recientes
+						</h4>
+						<motion.div
+							initial={false}
+							animate={{
+								height: isOpen ? 'auto' : recentItems.length > 5 ? 470 : 'auto',
+							}}
+							style={{ overflow: 'hidden' }}
+							className="divide-y divide-border space-y-6"
+						>
+							{recentItems.map((item, idx) => {
+								const issuerNoBrackets = item.issuer
+									.replace(/\(.*?\)/g, '')
+									.trim();
+								return (
+									<CertEntry
+										key={item.title + idx}
+										title={item.title}
+										titleMeta={
+											item.date
+												? issuerNoBrackets + ` · ${item.date}`
+												: issuerNoBrackets
+										}
+										credentialUrl={item.href}
+									/>
+								);
+							})}
+						</motion.div>
+						<button
+							onClick={() => setIsOpen(!isOpen)}
+							className="flex mt-6 ml-auto items-center cursor-pointer gap-1 text-text-meta text-sm hover:text-ink transition-colors"
+						>
+							<span>{isOpen ? 'Mostrar menos' : 'Mostrar más'}</span>
+							<ChevronDown
+								size={16}
+								strokeWidth={1.75}
+								className={`transition-transform duration-200 ${
+									isOpen ? 'rotate-180' : ''
+								}`}
+							/>
+						</button>
+					</div>
+				</section>
+				{items.length === 0 && (
+					<p className="text-sm text-muted">
+						No hay certificaciones para mostrar.
+					</p>
+				)}
 			</div>
 		</>
 	);

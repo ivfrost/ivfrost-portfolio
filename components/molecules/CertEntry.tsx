@@ -1,5 +1,5 @@
 'use client';
-import { BsArrowUpRight } from 'react-icons/bs';
+import { ExternalLink } from 'lucide-react';
 import { GoPin } from 'react-icons/go';
 import Entry from './Entry';
 
@@ -35,17 +35,14 @@ export default function CertEntry({
 		<Entry
 			title={title}
 			titleIcons={
-				pinned || credentialUrl ? (
-					<>
-						{pinned && <GoPin size={12} className="text-text-meta" />}
-						{credentialUrl && (
-							<BsArrowUpRight size={12} className="text-text-meta" />
-						)}
-					</>
+				credentialUrl ? (
+					<ExternalLink size={14} className="ml-1.5 inline-flex" />
 				) : undefined
 			}
 			titleMeta={computedMeta}
-			onClick={() => credentialUrl && window.open(credentialUrl, '_blank')}
+			onClick={
+				credentialUrl ? () => window.open(credentialUrl, '_blank') : undefined
+			}
 		>
 			{!dateMeta && date && <p className="text-xs">{date}</p>}
 		</Entry>
