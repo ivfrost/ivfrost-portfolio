@@ -85,7 +85,7 @@ export default function Header({ items, className }: HeaderProps) {
 						animate={{ x: 0 }}
 						exit={{ x: '-100%' }}
 						transition={{ duration: 0.2 }}
-						className="fixed top-0 left-0 bg-background-nav h-full flex flex-col justify-between text-lg shadow-lg shadow-ink/16 z-90"
+						className="fixed top-0 left-0 bg-background h-full flex flex-col justify-between text-lg shadow-lg shadow-ink/16 z-90"
 					>
 						<div className="flex justify-start items-center">
 							<MenuToggle
