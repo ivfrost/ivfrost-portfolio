@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 import Entry from './Entry';
+import Button from '../atoms/Button';
 
 export default function ExperienceEntry({
 	title,
@@ -54,19 +55,23 @@ export default function ExperienceEntry({
 
 			{/* Toggle button */}
 			{summary && description && (
-				<button
+				<Button
+					type="button"
+					variant="outline"
+					size="small"
 					onClick={() => setIsOpen(!isOpen)}
-					className="flex mt-6 ml-auto items-center cursor-pointer gap-1 text-text-meta text-sm hover:text-ink transition-colors"
+					className="w-full sm:w-auto sm:ml-auto mt-6"
 				>
-					<span>{isOpen ? 'Leer menos' : 'Leer más'}</span>
-					<ChevronDown
-						size={16}
-						strokeWidth={1.75}
-						className={`transition-transform duration-200 ${
-							isOpen ? 'rotate-180' : ''
-						}`}
-					/>
-				</button>
+					<div className="flex items-center">
+						<span>{isOpen ? 'Mostrar menos' : 'Mostrar más'}</span>
+						<ChevronDown
+							size={16}
+							className={`ml-2 transition-transform ${
+								isOpen ? 'rotate-180' : 'rotate-0'
+							}`}
+						/>
+					</div>
+				</Button>
 			)}
 		</Entry>
 	);

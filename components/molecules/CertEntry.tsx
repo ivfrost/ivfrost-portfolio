@@ -1,6 +1,5 @@
 'use client';
 import { ExternalLink } from 'lucide-react';
-import { GoPin } from 'react-icons/go';
 import Entry from './Entry';
 
 interface CertEntryProps {

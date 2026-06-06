@@ -1,6 +1,6 @@
 'use client';
 import { Project } from '@/data/types';
-import { BsArrowUpRight, BsStar } from 'react-icons/bs';
+import { BsStar } from 'react-icons/bs';
 import Entry from './Entry';
 import { ExternalLink } from 'lucide-react';
 

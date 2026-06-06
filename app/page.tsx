@@ -9,6 +9,7 @@ import certs from '@/data/certs';
 import CertList from '@/components/organisms/CertList';
 import EducationTimeline from '@/components/organisms/EducationTimeline';
 import education from '@/data/education';
+import ContactForm from '@/components/organisms/ContactForm';
 
 export default function Home() {
 	return (
@@ -18,7 +19,7 @@ export default function Home() {
 					{ label: 'proyectos', href: '#selected-work' },
 					{ label: 'experiencia', href: '#experience' },
 					{ label: 'formación', href: '#learning' },
-					// { label: 'contacto', href: '#contact' },
+					{ label: 'contacto', href: '#contact' },
 				]}
 			/>
 			<main>
@@ -48,6 +49,9 @@ export default function Home() {
 					<EducationTimeline entries={education} />
 					<hr className="h-12 border-transparent" />
 					<CertList items={certs} />
+				</Section>
+				<Section id="contact" title="Contacto">
+					<ContactForm />
 				</Section>
 			</main>
 		</>

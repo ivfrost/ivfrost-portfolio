@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Inter } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
+import { Toaster } from 'sonner';
 
 const ibmPlexMono = IBM_Plex_Mono({
 	variable: '--font-ibm-plex-mono',
@@ -43,6 +44,7 @@ export default function RootLayout({
 		>
 			<body className="flex min-h-full flex-col bg-pattern">
 				{children}
+				<Toaster position="bottom-right" />
 				<Analytics />
 			</body>
 		</html>

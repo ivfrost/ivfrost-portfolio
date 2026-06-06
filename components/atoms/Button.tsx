@@ -15,18 +15,22 @@ interface ButtonProps {
 const buttonVariants = cva(
 	[
 		'group font-mono transition-all min-w-fit flex items-center',
-		'disabled:opacity-50 justify-center whitespace-nowrap font-medium',
-		'disabled:cursor-not-allowed cursor-pointer duration-200 rounded-sm',
-		'active:translate-y-px uppercase tracking-widest leading-none antialiased',
+		'disabled:opacity-50 justify-center whitespace-nowrap font-normal',
+		'disabled:cursor-not-allowed cursor-pointer duration-200',
+		'active:translate-y-px lowercase tracking-widest leading-none antialiased',
 	],
 	{
 		variants: {
 			variant: {
 				primary: 'bg-ink text-frost-1 hover:bg-ink-mid',
+
 				outline:
-					'border border-accent-3 text-ink-subtle hover:border-ink-subtle hover:text-ink',
+					'border-t border-b border-ink-subtle/40 text-ink-subtle ' +
+					'hover:border-ink hover:text-ink',
+
 				ghost: 'text-ink-subtle hover:text-ink',
 			},
+
 			tone: {
 				light: '',
 				dark: '',

@@ -35,6 +35,7 @@ export function MenuToggle({ isOpen, onClick, className }: MenuToggleProps) {
 					y1="12"
 					x2="21"
 					y2="12"
+					initial={{ opacity: 1 }}
 					variants={{
 						closed: { opacity: 1 },
 						open: { opacity: 0 },

@@ -3,10 +3,8 @@
 import Container from '../layout/Container';
 import type { NavLinkData } from '../molecules/NavItem';
 import Navbar from './Navbar';
-import { Menu, X } from 'lucide-react';
 import { cx } from 'class-variance-authority';
 import Link from 'next/link';
-import Button from '../atoms/Button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Socialbar from '../organisms/Socialbar';
@@ -45,7 +43,7 @@ export default function Header({ items, className }: HeaderProps) {
 		<>
 			<header
 				className={cx(
-					'sticky top-0 z-50 w-full flex items-center outline-b outline-border',
+					'sticky top-0 z-50 min-h-16 border-b border-border w-full flex items-center outline-b outline-border',
 					'bg-background text-text-meta hidden sm:flex',
 					className,
 				)}
