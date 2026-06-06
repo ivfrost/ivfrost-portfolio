@@ -1,16 +1,13 @@
 'use client';
-import { BiMailSend } from 'react-icons/bi';
 import Button from '../atoms/Button';
 import Container from '../layout/Container';
-import { TbMailSpark } from 'react-icons/tb';
-import { MdOutlineAlternateEmail } from 'react-icons/md';
 import { BsArrowRight } from 'react-icons/bs';
 
 interface HeroProps {
 	name?: string;
 	role?: string;
 	about?: string;
-	stack?: string[];
+	stack?: ({ name: string; icon?: React.ReactNode } | string)[];
 	openTo?: string;
 	location?: string;
 	className?: string;
@@ -64,7 +61,27 @@ export default function Hero({
 						<div className="flex-1">
 							<h4 className="mb-2 text-base text-text-meta-lite">stack</h4>
 							<p>
-								{stack.length > 0 ? stack.join(' · ') : 'No stack information'}
+								{stack.length > 0 ? (
+									stack.map((tech, idx) => (
+										<span
+											key={idx}
+											className="inline-flex items-center mr-4 mb-2"
+										>
+											{typeof tech === 'string' ? (
+												tech
+											) : (
+												<>
+													{tech.name}
+													{tech.icon && (
+														<span className="ml-1">{tech.icon}</span>
+													)}
+												</>
+											)}
+										</span>
+									))
+								) : (
+									<span>No especificado</span>
+								)}
 							</p>
 						</div>
 						<div className="flex-1">

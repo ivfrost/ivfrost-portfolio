@@ -10,6 +10,7 @@ import CertList from '@/components/organisms/CertList';
 import EducationTimeline from '@/components/organisms/EducationTimeline';
 import education from '@/data/education';
 import ContactForm from '@/components/organisms/ContactForm';
+import { stack } from '@/data/stack';
 
 export default function Home() {
 	return (
@@ -28,14 +29,7 @@ export default function Home() {
 					role="Desarrollador Full Stack"
 					about="Desarrollo software con foco en backend y arquitectura. Soy autodidacta por naturaleza — si algo me interesa, lo aprendo. Mantengo un homelab con Proxmox y uso Linux como sistema principal."
 					openTo="nuevas oportunidades"
-					stack={[
-						'React',
-						'Next.js',
-						'Node.js',
-						'TypeScript',
-						'Java',
-						'Spring',
-					]}
+					stack={stack}
 					location="Remoto o Málaga"
 				/>
 

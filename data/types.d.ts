@@ -43,3 +43,10 @@ export type SocialLinkData = {
 	isMobile?: boolean;
 	icon: ComponentType<{ size?: number; strokeWidth?: number }>;
 };
+
+export type StackItem =
+	| {
+			name: string;
+			icon?: ReactNode;
+	  }
+	| string;
