@@ -11,7 +11,8 @@ export default function ExperienceEntry({
 	title,
 	company,
 	location,
-	dateRange,
+	startDate,
+	endDate,
 	modality,
 	summary,
 	description,
@@ -26,7 +27,7 @@ export default function ExperienceEntry({
 				(location ? ` · ${location}` : '') +
 				(modality ? ` · ${modality}` : '')
 			}
-			titleMeta={dateRange}
+			titleMeta={`${startDate} - ${endDate}`}
 			titleIcons={undefined}
 			onClick={undefined}
 		>

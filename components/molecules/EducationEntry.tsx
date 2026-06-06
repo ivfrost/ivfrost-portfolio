@@ -6,14 +6,15 @@ export default function EducationEntry({
 	title,
 	institution,
 	location,
-	dateRange,
+	startDate,
+	endDate,
 	summary,
 }: Education) {
 	return (
 		<Entry
 			title={title}
 			subtitle={institution + (location ? ` · ${location}` : '')}
-			titleMeta={dateRange}
+			titleMeta={`${startDate} - ${endDate}`}
 			titleIcons={undefined}
 			onClick={undefined}
 		>

@@ -4,6 +4,7 @@ import CertEntry from '../molecules/CertEntry';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import Button from '../atoms/Button';
+import { formatDate } from '@/lib/utils';
 
 export interface CertListProps {
 	items: {
@@ -14,13 +15,6 @@ export interface CertListProps {
 		pinned?: boolean;
 	}[];
 }
-const formatDate = (date: string) => {
-	const [year, month] = date.split('-');
-	return new Date(parseInt(year), parseInt(month) - 1).toLocaleDateString(
-		'es-ES',
-		{ month: 'short', year: 'numeric' },
-	);
-};
 
 export default function CertList({ items }: CertListProps) {
 	const pinnedItems = items.filter((item) => !!item.pinned);
@@ -85,7 +79,7 @@ export default function CertList({ items }: CertListProps) {
 										title={item.title}
 										titleMeta={
 											item.date
-												? issuerNoBrackets + ` · ${item.date}`
+												? issuerNoBrackets + ` · ${formatDate(item.date)}`
 												: issuerNoBrackets
 										}
 										credentialUrl={item.href}

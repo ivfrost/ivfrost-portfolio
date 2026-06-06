@@ -1,5 +1,6 @@
 import EducationEntry from '@/components/molecules/EducationEntry';
 import type { Education } from '@/data/types';
+import { formatDate } from '@/lib/utils';
 
 interface EducationTimelineProps {
 	entries: Education[];
@@ -17,7 +18,8 @@ export default function EducationTimeline({ entries }: EducationTimelineProps) {
 					title={entry.title}
 					institution={entry.institution}
 					location={entry.location}
-					dateRange={entry.dateRange}
+					startDate={formatDate(entry.startDate)}
+					endDate={formatDate(entry.endDate)}
 					summary={entry.summary}
 				/>
 			))}

@@ -8,7 +8,8 @@ const experience: Experience[] = [
 		company: 'Master Distancia SAU',
 		location: 'Remoto',
 		modality: 'Prácticas',
-		dateRange: 'Mar 2026 - Jun 2026',
+		startDate: '2026-03',
+		endDate: '2026-06',
 		summary:
 			'Durante mis prácticas participé en dos proyectos: en uno me encargué del desarrollo completo del backend, en el otro del lenguaje de diseño y arquitectura de componentes. Ejercí de integrador de ramas del equipo en ambos.',
 		description: (

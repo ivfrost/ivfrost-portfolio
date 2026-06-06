@@ -14,7 +14,8 @@ export type Experience = {
 	company: string;
 	location: string;
 	modality?: string;
-	dateRange: string;
+	startDate: string;
+	endDate: string;
 	summary?: string;
 	description?: ReactNode;
 };
@@ -31,7 +32,8 @@ export type Education = {
 	title: string;
 	institution: string;
 	location: string;
-	dateRange: string;
+	startDate: string;
+	endDate: string;
 	summary?: ReactNode;
 };
 

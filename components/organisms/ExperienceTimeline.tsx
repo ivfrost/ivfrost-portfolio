@@ -1,5 +1,6 @@
 import ExperienceEntry from '../molecules/ExperienceEntry';
 import type { Experience } from '@/data/types';
+import { formatDate } from '@/lib/utils';
 
 interface ExperienceTimelineProps {
 	entries: Experience[];
@@ -17,7 +18,8 @@ export default function ExperienceTimeline({
 					company={entry.company}
 					location={entry.location}
 					modality={entry.modality}
-					dateRange={entry.dateRange}
+					startDate={formatDate(entry.startDate)}
+					endDate={formatDate(entry.endDate)}
 					summary={entry.summary}
 					description={entry.description}
 				/>
