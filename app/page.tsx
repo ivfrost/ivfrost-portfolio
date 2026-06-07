@@ -11,6 +11,8 @@ import EducationTimeline from '@/components/organisms/EducationTimeline';
 import education from '@/data/education';
 import ContactForm from '@/components/organisms/ContactForm';
 import { stack } from '@/data/stack';
+import Footer from '@/components/organisms/Footer';
+import { socials } from '@/data/socials';
 
 export default function Home() {
 	return (
@@ -49,6 +51,11 @@ export default function Home() {
 					<ContactForm />
 				</Section>
 			</main>
+			<Footer
+				name="Pablo Villena"
+				socialLinks={socials}
+				cvLink="/europass-cv-es-np.pdf"
+			/>
 		</>
 	);
 }

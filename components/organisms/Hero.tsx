@@ -2,11 +2,13 @@
 import Button from '../atoms/Button';
 import Container from '../layout/Container';
 import { BsArrowRight } from 'react-icons/bs';
+import { TbFileCv } from 'react-icons/tb';
 
 interface HeroProps {
 	name?: string;
 	role?: string;
 	about?: string;
+	cvLink?: string;
 	stack?: ({ name: string; icon?: React.ReactNode } | string)[];
 	openTo?: string;
 	location?: string;
@@ -17,6 +19,7 @@ export default function Hero({
 	name,
 	role,
 	about,
+	cvLink,
 	stack = [],
 	openTo,
 	location,
@@ -37,9 +40,17 @@ export default function Hero({
 
 					{about && (
 						<div className="flex flex-col sm:flex-row sm:justify-between gap-4">
-							<p className="text-sm text-ink-subtle leading-relaxed max-w-prose">
-								{about}
-							</p>
+							<div className="flex flex-col">
+								<p className="text-sm text-ink-subtle leading-relaxed max-w-prose">
+									{about}{' '}
+									<a
+										href={cvLink}
+										className="text-ink-subtle-lite hover:text-ink-subtle transition-colors ml-1"
+									>
+										<TbFileCv className="inline" size={18} />
+									</a>
+								</p>
+							</div>
 							<Button
 								variant="outline"
 								type="button"

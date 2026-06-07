@@ -17,7 +17,7 @@ export const projects: Project[] = [
 	},
 	{
 		number: '03',
-		name: 'visitas-virtuales-zaitec',
+		name: 'visitas-virtuales',
 		description: 'Plataforma 360° para visitas a centros educativos',
 		stack: ['React', 'TypeScript', 'Express', 'PostgreSQL', 'MinIO'],
 		href: 'https://github.com/jaimemoya-bit/VisitasVirtualesZaitec',
