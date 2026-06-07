@@ -37,6 +37,21 @@ export default function Navbar({ items, isMobile, onNavigate }: NavbarProps) {
 		return () => observers.forEach((o) => o.disconnect());
 	}, [items]);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			const nearBottom =
+				window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
+			if (nearBottom) {
+				setActiveHref(items[items.length - 1].href);
+			} else if (activeHref === items[items.length - 1].href) {
+				setActiveHref(items[items.length - 2].href);
+			}
+		};
+
+		window.addEventListener('scroll', handleScroll);
+		return () => window.removeEventListener('scroll', handleScroll);
+	}, [items, activeHref]);
+
 	return (
 		<nav
 			className={`flex gap-4 sm:gap-8 py-4 justify-between sm:justify-center font-mono bg-transparent w-full sm:w-auto ${isMobile ? 'flex-col gap-8' : ''}`}
