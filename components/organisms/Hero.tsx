@@ -108,11 +108,8 @@ export default function Hero({
 							<h4 className="mb-2 text-base text-text-meta-lite">
 								{statusLabel}
 							</h4>
-							<p>
-								{openTo || 'oportunidades'}
-								<br />
-								{location || 'Ubicación no especificada'}
-							</p>
+							<p>{openTo || 'oportunidades'}</p>
+							<p>{location || 'Ubicación no especificada'}</p>
 						</div>
 					</div>
 				</div>
