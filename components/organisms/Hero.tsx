@@ -42,13 +42,16 @@ export default function Hero({
 						<div className="flex flex-col sm:flex-row sm:justify-between gap-4">
 							<div className="flex flex-col">
 								<p className="text-sm text-ink-subtle leading-relaxed max-w-prose">
-									{about}{' '}
-									<a
-										href={cvLink}
-										className="text-ink-subtle-lite hover:text-ink-subtle transition-colors ml-1"
-									>
-										<TbFileCv className="inline" size={18} />
-									</a>
+									{about}
+									{cvLink && ' '}
+									{cvLink && (
+										<a
+											href={cvLink}
+											className="text-ink-subtle-lite hover:text-ink-subtle transition-colors ml-1"
+										>
+											<TbFileCv className="inline" size={18} />
+										</a>
+									)}
 								</p>
 							</div>
 							<Button
