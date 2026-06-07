@@ -1,0 +1,42 @@
+{
+	"label": {
+		"featuredWork": "Featured Work",
+		"experience": "Professional Experience",
+		"training": "Education",
+		"contact": "Contact",
+		"studies": "Studies",
+		"certifications": "Certifications",
+		"featured": "Featured",
+		"recent": "Recent",
+		"name": "Name",
+		"message": "Message",
+		"status": "Status"
+	},
+	"hero": {
+		"role": "Full Stack Developer",
+		"about": "I build software focused on backend and architecture. Self-taught by nature — if something interests me, I learn it. I maintain a homelab with Proxmox and use Linux as my daily driver.",
+		"openTo": "new opportunities",
+		"location": "Remote or Málaga",
+		"ctaLabel": "Contact me",
+		"statusText": "Open to new opportunities, remote or Málaga-based."
+	},
+	"nav": {
+		"featuredWork": "projects",
+		"experience": "experience",
+		"training": "education",
+		"contact": "contact"
+	},
+	"button": {
+		"showMore": "Show more",
+		"showLess": "Show less",
+		"sendMessage": "Send message",
+		"sending": "Sending...",
+		"submit": "Submit"
+	},
+	"contact": {
+		"desc": "Have a project in mind or want to get in touch? Send me a message and I'll get back to you as soon as I can."
+	},
+	"footer": {
+		"builtWith": "Built with"
+	}
+}

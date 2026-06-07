@@ -12,7 +12,9 @@ interface HeroProps {
 	stack?: ({ name: string; icon?: React.ReactNode } | string)[];
 	openTo?: string;
 	location?: string;
+	ctaLabel?: string;
 	className?: string;
+	statusLabel?: string;
 }
 
 export default function Hero({
@@ -23,6 +25,8 @@ export default function Hero({
 	stack = [],
 	openTo,
 	location,
+	ctaLabel,
+	statusLabel,
 	className,
 }: HeroProps) {
 	return (
@@ -54,20 +58,22 @@ export default function Hero({
 									)}
 								</p>
 							</div>
-							<Button
-								variant="outline"
-								type="button"
-								size="small"
-								className="self-start shrink-0 w-full sm:w-auto"
-								onClick={() =>
-									document
-										.getElementById('contact')
-										?.scrollIntoView({ behavior: 'smooth' })
-								}
-							>
-								<span>Contáctame</span>
-								<BsArrowRight size={14} className="ml-2" />
-							</Button>
+							{ctaLabel && (
+								<Button
+									variant="outline"
+									type="button"
+									size="small"
+									className="self-start shrink-0 w-full sm:w-auto"
+									onClick={() =>
+										document
+											.getElementById('contact')
+											?.scrollIntoView({ behavior: 'smooth' })
+									}
+								>
+									<span>{ctaLabel}</span>
+									<BsArrowRight size={14} className="ml-2" />
+								</Button>
+							)}
 						</div>
 					)}
 
@@ -99,9 +105,11 @@ export default function Hero({
 							</p>
 						</div>
 						<div className="flex-1">
-							<h4 className="mb-2 text-base text-text-meta-lite">estado</h4>
+							<h4 className="mb-2 text-base text-text-meta-lite">
+								{statusLabel}
+							</h4>
 							<p>
-								Abierto a {openTo || 'oportunidades'}
+								{openTo || 'oportunidades'}
 								<br />
 								{location || 'Ubicación no especificada'}
 							</p>

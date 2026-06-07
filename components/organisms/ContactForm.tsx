@@ -10,9 +10,19 @@ import { motion } from 'framer-motion';
 
 interface ContactFormProps {
 	className?: string;
+	contactDesc?: string;
+	submitText?: string;
+	nameLabel?: string;
+	messageLabel?: string;
 }
 
-export default function ContactForm({ className }: ContactFormProps) {
+export default function ContactForm({
+	className,
+	contactDesc,
+	submitText,
+	nameLabel,
+	messageLabel,
+}: ContactFormProps) {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -43,13 +53,10 @@ export default function ContactForm({ className }: ContactFormProps) {
 			className={`flex flex-col gap-4 sm:gap-8 ${className}`}
 			onSubmit={handleSubmit}
 		>
-			<p>
-				¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y
-				te respondo lo antes posible.
-			</p>
+			<p>{contactDesc}</p>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				<Input
-					label="Nombre"
+					label={nameLabel!}
 					name="name"
 					value={formData.name}
 					onChange={(value) => setFormData({ ...formData, name: value })}
@@ -70,7 +77,7 @@ export default function ContactForm({ className }: ContactFormProps) {
 				className="overflow-hidden"
 			>
 				<Input
-					label="Mensaje"
+					label={messageLabel!}
 					name="message"
 					as="textarea"
 					value={formData.message}
@@ -90,7 +97,7 @@ export default function ContactForm({ className }: ContactFormProps) {
 				className="w-full sm:ml-auto sm:w-fit!"
 				size="small"
 			>
-				<span>Enviar mensaje</span>
+				<span>{submitText}</span>
 				<IoPaperPlaneOutline size={15} className="ml-2" />
 			</Button>
 		</form>

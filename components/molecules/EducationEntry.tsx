@@ -2,23 +2,39 @@
 import type { Education } from '@/data/types';
 import Entry from './Entry';
 
+export interface EducationEntryProps extends Education {
+	lang?: 'en' | 'es';
+}
+
 export default function EducationEntry({
 	title,
 	institution,
 	location,
 	startDate,
 	endDate,
+	isRemote,
 	summary,
-}: Education) {
+	lang,
+}: EducationEntryProps) {
+	console.log(isRemote);
 	return (
 		<Entry
 			title={title}
-			subtitle={institution + (location ? ` · ${location}` : '')}
+			subtitle={
+				institution +
+				(isRemote
+					? lang != 'es'
+						? ' · Remote'
+						: ' · Remoto'
+					: !isRemote && location
+						? ` · ${location}`
+						: '')
+			}
 			titleMeta={`${startDate} - ${endDate}`}
 			titleIcons={undefined}
 			onClick={undefined}
 		>
-			{summary && <p>{summary}</p>}
+			{summary && <p>{summary[lang || 'en']}</p>}
 		</Entry>
 	);
 }

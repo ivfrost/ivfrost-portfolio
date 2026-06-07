@@ -7,6 +7,12 @@ import { AnimatePresence } from 'framer-motion';
 import Entry from './Entry';
 import Button from '../atoms/Button';
 
+export interface ExperienceEntryProps extends Experience {
+	lang?: 'en' | 'es';
+	showMoreText?: string;
+	showLessText?: string;
+}
+
 export default function ExperienceEntry({
 	title,
 	company,
@@ -14,25 +20,39 @@ export default function ExperienceEntry({
 	startDate,
 	endDate,
 	modality,
+	lang,
+	isRemote,
 	summary,
 	description,
-}: Experience) {
+	showMoreText,
+	showLessText,
+}: ExperienceEntryProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
 		<Entry
-			title={title}
+			title={title[lang || 'en']}
 			subtitle={
 				company +
-				(location ? ` · ${location}` : '') +
-				(modality ? ` · ${modality}` : '')
+				(isRemote
+					? lang == 'es'
+						? ' · Remoto'
+						: ' · Remote'
+					: !isRemote && location
+						? ` · ${location}`
+						: '') +
+				(modality && modality == 'Prácticas'
+					? lang != 'es'
+						? ' · Internship'
+						: ' · Prácticas'
+					: '')
 			}
 			titleMeta={`${startDate} - ${endDate}`}
 			titleIcons={undefined}
 			onClick={undefined}
 		>
 			{/* Summary */}
-			<p>{summary}</p>
+			<p>{summary ? summary[lang || 'en'] : ''}</p>
 
 			{/* Expanded content */}
 			<AnimatePresence>
@@ -49,7 +69,7 @@ export default function ExperienceEntry({
 						}}
 						className="overflow-hidden"
 					>
-						<div>{description}</div>
+						{description && <div>{description[lang || 'en']}</div>}
 					</motion.div>
 				)}
 			</AnimatePresence>
@@ -64,7 +84,7 @@ export default function ExperienceEntry({
 					className="w-full sm:w-auto sm:ml-auto mt-6"
 				>
 					<div className="flex items-center text-ink-subtle hover:text-ink transition-colors">
-						<span>{isOpen ? 'Mostrar menos' : 'Mostrar más'}</span>
+						<span>{isOpen ? showLessText : showMoreText}</span>
 						<ChevronDown
 							size={17}
 							strokeWidth={1.5}

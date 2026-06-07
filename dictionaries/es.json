@@ -1,0 +1,42 @@
+{
+	"label": {
+		"featuredWork": "Proyectos destacados",
+		"experience": "Experiencia profesional",
+		"training": "Formación",
+		"contact": "Contacto",
+		"studies": "Estudios",
+		"certifications": "Certificaciones",
+		"featured": "Destacadas",
+		"recent": "Recientes",
+		"name": "Nombre",
+		"message": "Mensaje",
+		"status": "Estado"
+	},
+	"hero": {
+		"role": "Desarrollador Full Stack",
+		"about": "Desarrollo software con foco en backend y arquitectura. Soy autodidacta por naturaleza — si algo me interesa, lo aprendo. Mantengo un homelab con Proxmox y uso Linux como sistema principal.",
+		"openTo": "nuevas oportunidades",
+		"location": "Remoto o Málaga",
+		"ctaLabel": "Contáctame",
+		"statusText": "Abierto a nuevas oportunidades, Remoto o Málaga."
+	},
+	"nav": {
+		"featuredWork": "proyectos",
+		"experience": "experiencia",
+		"training": "formación",
+		"contact": "contacto"
+	},
+	"button": {
+		"showMore": "Mostrar más",
+		"showLess": "Mostrar menos",
+		"sendMessage": "Enviar mensaje",
+		"sending": "Enviando...",
+		"submit": "Enviar"
+	},
+	"contact": {
+		"desc": "¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y te respondo lo antes posible."
+	},
+	"footer": {
+		"builtWith": "Creado con"
+	}
+}

@@ -3,15 +3,21 @@ import { Project } from '@/data/types';
 import { BsStar } from 'react-icons/bs';
 import Entry from './Entry';
 import { ExternalLink } from 'lucide-react';
+import type { Locale } from '@/app/[lang]/dictionaries';
+
+export interface ProjectEntryProps extends Project {
+	lang?: Locale;
+}
 
 export default function ProjectEntry({
 	number,
 	name,
 	description,
+	lang,
 	stack,
 	stars = 0,
 	href,
-}: Project) {
+}: ProjectEntryProps) {
 	return (
 		<Entry
 			number={number}
@@ -29,7 +35,7 @@ export default function ProjectEntry({
 			titleMeta={<span>{stack.join(' · ')}</span>}
 			onClick={href ? () => window.open(href, '_blank') : undefined}
 		>
-			<p className="-mt-2">{description}</p>
+			<p className="-mt-2">{description[lang ?? 'en']}</p>
 		</Entry>
 	);
 }

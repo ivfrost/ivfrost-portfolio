@@ -11,12 +11,17 @@ type Story = StoryObj<typeof ExperienceEntry>;
 
 export const Default: Story = {
 	args: {
-		title: 'Software Engineer',
+		title: {
+			en: 'Software Engineer',
+			es: 'Ingeniero de Software',
+		},
 		company: 'Tech Company',
 		location: 'San Francisco, CA',
 		startDate: '01/2020',
 		endDate: '01/2022',
-		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+		description: {
+			en: 'Worked on developing and maintaining web applications using React and Node.js.',
+			es: 'Trabajé en el desarrollo y mantenimiento de aplicaciones web utilizando React y Node.js.',
+		},
 	},
 };

@@ -14,9 +14,21 @@ export interface CertListProps {
 		href?: string;
 		pinned?: boolean;
 	}[];
+	heading?: string;
+	featuredLabel?: string;
+	recentLabel?: string;
+	showMoreText?: string;
+	showLessText?: string;
 }
 
-export default function CertList({ items }: CertListProps) {
+export default function CertList({
+	items,
+	heading,
+	featuredLabel,
+	recentLabel,
+	showMoreText,
+	showLessText,
+}: CertListProps) {
 	const pinnedItems = items.filter((item) => !!item.pinned);
 	const recentItems = items
 		.filter((item) => !item.pinned)
@@ -41,11 +53,11 @@ export default function CertList({ items }: CertListProps) {
 			<div className="pb-12">
 				<section>
 					<h3 className="font-mono text-lg tracking-wider text-text-meta-lite mb-10 lowercase block">
-						certificaciones
+						{heading}
 					</h3>
 					<div className="divide-y divide-border-subtle space-y-6">
 						<h4 className="font-mono text-sm tracking-wider text-text-meta-lite mb-4 pb-1 lowercase block">
-							destacadas
+							{featuredLabel}
 						</h4>
 						{pinnedItems.map((item, idx) => {
 							const issuerNoBrackets = item.issuer
@@ -71,7 +83,7 @@ export default function CertList({ items }: CertListProps) {
 				<section>
 					<div className="space-y-6">
 						<h4 className="font-mono text-sm tracking-wider text-text-meta-lite mb-4 pb-1 lowercase block border-b border-border-subtle">
-							más recientes
+							{recentLabel}
 						</h4>
 						<motion.div
 							initial={false}
@@ -120,7 +132,7 @@ export default function CertList({ items }: CertListProps) {
 							}`}
 						>
 							<div className="flex items-center text-ink-subtle hover:text-ink transition-colors">
-								<span>{isOpen ? 'Mostrar menos' : 'Mostrar más'}</span>
+								<span>{isOpen ? showLessText : showMoreText}</span>
 								<ChevronDown
 									size={17}
 									strokeWidth={1.5}

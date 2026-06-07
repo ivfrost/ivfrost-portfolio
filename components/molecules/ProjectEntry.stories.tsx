@@ -13,7 +13,10 @@ export const Default: Story = {
 	args: {
 		number: '01',
 		name: 'spring-ticketing-microservices',
-		description: 'Sistema distribuido de gestión de eventos y tickets',
+		description: {
+			es: 'Sistema distribuido de gestión de eventos y tickets',
+			en: 'Distributed event and ticket management system',
+		},
 		stack: ['Java', 'Spring Boot'],
 		href: 'https://github.com/ivfrost/spring-ticketing-microservices',
 	},

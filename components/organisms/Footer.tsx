@@ -7,6 +7,7 @@ export interface FooterProps {
 	name?: string;
 	cvLink?: string;
 	className?: string;
+	builtWithText?: string;
 }
 
 export default function Footer({
@@ -14,8 +15,8 @@ export default function Footer({
 	name,
 	cvLink,
 	className,
+	builtWithText,
 }: FooterProps) {
-	console.log(typeof socialLinks, Array.isArray(socialLinks), socialLinks);
 	return (
 		<footer className={`py-8 bg-background-alt ${className}`}>
 			<Container className="grid gap-4 grid-cols-3 items-center sm:flex">
@@ -56,7 +57,7 @@ export default function Footer({
 						</p>
 					</div>
 					<p className="text-xs text-ink-subtle col-span-3 text-center mt-4 sm:mt-0 hidden sm:block">
-						Creado con{' '}
+						{builtWithText}{' '}
 						<a
 							href="https://nextjs.org/"
 							target="_blank"
@@ -72,7 +73,7 @@ export default function Footer({
 						&copy; {new Date().getFullYear()} {name ?? ''}
 					</p>
 					<p className="text-xs text-ink-subtle col-span-3 text-center">
-						Creado con{' '}
+						{builtWithText}{' '}
 						<a
 							href="https://nextjs.org/"
 							target="_blank"

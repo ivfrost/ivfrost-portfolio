@@ -7,8 +7,11 @@ const education: Education[] = [
 		location: 'Remoto',
 		startDate: '2024-09-15',
 		endDate: '2026-06-23',
-		summary:
-			'Ciclo formativo oficial con enfoque práctico en programación, bases de datos, entornos de desarrollo y desarrollo de interfaces. Incluye módulos de acceso a datos, programación de servicios y procesos, y programación multimedia para dispositivos móviles.',
+		summary: {
+			es: 'Ciclo formativo oficial con enfoque práctico en programación, bases de datos, entornos de desarrollo y desarrollo de interfaces. Incluye módulos de acceso a datos, programación de servicios y procesos, y programación multimedia para dispositivos móviles.',
+			en: 'Official training program with a practical focus on programming, databases, development environments, and interface development. It includes modules on data access, service and process programming, and multimedia programming for mobile devices.',
+		},
+		isRemote: true,
 	},
 ];
 
