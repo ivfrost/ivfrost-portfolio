@@ -14,7 +14,7 @@ export const socials = [
 	},
 	{
 		label: 'Email',
-		href: 'mailto:vlpablo@proton.me',
+		href: 'mailto:contact@ivfro.st',
 		icon: Mail,
 	},
 ];
