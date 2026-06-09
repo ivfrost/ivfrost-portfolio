@@ -16,29 +16,39 @@ const inter = Inter({
 	subsets: ['latin'],
 });
 
-export const metadata: Metadata = {
-	title: "ivfrost's portfolio",
-	description:
-		'A portfolio website built with Next.js, showcasing projects and skills.',
-	icons: {
-		icon: [
-			{ url: '/favicon.ico' },
-			{ url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-			{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-		],
-		apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
-		other: [{ rel: 'manifest', url: '/images/site.webmanifest' }],
-	},
-};
+export async function generateMetadata({ params }: PageProps<'/[lang]'>) {
+	const { lang } = await params;
 
-export default function RootLayout({
+	return {
+		title: 'Pablo Villena - Portfolio',
+		description:
+			lang === 'es'
+				? 'Portfolio de Pablo Villena, desarrollador full-stack. Incluye proyectos, experiencia laboral, educación y contacto.'
+				: 'Portfolio of Pablo Villena, a full-stack developer. Includes projects, work experience, education and contact.',
+		icons: {
+			icon: [
+				{ url: '/favicon.ico' },
+				{ url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+				{ url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+			],
+			apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
+			other: [{ rel: 'manifest', url: '/images/site.webmanifest' }],
+		},
+	};
+}
+
+export default async function RootLayout({
+	params,
 	children,
-}: Readonly<{
+}: {
+	params: Promise<{ lang: string }>;
 	children: React.ReactNode;
-}>) {
+}) {
+	const { lang } = await params;
+
 	return (
 		<html
-			lang="en"
+			lang={lang}
 			className={`${inter.variable} ${ibmPlexMono.variable} h-full antialiased`}
 			style={{ scrollBehavior: 'smooth' }}
 		>
