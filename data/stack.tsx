@@ -1,8 +1,17 @@
 import { StackItem } from './types';
-import { TbBrandNextjs, TbBrandTypescript } from 'react-icons/tb';
-import { FaNodeJs, FaReact } from 'react-icons/fa';
-import { SiSpring } from 'react-icons/si';
-import { LiaJava } from 'react-icons/lia';
+import {
+	TbBrandNextjs,
+	TbBrandPython,
+	TbBrandTypescript,
+} from 'react-icons/tb';
+import { FaNodeJs, FaPython, FaReact } from 'react-icons/fa';
+import { SiPython, SiSpring } from 'react-icons/si';
+import { LiaJava, LiaPython } from 'react-icons/lia';
+import { DiPython } from 'react-icons/di';
+import { VscPython } from 'react-icons/vsc';
+import { BiLogoPython } from 'react-icons/bi';
+import { IoLogoPython } from 'react-icons/io5';
+import { AiOutlinePython } from 'react-icons/ai';
 
 export const stack: StackItem[] = [
 	{
@@ -11,7 +20,7 @@ export const stack: StackItem[] = [
 			<FaReact
 				size={16}
 				strokeWidth={1.5}
-				className="inline-block text-text-meta-lite ml-1.25"
+				className="inline-block text-text-meta-lite ml-1.25 -mt-0.5"
 			/>
 		),
 	},
@@ -21,7 +30,7 @@ export const stack: StackItem[] = [
 			<TbBrandNextjs
 				size={18}
 				strokeWidth={1.5}
-				className="inline-block text-text-meta-lite ml-1.25"
+				className="inline-block text-text-meta-lite ml-1.25 -mt-0.5"
 			/>
 		),
 	},
@@ -29,9 +38,9 @@ export const stack: StackItem[] = [
 		name: 'Node.js',
 		icon: (
 			<FaNodeJs
-				size={16}
+				size={15.5}
 				strokeWidth={1.5}
-				className="inline-block text-text-meta-lite ml-1.25"
+				className="inline-block text-text-meta-lite ml-1.5 -mt-0.5"
 			/>
 		),
 	},
@@ -39,9 +48,9 @@ export const stack: StackItem[] = [
 		name: 'TypeScript',
 		icon: (
 			<TbBrandTypescript
-				size={17}
+				size={16.75}
 				strokeWidth={1.5}
-				className="inline-block text-text-meta-lite ml-1.25"
+				className="inline-block text-text-meta-lite ml-1.5 -mt-0.5"
 			/>
 		),
 	},
@@ -50,7 +59,7 @@ export const stack: StackItem[] = [
 		icon: (
 			<LiaJava
 				size={21}
-				className="-mt-1 inline-block text-text-meta-lite ml-1.25"
+				className="-mt-1 inline-block text-text-meta-lite ml-1"
 			/>
 		),
 	},
@@ -58,8 +67,8 @@ export const stack: StackItem[] = [
 		name: 'Spring',
 		icon: (
 			<SiSpring
-				size={14}
-				className="inline-block text-text-meta-lite ml-1.25"
+				size={13.5}
+				className="inline-block text-text-meta-lite ml-1.5 -mt-0.5"
 			/>
 		),
 	},
