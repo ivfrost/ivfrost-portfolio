@@ -13,6 +13,16 @@ export const projects: Project[] = [
 	},
 	{
 		number: '02',
+		name: 'ai-agent-py',
+		description: {
+			es: 'Agente de IA ReAct con herramientas de búsqueda web y sistema de ficheros',
+			en: 'ReAct AI agent with web search and file system tools.',
+		},
+		stack: ['Python', 'Anthropic Claude API', 'Tavily'],
+		href: 'https://github.com/ivfrost/ai-agent-py',
+	},
+	{
+		number: '03',
 		name: 'nextjs-modmasters',
 		description: {
 			es: 'Plataforma full stack para mods de videojuegos',
@@ -22,7 +32,7 @@ export const projects: Project[] = [
 		href: 'https://github.com/ivfrost/nextjs-modmasters',
 	},
 	{
-		number: '03',
+		number: '04',
 		name: 'visitas-virtuales',
 		description: {
 			es: 'Plataforma 360° para visitas a centros educativos',
@@ -32,7 +42,7 @@ export const projects: Project[] = [
 		href: 'https://github.com/jaimemoya-bit/VisitasVirtualesZaitec',
 	},
 	{
-		number: '04',
+		number: '05',
 		name: 'web-100-canos',
 		description: {
 			es: 'SPA de oleoturismo para la finca 100 Caños',
