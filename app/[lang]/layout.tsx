@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Inter } from 'next/font/google';
 import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
@@ -55,7 +54,7 @@ export default async function RootLayout({
 			<body className="flex min-h-full flex-col bg-pattern">
 				{children}
 				<Toaster position="bottom-right" />
-				<Analytics />
+				{process.env.NODE_ENV === 'production' && <Analytics />}
 			</body>
 		</html>
 	);
