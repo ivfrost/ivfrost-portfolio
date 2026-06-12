@@ -37,6 +37,7 @@
 		"desc": "¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y te respondo lo antes posible."
 	},
 	"footer": {
-		"builtWith": "Creado con"
+		"builtWith": "Creado con",
+		"downloadCv": "Descargar CV"
 	}
 }

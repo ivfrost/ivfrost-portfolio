@@ -7,6 +7,7 @@ export interface FooterProps {
 	name?: string;
 	cvLink?: string;
 	className?: string;
+	downloadCvText?: string;
 	builtWithText?: string;
 }
 
@@ -15,24 +16,25 @@ export default function Footer({
 	name,
 	cvLink,
 	className,
+	downloadCvText,
 	builtWithText,
 }: FooterProps) {
 	return (
 		<footer className={`py-8 bg-background-alt ${className}`}>
 			<Container className="grid gap-4 grid-cols-3 items-center sm:flex">
-				<div className="gap-4 flex  w-full col-span-3 items-center justify-between">
+				<div className="gap-4 sm:hidden flex w-full col-span-3 sm:col-span-1 items-center justify-between">
 					{cvLink && (
 						<a
 							href={cvLink}
 							target="_blank"
 							rel="noopener noreferrer"
-							className="text-ink-subtle hover:text-ink transition-colors text-xs"
+							className=" text-ink-subtle hover:text-ink transition-colors text-xs"
 						>
-							Descargar CV{' '}
+							{downloadCvText}
 							<BsDownload size={12} className="inline ml-1 mb-0.5" />
 						</a>
 					)}
-					<div className="flex gap-4">
+					<div className="flex sm:hidden gap-4">
 						{socialLinks.map((link) => {
 							const Icon = link.icon;
 							return (
@@ -50,11 +52,25 @@ export default function Footer({
 						})}
 					</div>
 				</div>
-				<div className="gap-4 flex items-center justify-between w-full col-span-3">
+				<div className="gap-2 sm:order-1 flex items-center justify-between w-full col-span-3">
 					<div className="gap-2 items-center hidden sm:flex">
-						<p className="text-xs text-ink-subtle">
+						<p className="text-xs w-full flex-1 text-ink-subtle">
 							&copy; {new Date().getFullYear()} {name ?? ''}
 						</p>
+					</div>
+					<span className="text-text-meta-lite hidden sm:flex">·</span>
+					<div className="gap-4 flex-1 hidden sm:flex w-full col-span-3 sm:col-span-1 items-center justify-between">
+						{cvLink && (
+							<a
+								href={cvLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								className=" text-ink-subtle hover:text-ink transition-colors text-xs"
+							>
+								{downloadCvText}{' '}
+								<BsDownload size={12} className="inline mb-0.5 ml-1" />
+							</a>
+						)}
 					</div>
 					<p className="text-xs text-ink-subtle col-span-3 text-center mt-4 sm:mt-0 hidden sm:block">
 						{builtWithText}{' '}
