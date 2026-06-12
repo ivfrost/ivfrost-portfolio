@@ -1,17 +1,8 @@
 import { StackItem } from './types';
-import {
-	TbBrandNextjs,
-	TbBrandPython,
-	TbBrandTypescript,
-} from 'react-icons/tb';
-import { FaNodeJs, FaPython, FaReact } from 'react-icons/fa';
-import { SiPython, SiSpring } from 'react-icons/si';
-import { LiaJava, LiaPython } from 'react-icons/lia';
-import { DiPython } from 'react-icons/di';
-import { VscPython } from 'react-icons/vsc';
-import { BiLogoPython } from 'react-icons/bi';
-import { IoLogoPython } from 'react-icons/io5';
-import { AiOutlinePython } from 'react-icons/ai';
+import { TbBrandNextjs, TbBrandTypescript } from 'react-icons/tb';
+import { FaNodeJs, FaReact } from 'react-icons/fa';
+import { SiSpring } from 'react-icons/si';
+import { LiaJava } from 'react-icons/lia';
 
 export const stack: StackItem[] = [
 	{

@@ -20,7 +20,7 @@ export default function Footer({
 	return (
 		<footer className={`py-8 bg-background-alt ${className}`}>
 			<Container className="grid gap-4 grid-cols-3 items-center sm:flex">
-				<div className="gap-4 flex  w-full sm:hidden col-span-3 items-center justify-between">
+				<div className="gap-4 flex  w-full col-span-3 items-center justify-between">
 					{cvLink && (
 						<a
 							href={cvLink}
