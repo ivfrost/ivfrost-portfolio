@@ -131,7 +131,7 @@ export default function CertList({
 								recentItems.length > 5 ? 'block' : 'hidden'
 							}`}
 						>
-							<div className="flex items-center text-ink-subtle hover:text-ink transition-colors">
+							<div className="flex items-center justify-center text-ink-subtle hover:text-ink transition-colors">
 								<span>{isOpen ? showLessText : showMoreText}</span>
 								<ChevronDown
 									size={17}

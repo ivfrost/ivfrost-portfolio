@@ -2,6 +2,12 @@ import type { Cert } from './types';
 
 const certs: Cert[] = [
 	{
+		title: 'React Native, v3',
+		issuer: 'Master.Dev (Frontend Masters)',
+		date: '2026-06',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/YHzGPPlJYC/react-native-v3-frontendmasters.pdf',
+	},
+	{
 		title: 'API Design in Node.js, v5',
 		issuer: 'Master.Dev (Frontend Masters)',
 		date: '2026-03',
@@ -20,12 +26,7 @@ const certs: Cert[] = [
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/fNQjbTScAe/complete-intro-containers-v2-frontendmasters.pdf',
 		date: '2026-04',
 	},
-	{
-		title: 'Cross-Platform Mobile Apps with Flutter',
-		issuer: 'Master.Dev (Frontend Masters)',
-		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/boSKcKQkpY/flutter-frontendmasters.pdf',
-		date: '2026-03',
-	},
+
 	{
 		title: 'Enterprise UI Development: Microfrontends, Testing, & Code Quality',
 		issuer: 'Master.Dev (Frontend Masters)',
@@ -46,12 +47,6 @@ const certs: Cert[] = [
 		pinned: true,
 	},
 	{
-		title: 'Next.js Fundamentals, v4',
-		issuer: 'Master.Dev (Frontend Masters)',
-		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/bCWFkdHrBA/next-js-v4-frontendmasters.pdf',
-		date: '2026-02',
-	},
-	{
 		title: 'React and TypeScript, v3',
 		issuer: 'Master.Dev (Frontend Masters)',
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/hUofbjHgZn/react-typescript-v3-frontendmasters.pdf',
@@ -63,12 +58,7 @@ const certs: Cert[] = [
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/dVjsrZPBjd/intermediate-react-v6-frontendmasters.pdf',
 		date: '2026-02',
 	},
-	{
-		title: 'Complete Intro to React, v9',
-		issuer: 'Master.Dev (Frontend Masters)',
-		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/hixpadIGiV/complete-react-v9-frontendmasters.pdf',
-		date: '2026-02',
-	},
+
 	{
 		title: 'Enterprise Java with Spring Boot',
 		issuer: 'Master.Dev (Frontend Masters)',
@@ -80,18 +70,6 @@ const certs: Cert[] = [
 		title: 'Tailwind CSS 4+',
 		issuer: 'Master.Dev (Frontend Masters)',
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/XQKnWntAkM/tailwind-css-v2-frontendmasters.pdf',
-		date: '2025-11',
-	},
-	{
-		title: 'Introduction to Kotlin and Android Development',
-		issuer: 'Master.Dev (Frontend Masters)',
-		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/gLTCmWdvqh/android-kotlin-frontendmasters.pdf',
-		date: '2025-10',
-	},
-	{
-		title: 'Vue 3 Fundamentals',
-		issuer: 'Master.Dev (Frontend Masters)',
-		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/VcBlSkIIXh/vue-fundamentals-frontendmasters.pdf',
 		date: '2025-11',
 	},
 	{
@@ -112,6 +90,39 @@ const certs: Cert[] = [
 		issuer: 'Udemy',
 		href: 'https://www.udemy.com/certificate/UC-ee9bd34a-8481-4fd4-96b9-dbb6e269c222/',
 		date: '2025-12',
+	},
+];
+
+const otherCerts = [
+	{
+		title: 'Cross-Platform Mobile Apps with Flutter',
+		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/boSKcKQkpY/flutter-frontendmasters.pdf',
+		date: '2026-03',
+	},
+	{
+		title: 'Introduction to Kotlin and Android Development',
+		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/gLTCmWdvqh/android-kotlin-frontendmasters.pdf',
+		date: '2025-10',
+	},
+	{
+		title: 'Vue 3 Fundamentals',
+		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/VcBlSkIIXh/vue-fundamentals-frontendmasters.pdf',
+		date: '2025-11',
+	},
+	{
+		title: 'Complete Intro to React, v9',
+		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/hixpadIGiV/complete-react-v9-frontendmasters.pdf',
+		date: '2026-02',
+	},
+	{
+		title: 'Next.js Fundamentals, v4',
+		issuer: 'Master.Dev (Frontend Masters)',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/bCWFkdHrBA/next-js-v4-frontendmasters.pdf',
+		date: '2026-02',
 	},
 ];
 
