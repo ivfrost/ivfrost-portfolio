@@ -2,7 +2,7 @@
 import { Project } from '@/data/types';
 import { BsStar } from 'react-icons/bs';
 import Entry from './Entry';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Users } from 'lucide-react';
 import type { Locale } from '@/app/[lang]/dictionaries';
 
 export interface ProjectEntryProps extends Project {
@@ -15,6 +15,7 @@ export default function ProjectEntry({
 	description,
 	lang,
 	stack,
+	collaborative = false,
 	stars = 0,
 	href,
 }: ProjectEntryProps) {
@@ -24,6 +25,18 @@ export default function ProjectEntry({
 			title={name}
 			titleIcons={
 				<>
+					{collaborative && (
+						<span
+							title={
+								lang === 'es'
+									? 'Proyecto colaborativo'
+									: 'Collaborative project'
+							}
+							className="text-xs inline-flex items-center gap-1 ml-1.5 opacity-60"
+						>
+							<Users size={14} />
+						</span>
+					)}
 					{stars > 0 && (
 						<span className="text-xs inline-flex items-center gap-1 ml-1.5">
 							<BsStar size={14} /> {stars}

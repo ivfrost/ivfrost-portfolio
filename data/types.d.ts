@@ -9,6 +9,7 @@ export interface Project {
 	};
 	stars?: number;
 	stack: string[];
+	collaborative?: boolean;
 	href?: string;
 }
 

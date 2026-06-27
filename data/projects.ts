@@ -3,16 +3,26 @@ import type { Project } from '@/data/types';
 export const projects: Project[] = [
 	{
 		number: '01',
-		name: 'hydro-api',
+		name: 'hydrolink-app',
 		description: {
-			es: 'Backend para sistema de riego inteligente con gestión de dispositivos y programación',
-			en: 'Backend for a smart irrigation system with device management and scheduling',
+			es: 'App móvil para riego inteligente con vinculación de dispositivos IoT',
+			en: 'Mobile app for smart irrigation with IoT device linking',
 		},
-		stack: ['Spring Boot', 'MQTT', 'Docker'],
-		href: 'https://github.com/ivfrost/hydro-api',
+		stack: ['React Native', 'Expo', 'TypeScript', 'TanStack Query'],
+		href: 'https://github.com/ivfrost/hydrolink-app',
 	},
 	{
 		number: '02',
+		name: 'hydrolink-api',
+		description: {
+			es: 'API REST para riego inteligente con gestión de dispositivos y MQTT',
+			en: 'REST API for smart irrigation with device management and MQTT',
+		},
+		stack: ['Spring Boot', 'MQTT', 'Docker'],
+		href: 'https://github.com/ivfrost/hydrolink-api',
+	},
+	{
+		number: '03',
 		name: 'spring-ticketing-microservices',
 		description: {
 			es: 'Sistema distribuido de gestión de eventos y tickets',
@@ -22,48 +32,25 @@ export const projects: Project[] = [
 		href: 'https://github.com/ivfrost/spring-ticketing-microservices',
 	},
 	{
-		number: '03',
+		number: '04',
 		name: 'ai-agent-py',
 		description: {
-			es: 'Backend para riego inteligente con dispositivos vinculados a usuarios y autenticación MQTT',
-			en: 'Backend for smart irrigation with user-linked devices and MQTT authentication',
+			es: 'Agente de IA con búsqueda web y razonamiento encadenado',
+			en: 'AI agent with web search and chain-of-thought reasoning',
 		},
 		stack: ['Python', 'Anthropic Claude API', 'Tavily'],
 		href: 'https://github.com/ivfrost/ai-agent-py',
 	},
 	{
-		number: '04',
+		number: '05',
 		name: 'visitas-virtuales',
 		description: {
-			es: 'Plataforma 360° para visitas a centros educativos',
+			es: 'Plataforma 360° para visitas virtuales a centros educativos',
 			en: '360° platform for virtual tours of educational centers',
 		},
+		collaborative: true,
 		stack: ['React', 'TypeScript', 'Express', 'PostgreSQL', 'MinIO'],
 		href: 'https://github.com/jaimemoya-bit/VisitasVirtualesZaitec',
-	},
-	{
-		number: '05',
-		name: 'web-100-canos',
-		description: {
-			es: 'SPA de oleoturismo para la finca 100 Caños',
-			en: 'Oleotourism SPA for the 100 Caños estate',
-		},
-		stack: ['React', 'TypeScript'],
-		href: 'https://100canos.com',
-	},
-];
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const otherProjects: Project[] = [
-	{
-		number: '03',
-		name: 'nextjs-modmasters',
-		description: {
-			es: 'Plataforma full stack para mods de videojuegos',
-			en: 'Full stack platform for video game mods',
-		},
-		stack: ['Next.js', 'TypeScript'],
-		href: 'https://github.com/ivfrost/nextjs-modmasters',
 	},
 ];
 export default projects;
