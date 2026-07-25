@@ -1,10 +1,10 @@
 'use client';
-import { ChevronDown } from 'lucide-react';
-import CertEntry from '../molecules/CertEntry';
-import { motion } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
-import Button from '../atoms/Button';
 import { formatDate } from '@/lib/utils';
+import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import Button from '../atoms/Button';
+import CertEntry from '../molecules/CertEntry';
 
 export interface CertListProps {
 	items: {
@@ -19,6 +19,7 @@ export interface CertListProps {
 	recentLabel?: string;
 	showMoreText?: string;
 	showLessText?: string;
+	lang?: 'en' | 'es';
 }
 
 export default function CertList({
@@ -28,6 +29,7 @@ export default function CertList({
 	recentLabel,
 	showMoreText,
 	showLessText,
+	lang = 'es',
 }: CertListProps) {
 	const pinnedItems = items.filter((item) => !!item.pinned);
 	const recentItems = items
@@ -69,7 +71,7 @@ export default function CertList({
 									title={item.title}
 									titleMeta={
 										item.date
-											? issuerNoBrackets + ` · ${formatDate(item.date)}`
+											? issuerNoBrackets + ` · ${formatDate(item.date, lang)}`
 											: issuerNoBrackets
 									}
 									credentialUrl={item.href}
@@ -114,7 +116,7 @@ export default function CertList({
 										title={item.title}
 										titleMeta={
 											item.date
-												? issuerNoBrackets + ` · ${formatDate(item.date)}`
+												? issuerNoBrackets + ` · ${formatDate(item.date, lang)}`
 												: issuerNoBrackets
 										}
 										credentialUrl={item.href}

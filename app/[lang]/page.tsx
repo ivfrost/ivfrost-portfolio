@@ -1,18 +1,18 @@
+import CertList from '@/components/organisms/CertList';
+import ContactForm from '@/components/organisms/ContactForm';
+import EducationTimeline from '@/components/organisms/EducationTimeline';
 import ExperienceTimeline from '@/components/organisms/ExperienceTimeline';
+import Footer from '@/components/organisms/Footer';
 import Header from '@/components/organisms/Header';
 import Hero from '@/components/organisms/Hero';
-import Section from '@/components/organisms/Section';
 import ProjectList from '@/components/organisms/ProjectList';
-import { projects } from '@/data/projects';
-import experience from '@/data/experience';
+import Section from '@/components/organisms/Section';
 import certs from '@/data/certs';
-import CertList from '@/components/organisms/CertList';
-import EducationTimeline from '@/components/organisms/EducationTimeline';
 import education from '@/data/education';
-import ContactForm from '@/components/organisms/ContactForm';
-import { stack } from '@/data/stack';
-import Footer from '@/components/organisms/Footer';
+import experience from '@/data/experience';
+import { projects } from '@/data/projects';
 import { socials } from '@/data/socials';
+import { stack } from '@/data/stack';
 import { notFound } from 'next/navigation';
 import { getDictionary, hasLocale } from './dictionaries';
 
@@ -75,6 +75,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
 						recentLabel={dict.label.recent}
 						showMoreText={dict.button.showMore}
 						showLessText={dict.button.showLess}
+						lang={lang}
 					/>
 				</Section>
 				<Section
