@@ -1,7 +1,7 @@
 'use server';
 
-import nodemailer from 'nodemailer';
 import { headers } from 'next/headers';
+import nodemailer from 'nodemailer';
 
 const requestMap = new Map<string, { count: number; firstRequest: number }>();
 
@@ -54,12 +54,12 @@ export async function sendContact(
 			from: `"${name}" <${email}>`,
 			to: process.env.CONTACT_EMAIL,
 			subject: 'Nuevo mensaje de contacto desde portfolio',
-			text: message,
+			text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`,
 		});
 
 		return { success: true };
 	} catch (error) {
-		console.error('Error al enviar el mensaje:', error);
+		console.error('Error sending contact email:', error);
 		return {
 			error:
 				error instanceof Error ? error.message : 'Error al enviar el mensaje',

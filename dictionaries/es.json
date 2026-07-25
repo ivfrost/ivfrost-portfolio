@@ -34,7 +34,9 @@
 		"submit": "Enviar"
 	},
 	"contact": {
-		"desc": "¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y te respondo lo antes posible."
+		"desc": "¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y te respondo lo antes posible.",
+		"successMessage": "Mensaje enviado correctamente",
+		"errorMessage": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
 	},
 	"footer": {
 		"builtWith": "Creado con",

@@ -34,7 +34,9 @@
 		"submit": "Submit"
 	},
 	"contact": {
-		"desc": "Have a project in mind or want to get in touch? Send me a message and I'll get back to you as soon as I can."
+		"desc": "Have a project in mind or want to get in touch? Send me a message and I'll get back to you as soon as I can.",
+		"successMessage": "Message sent successfully",
+		"errorMessage": "There was an error sending your message. Please try again later."
 	},
 	"footer": {
 		"builtWith": "Built with",

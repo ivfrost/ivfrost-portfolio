@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, startTransition } from 'react';
+import { sendContact } from '@/actions/contact';
+import { motion } from 'framer-motion';
+import { startTransition, useState } from 'react';
 import { IoPaperPlaneOutline } from 'react-icons/io5';
+import { toast } from 'sonner';
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
-import { sendContact } from '@/actions/contact';
-import { toast } from 'sonner';
-import { motion } from 'framer-motion';
 
 interface ContactFormProps {
 	className?: string;
@@ -14,6 +14,8 @@ interface ContactFormProps {
 	submitText?: string;
 	nameLabel?: string;
 	messageLabel?: string;
+	successMessage?: string;
+	errorMessage?: string;
 }
 
 export default function ContactForm({
@@ -22,6 +24,8 @@ export default function ContactForm({
 	submitText,
 	nameLabel,
 	messageLabel,
+	successMessage,
+	errorMessage,
 }: ContactFormProps) {
 	const [formData, setFormData] = useState({
 		name: '',
@@ -40,10 +44,10 @@ export default function ContactForm({
 				formData.message,
 			);
 			if (result.success) {
-				toast.success('Mensaje enviado correctamente');
+				toast.success(successMessage);
 				setFormData({ name: '', email: '', message: '' });
 			} else {
-				toast.error(result.error || 'Error al enviar el mensaje');
+				toast.error(errorMessage);
 			}
 		});
 	};

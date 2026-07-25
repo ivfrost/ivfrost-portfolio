@@ -88,6 +88,8 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
 						submitText={dict.button.submit}
 						nameLabel={dict.label.name}
 						messageLabel={dict.label.message}
+						successMessage={dict.contact.successMessage}
+						errorMessage={dict.contact.errorMessage}
 					/>
 				</Section>
 			</main>
