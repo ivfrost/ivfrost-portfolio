@@ -2,6 +2,18 @@ import type { Cert } from './types';
 
 const certs: Cert[] = [
 	{
+		title: 'JavaScript: The Hard Parts, v3',
+		issuer: 'Master.Dev (Frontend Masters)',
+		date: '2026-07',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/KmOjonKKum/javascript-hard-parts-v3-frontendmasters.pdf,',
+	},
+	{
+		title: 'Intermediate React Native, v2',
+		issuer: 'Master.Dev (Frontend Masters)',
+		date: '2026-06',
+		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/lXSziQvimH/intermediate-react-native-v2-frontendmasters.pdf',
+	},
+	{
 		title: 'React Native, v3',
 		issuer: 'Master.Dev (Frontend Masters)',
 		date: '2026-06',
