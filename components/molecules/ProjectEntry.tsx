@@ -1,9 +1,9 @@
 'use client';
+import type { Locale } from '@/app/[lang]/dictionaries';
 import { Project } from '@/data/types';
+import { ExternalLink, Users } from 'lucide-react';
 import { BsStar } from 'react-icons/bs';
 import Entry from './Entry';
-import { ExternalLink, Users } from 'lucide-react';
-import type { Locale } from '@/app/[lang]/dictionaries';
 
 export interface ProjectEntryProps extends Project {
 	lang?: Locale;
@@ -48,7 +48,7 @@ export default function ProjectEntry({
 			titleMeta={<span>{stack.join(' · ')}</span>}
 			onClick={href ? () => window.open(href, '_blank') : undefined}
 		>
-			<p className="-mt-2">{description[lang ?? 'en']}</p>
+			<p className="-mt-2 max-w-prose">{description[lang ?? 'en']}</p>
 		</Entry>
 	);
 }

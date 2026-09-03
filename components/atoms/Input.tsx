@@ -58,7 +58,7 @@ export default function Input({
 					maxLength={maxLength}
 					required={required}
 					onChange={(e) => onChange?.(e.target.value)}
-					className={`${base} p-3 resize-y`}
+					className={`${base} overflow-auto p-3 resize-y`}
 				/>
 			) : (
 				<input

@@ -14,7 +14,7 @@
 	},
 	"hero": {
 		"role": "Full Stack Developer",
-		"about": "Self-taught full-stack developer, backend-leaning, working across Spring Boot and React Native. I like to actually understand how things work, not just get them running.",
+		"about": "I like understanding how things actually work, not just getting them to run, and writing quality code that's easy to maintain and debug. Self-taught, backend-leaning. I run Linux daily, self-host services on Proxmox, and use Coolify and AWS for deployments.",
 		"openTo": "new opportunities",
 		"location": "Remote or Málaga",
 		"ctaLabel": "Contact me",

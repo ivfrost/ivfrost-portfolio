@@ -8,10 +8,18 @@ const certs: Cert[] = [
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/KmOjonKKum/javascript-hard-parts-v3-frontendmasters.pdf,',
 	},
 	{
+		title: 'Spring Boot 4, Spring Framework 7: Beginner to Guru ',
+		issuer: 'Udemy',
+		date: '2026-08',
+		href: 'https://www.udemy.com/certificate/UC-986f3769-2fde-4e49-bdf7-6cd26d0e65e8/',
+		pinned: true,
+	},
+	{
 		title: 'Intermediate React Native, v2',
 		issuer: 'Master.Dev (Frontend Masters)',
 		date: '2026-06',
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/lXSziQvimH/intermediate-react-native-v2-frontendmasters.pdf',
+		pinned: true,
 	},
 	{
 		title: 'React Native, v3',
@@ -56,7 +64,6 @@ const certs: Cert[] = [
 		issuer: 'Master.Dev (Frontend Masters)',
 		href: 'https://static.frontendmasters.com/ud/c/8480cfc763/JbnMcTcHST/fullstack-app-next-v4-masterdev.pdf',
 		date: '2026-03',
-		pinned: true,
 	},
 	{
 		title: 'React and TypeScript, v3',
@@ -95,7 +102,6 @@ const certs: Cert[] = [
 		issuer: 'Udemy',
 		date: '2025-06',
 		href: 'https://www.udemy.com/certificate/UC-6dceee56-ec48-4b87-8e59-b3d270a3f7cb/',
-		pinned: true,
 	},
 	{
 		title: 'Java Masterclass 2025: 130+ Hours of Expert Lessons',

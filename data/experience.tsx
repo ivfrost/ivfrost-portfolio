@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import type { Experience } from './types';
 import { BsArrowUpRight } from 'react-icons/bs';
+import type { Experience } from './types';
 
 const experience: Experience[] = [
 	{

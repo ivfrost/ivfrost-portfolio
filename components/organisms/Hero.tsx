@@ -1,8 +1,8 @@
 'use client';
-import Button from '../atoms/Button';
-import Container from '../layout/Container';
 import { BsArrowRight } from 'react-icons/bs';
 import { TbFileCv } from 'react-icons/tb';
+import Button from '../atoms/Button';
+import Container from '../layout/Container';
 
 interface HeroProps {
 	name?: string;
@@ -43,7 +43,7 @@ export default function Hero({
 					</div>
 
 					{about && (
-						<div className="flex flex-col sm:flex-row sm:justify-between gap-4">
+						<div className="flex flex-col sm:flex-row sm:justify-between gap-6">
 							<div className="flex flex-col">
 								<p className="text-sm text-ink-subtle leading-relaxed max-w-prose">
 									{about}

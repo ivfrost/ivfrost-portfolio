@@ -1,7 +1,7 @@
-import { IBM_Plex_Mono, Inter } from 'next/font/google';
-import './globals.css';
 import { Analytics } from '@vercel/analytics/next';
+import { IBM_Plex_Mono, Inter } from 'next/font/google';
 import { Toaster } from 'sonner';
+import './globals.css';
 
 const ibmPlexMono = IBM_Plex_Mono({
 	variable: '--font-ibm-plex-mono',
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: PageProps<'/[lang]'>) {
 		title: 'Pablo Villena - Portfolio',
 		description:
 			lang === 'es'
-				? 'Portfolio de Pablo Villena, desarrollador full-stack. Incluye proyectos, experiencia laboral, educación y contacto.'
-				: 'Portfolio of Pablo Villena, a full-stack developer. Includes projects, work experience, education and contact.',
+				? 'Portfolio de Pablo Villena, desarrollador Full Stack. Incluye proyectos, experiencia laboral, educación y contacto.'
+				: 'Portfolio of Pablo Villena, a Full Stack developer. Includes projects, work experience, education and contact.',
 		icons: {
 			icon: [
 				{ url: '/favicon.ico' },

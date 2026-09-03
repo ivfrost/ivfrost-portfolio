@@ -97,7 +97,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
 				name="Pablo Villena"
 				socialLinks={socials}
 				downloadCvText={dict.footer.downloadCv}
-				cvLink="/europass-cv-es-np.pdf"
+				cvLink={`CV_${lang}.pdf`}
 				builtWithText={dict.footer.builtWith}
 			/>
 		</>

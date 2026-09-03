@@ -75,11 +75,7 @@ export default function ContactForm({
 					required
 				/>
 			</div>
-			<motion.div
-				animate={{ height: rows === 5 ? '180px' : '130px' }}
-				transition={{ duration: 0.25, ease: 'easeInOut' }}
-				className="overflow-hidden"
-			>
+			<motion.div className="overflow-visible">
 				<Input
 					label={messageLabel!}
 					name="message"
@@ -89,7 +85,11 @@ export default function ContactForm({
 					maxLength={1000}
 					rows={rows}
 					onFocus={() => setRows(5)}
-					onBlur={() => !formData.message.length && setRows(3)}
+					onBlur={(e) => {
+						if (!e.target.value.trim()) {
+							setRows(3);
+						}
+					}}
 					onChange={(value) => setFormData({ ...formData, message: value })}
 					required
 				/>
