@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next';
 import { IBM_Plex_Mono, Inter } from 'next/font/google';
 import { Toaster } from 'sonner';
+import { Providers } from './[lang]/providers';
 import './globals.css';
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -36,23 +37,18 @@ export async function generateMetadata({ params }: PageProps<'/[lang]'>) {
 	};
 }
 
-export default async function RootLayout({
-	params,
+export default function RootLayout({
 	children,
 }: {
-	params: Promise<{ lang: string }>;
 	children: React.ReactNode;
 }) {
-	const { lang } = await params;
-
 	return (
 		<html
-			lang={lang}
 			className={`${inter.variable} ${ibmPlexMono.variable} h-full antialiased`}
 			style={{ scrollBehavior: 'smooth' }}
 		>
-			<body className="flex min-h-full flex-col bg-pattern">
-				{children}
+			<body className="flex min-h-full flex-col">
+				<Providers>{children}</Providers>
 				<Toaster position="bottom-right" />
 				{process.env.NODE_ENV === 'production' && <Analytics />}
 			</body>

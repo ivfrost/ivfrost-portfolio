@@ -24,7 +24,9 @@
 		"featuredWork": "projects",
 		"experience": "experience",
 		"training": "education",
-		"contact": "contact"
+		"contact": "contact",
+		"portfolio": "portfolio",
+		"blog": "blog"
 	},
 	"button": {
 		"showMore": "Show more",
@@ -33,6 +35,10 @@
 		"sending": "Sending...",
 		"submit": "Submit"
 	},
+	"featuredWork": {
+		"blog1": "Check out my ",
+		"blog2": " to see what I've been up to lately."
+	},
 	"contact": {
 		"desc": "Have a project in mind or want to get in touch? Send me a message and I'll get back to you as soon as I can.",
 		"successMessage": "Message sent successfully",
@@ -40,6 +46,7 @@
 	},
 	"footer": {
 		"builtWith": "Built with",
-		"downloadCv": "Download CV"
+		"downloadCv": "Download CV",
+		"portfolio": "My portfolio"
 	}
 }

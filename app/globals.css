@@ -5,7 +5,7 @@
 	--color-background-alt: #e8ebe1;
 	--color-button: #e0e4d8;
 
-	--color-ink: #1a211b;
+	--color-ink: #1e2620;
 	--color-ink-subtle: #3d4a3e;
 	--color-ink-subtle-lite: #5a6b5c;
 
@@ -21,17 +21,20 @@
 
 	--font-sans: var(--font-inter);
 	--font-mono: var(--font-ibm-plex-mono);
+
+	--color-code-bg: #1a1f1b;
+	--color-code-text: #cfd6c9;
 }
 
 @layer base {
 	h1 {
-		@apply text-5xl text-ink font-normal tracking-tighter mb-4 font-sans;
+		@apply text-5xl text-ink font-medium tracking-tighter mb-4 font-sans;
 	}
 	h2 {
-		@apply text-2xl text-ink tracking-normal mb-3.5 font-normal font-sans;
+		@apply text-2xl text-ink tracking-normal mb-3.5 font-medium font-sans;
 	}
 	h3 {
-		@apply text-xl text-ink font-normal mb-2.25 tracking-normal font-sans;
+		@apply text-xl text-ink font-medium mb-2.25 tracking-normal font-sans;
 	}
 	h4 {
 		@apply text-lg text-text-meta font-normal font-mono tracking-wider mb-8 lowercase;
@@ -57,4 +60,48 @@ body {
 code,
 pre {
 	font-family: var(--font-mono), monospace;
+}
+
+pre {
+	background-color: var(--color-code-bg);
+	color: var(--color-code-text);
+}
+
+.hljs-comment,
+.hljs-quote {
+	color: #6e806f;
+	font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-operator {
+	color: #8a9e8b;
+}
+
+.hljs-string,
+.hljs-attr {
+	color: #a8c1a9;
+}
+
+.hljs-number,
+.hljs-built_in {
+	color: #b7c9a8;
+}
+
+.hljs-function,
+.hljs-title,
+.hljs-title.function_ {
+	color: #d5deca;
+}
+
+.hljs-params,
+.hljs-variable,
+.hljs-property {
+	color: #9fb39f;
+}
+
+.hljs-punctuation {
+	color: #7d8a7e;
 }

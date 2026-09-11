@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
 import type { Preview } from '@storybook/nextjs-vite';
 import { Cormorant_Garamond, IBM_Plex_Mono } from 'next/font/google';
+import { useEffect } from 'react';
 import '../app/globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -17,6 +17,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 const preview: Preview = {
 	parameters: {
+		nextjs: {
+			appDirectory: true,
+		},
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,

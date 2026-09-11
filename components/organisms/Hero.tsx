@@ -36,10 +36,12 @@ export default function Hero({
 			<Container>
 				<div className="flex flex-col gap-8">
 					<div>
-						<h1 className="text-4xl -ml-0.5 lg:text-6xl font-normal tracking-tight text-ink leading-none mb-2">
+						<h1 className="text-4xl font-normal -ml-0.5 lg:text-6xl tracking-tight text-ink leading-none mb-2">
 							{name}
 						</h1>
-						<h2 className="text-ink-subtle-lite capitalize">{role}</h2>
+						<h2 className="text-ink-subtle-lite text-xl lg:text-2xl capitalize font-normal">
+							{role}
+						</h2>
 					</div>
 
 					{about && (

@@ -54,11 +54,11 @@ export default function CertList({
 		<>
 			<div className="pb-12">
 				<section>
-					<h3 className="font-mono text-lg tracking-wider text-text-meta-lite mb-10 lowercase block">
+					<h3 className="font-normal font-sans text-lg tracking-wider text-text-meta-lite mb-6 lowercase block">
 						{heading}
 					</h3>
 					<div className="divide-y divide-border-subtle space-y-6">
-						<h4 className="font-mono text-sm tracking-wider text-text-meta-lite mb-4 pb-1 lowercase block">
+						<h4 className="mb-4 pb-1 block font-mono text-xs uppercase tracking-widest text-text-meta-lite">
 							{featuredLabel}
 						</h4>
 						{pinnedItems.map((item, idx) => {
@@ -83,8 +83,8 @@ export default function CertList({
 			</div>
 			<div>
 				<section>
-					<div className="space-y-6">
-						<h4 className="font-mono text-sm tracking-wider text-text-meta-lite mb-4 pb-1 lowercase block border-b border-border-subtle">
+					<div className="divide-y divide-border-subtle space-y-6">
+						<h4 className="mb-4 pb-1 block font-mono text-xs uppercase tracking-widest text-text-meta-lite">
 							{recentLabel}
 						</h4>
 						<motion.div

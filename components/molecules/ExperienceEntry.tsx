@@ -1,11 +1,10 @@
 'use client';
 import type { Experience } from '@/data/types';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
-import Entry from './Entry';
 import Button from '../atoms/Button';
+import Entry from './Entry';
 
 export interface ExperienceEntryProps extends Experience {
 	lang?: 'en' | 'es';

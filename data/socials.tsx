@@ -1,5 +1,5 @@
-import { TbBrandLinkedin, TbBrandGithub } from 'react-icons/tb';
 import { Mail } from 'lucide-react';
+import { TbBrandGithub, TbBrandLinkedin } from 'react-icons/tb';
 
 export const socials = [
 	{

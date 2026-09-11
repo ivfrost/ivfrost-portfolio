@@ -1,6 +1,6 @@
 'use client';
-import Entry from './Entry';
 import { TbFileCertificate } from 'react-icons/tb';
+import Entry from './Entry';
 
 interface CertEntryProps {
 	title: string;
@@ -33,7 +33,6 @@ export default function CertEntry({
 	return (
 		<Entry
 			ref={ref}
-			className="cert-entry"
 			title={title}
 			titleIcons={
 				credentialUrl ? (

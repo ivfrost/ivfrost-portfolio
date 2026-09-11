@@ -11,6 +11,15 @@ type Story = StoryObj<typeof ContactForm>;
 
 export const Default: Story = {
 	args: {
-		// No props needed for this component
+		contactDesc: 'Contact description',
+		submitText: 'Submit',
+		nameLabel: 'Name',
+		messageLabel: 'Message',
+		successMessage: 'Success',
+		errorMessage: 'Something went wrong',
+		sendContact: async (name, email, message) => {
+			console.log('mock submit', { name, email, message });
+			return { success: true };
+		},
 	},
 };

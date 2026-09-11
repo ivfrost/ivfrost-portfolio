@@ -28,7 +28,7 @@ export default function Entry({
 		<div
 			ref={ref}
 			onClick={onClick}
-			className={`group pb-4 flex gap-4 sm:gap-6 sm:pb-6 items-baseline ${onClick ? 'cursor-pointer' : ''} ${className}`}
+			className={`group pb-4 flex gap-4 sm:gap-6 sm:pb-6 items-baseline border-b last:border-b-0 border-b-border-subtle hover:border-border-hover transition-colors" ${onClick ? 'cursor-pointer' : ''} ${className}`}
 		>
 			{number && (
 				<span className="hidden md:block text-text-meta font-mono text-sm shrink-0">
@@ -37,7 +37,7 @@ export default function Entry({
 			)}
 			<div className="flex flex-col gap-px flex-1 min-w-0">
 				<div className="flex sm:justify-between flex-col sm:flex-row gap-1">
-					<h3 className="flex flex-col items-start gap-y-1 shrink-0">
+					<h3 className="font-normal flex flex-col items-start gap-y-1 shrink-0">
 						<span
 							className={`${onClick ? 'group-hover:underline group-hover:decoration-ink-subtle underline-offset-4' : ''}`}
 						>

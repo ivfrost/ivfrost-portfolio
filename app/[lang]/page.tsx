@@ -1,3 +1,4 @@
+import { sendContact } from '@/actions/contact';
 import CertList from '@/components/organisms/CertList';
 import ContactForm from '@/components/organisms/ContactForm';
 import EducationTimeline from '@/components/organisms/EducationTimeline';
@@ -50,7 +51,12 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
 					title={dict.label.featuredWork}
 					variant="alt"
 				>
-					<ProjectList items={projects} lang={lang} />
+					<ProjectList
+						items={projects}
+						lang={lang}
+						blogCtaPart1={dict.featuredWork.blog1}
+						blogCtaPart2={dict.featuredWork.blog2}
+					/>
 				</Section>
 
 				<Section id="experience" title={dict.label.experience}>
@@ -90,6 +96,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
 						messageLabel={dict.label.message}
 						successMessage={dict.contact.successMessage}
 						errorMessage={dict.contact.errorMessage}
+						sendContact={sendContact}
 					/>
 				</Section>
 			</main>
@@ -98,6 +105,7 @@ export default async function Home({ params }: PageProps<'/[lang]'>) {
 				socialLinks={socials}
 				downloadCvText={dict.footer.downloadCv}
 				cvLink={`CV_${lang}.pdf`}
+				portfolioText={dict.footer.portfolio}
 				builtWithText={dict.footer.builtWith}
 			/>
 		</>

@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge';
 
 interface ButtonProps {
 	type: 'button' | 'submit' | 'reset';
+	disabled?: boolean;
 	variant?: 'primary' | 'outline' | 'ghost';
 	modifier?: 'full-width' | 'icon-only';
 	size?: 'small' | 'medium' | 'large';
@@ -80,11 +81,13 @@ export default function Button({
 	size,
 	children,
 	className,
+	disabled,
 	onClick,
 }: ButtonProps) {
 	return (
 		<button
 			type={type}
+			disabled={disabled}
 			className={twMerge(
 				buttonVariants({
 					variant,
@@ -93,6 +96,7 @@ export default function Button({
 					tone,
 				}),
 				className,
+				disabled ? 'border-ink-subtle/20 text-text-meta-lite' : '',
 			)}
 			onClick={onClick}
 		>

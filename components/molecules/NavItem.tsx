@@ -2,15 +2,17 @@
 
 import { cva, cx } from 'class-variance-authority';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 
 export interface NavLinkData {
+	noActive?: boolean;
 	label: string;
 	href: string;
 }
 
 interface NavItemProps extends NavLinkData {
-	isActive: boolean;
 	isMobile?: boolean;
+	isActive?: boolean;
 	className?: string;
 	onNavigate?: () => void;
 }
@@ -52,9 +54,14 @@ export default function NavItem({
 	onNavigate,
 	className,
 }: NavItemProps) {
+	const router = useRouter();
 	const handleClick = (e: React.MouseEvent) => {
 		e.preventDefault();
 
+		if (!href.startsWith('#')) {
+			router.push(href);
+			return;
+		}
 		const target = document.querySelector(href);
 		if (!target) return;
 

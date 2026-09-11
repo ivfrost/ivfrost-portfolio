@@ -1,13 +1,11 @@
 'use client';
 
-import { sendContact } from '@/actions/contact';
 import { motion } from 'framer-motion';
 import { startTransition, useState } from 'react';
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { toast } from 'sonner';
 import Button from '../atoms/Button';
 import Input from '../atoms/Input';
-
 interface ContactFormProps {
 	className?: string;
 	contactDesc?: string;
@@ -16,6 +14,20 @@ interface ContactFormProps {
 	messageLabel?: string;
 	successMessage?: string;
 	errorMessage?: string;
+	sendContact: (
+		name: string,
+		email: string,
+		message: string,
+	) => Promise<
+		| {
+				error: string;
+				success?: undefined;
+		  }
+		| {
+				success: boolean;
+				error?: undefined;
+		  }
+	>;
 }
 
 export default function ContactForm({
@@ -26,6 +38,7 @@ export default function ContactForm({
 	messageLabel,
 	successMessage,
 	errorMessage,
+	sendContact,
 }: ContactFormProps) {
 	const [formData, setFormData] = useState({
 		name: '',

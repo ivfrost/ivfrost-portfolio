@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import NavItem, { NavLinkData } from '../molecules/NavItem';
 
 interface NavbarProps {
@@ -15,7 +15,11 @@ export default function Navbar({ items, isMobile, onNavigate }: NavbarProps) {
 	useEffect(() => {
 		const observers: IntersectionObserver[] = [];
 
-		items.forEach(({ href }) => {
+		items.forEach(({ href, noActive }) => {
+			if (noActive) return;
+			if (!href.startsWith('#')) {
+				return;
+			}
 			const id = href.replace('#', '');
 			const el = document.getElementById(id);
 			if (!el) return;
@@ -42,9 +46,11 @@ export default function Navbar({ items, isMobile, onNavigate }: NavbarProps) {
 			const nearBottom =
 				window.innerHeight + window.scrollY >= document.body.offsetHeight - 20;
 			if (nearBottom) {
-				setActiveHref(items[items.length - 1].href);
+				const item = items[items.length - 1];
+				if (!item.noActive) setActiveHref(item.href);
 			} else if (activeHref === items[items.length - 1].href) {
-				setActiveHref(items[items.length - 2].href);
+				const item = items[items.length - 2];
+				if (!item.noActive) setActiveHref(item.href);
 			}
 		};
 
@@ -64,6 +70,7 @@ export default function Navbar({ items, isMobile, onNavigate }: NavbarProps) {
 					isMobile={isMobile}
 					isActive={activeHref === item.href}
 					onNavigate={onNavigate}
+					noActive={item.noActive}
 				/>
 			))}
 		</nav>

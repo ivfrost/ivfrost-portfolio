@@ -1,24 +1,36 @@
 'use client';
 
+import socials from '@/data/socials';
+import { cx } from 'class-variance-authority';
+import { AnimatePresence, motion } from 'framer-motion';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { MenuToggle } from '../atoms/MenuToggle';
 import Container from '../layout/Container';
 import type { NavLinkData } from '../molecules/NavItem';
-import Navbar from './Navbar';
-import { cx } from 'class-variance-authority';
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import SignOutButton from '../molecules/SignOutButton';
 import Socialbar from '../organisms/Socialbar';
-import socials from '@/data/socials';
-import { MenuToggle } from '../atoms/MenuToggle';
+import Navbar from './Navbar';
 
 interface HeaderProps {
 	items: NavLinkData[];
 	className?: string;
+	isBlog?: boolean;
+	authed?: boolean;
+	isSignIn?: boolean;
 }
 
-export default function Header({ items, className }: HeaderProps) {
+export default function Header({
+	items,
+	className,
+	isBlog,
+	isSignIn,
+	authed,
+}: HeaderProps) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [showNameInMobileBar, setShowNameInMobileBar] = useState(false);
+	const pathname = usePathname();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -38,6 +50,12 @@ export default function Header({ items, className }: HeaderProps) {
 			document.body.style.overflow = '';
 		};
 	}, [isOpen]);
+	const isPostPage =
+		/\/blog(?:\/[^/]+)+\/?$/.test(pathname ?? '') &&
+		!pathname?.endsWith('/blog');
+	const isAuthPage = /\/auth\/(signin|error)\/?$/.test(pathname ?? '');
+
+	if (isPostPage || isAuthPage) return null;
 
 	return (
 		<>
@@ -50,7 +68,29 @@ export default function Header({ items, className }: HeaderProps) {
 			>
 				<Container className="flex justify-between items-center w-full">
 					<Navbar items={items} />
-					<Socialbar socials={socials} />
+					{isBlog || isSignIn ? (
+						<>
+							<div className="flex items-center gap-4">
+								<Link
+									href={`/en/auth/signin`}
+									className="text-text-meta font-mono text-sm hover:text-ink transition-colors"
+								>
+									{!authed && !isSignIn && (
+										<p className="text-text-meta font-mono text-sm">sign in</p>
+									)}
+								</Link>
+								{authed && (
+									<>
+										<p className="text-text-meta font-mono text-sm">admin</p>
+										{' · '}
+										<SignOutButton />
+									</>
+								)}
+							</div>
+						</>
+					) : (
+						<Socialbar socials={socials} />
+					)}
 				</Container>
 			</header>
 

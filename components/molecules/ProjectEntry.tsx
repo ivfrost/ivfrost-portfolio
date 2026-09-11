@@ -21,6 +21,7 @@ export default function ProjectEntry({
 }: ProjectEntryProps) {
 	return (
 		<Entry
+			className="border-b last:border-b-0 border-b-border hover:border-border-hover transition-colors"
 			number={number}
 			title={name}
 			titleIcons={

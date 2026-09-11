@@ -15,7 +15,7 @@ export default function EducationTimeline({
 }: EducationTimelineProps) {
 	return (
 		<div className="space-y-4">
-			<h3 className="font-mono text-lg tracking-wider text-text-meta-lite mb-6 lowercase block">
+			<h3 className="font-normal font-sans text-lg tracking-wider text-text-meta-lite mb-6 lowercase block">
 				{heading}
 			</h3>
 			{entries.map((entry, idx) => (

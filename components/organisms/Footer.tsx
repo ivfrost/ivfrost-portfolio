@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { BsDownload } from 'react-icons/bs';
 import type { SocialLinkData } from '../../data/types';
 import Container from '../layout/Container';
@@ -8,7 +9,9 @@ export interface FooterProps {
 	cvLink?: string;
 	className?: string;
 	downloadCvText?: string;
+	portfolioText?: string;
 	builtWithText?: string;
+	isBlog?: boolean;
 }
 
 export default function Footer({
@@ -17,23 +20,20 @@ export default function Footer({
 	cvLink,
 	className,
 	downloadCvText,
+	portfolioText,
 	builtWithText,
+	isBlog,
 }: FooterProps) {
 	return (
 		<footer className={`py-8 bg-background-alt ${className}`}>
 			<Container className="grid gap-4 grid-cols-3 items-center sm:flex">
 				<div className="gap-4 sm:hidden flex w-full col-span-3 sm:col-span-1 items-center justify-between">
-					{cvLink && (
-						<a
-							href={cvLink}
-							target="_blank"
-							rel="noopener noreferrer"
-							className=" text-ink-subtle hover:text-ink transition-colors text-xs"
-						>
-							{downloadCvText}
-							<BsDownload size={12} className="inline ml-1 mb-0.5" />
-						</a>
-					)}
+					<Link
+						href="/"
+						className="text-ink-subtle hover:text-ink transition-colors text-xs"
+					>
+						{portfolioText}
+					</Link>
 					<div className="flex sm:hidden gap-4">
 						{socialLinks.map((link) => {
 							const Icon = link.icon;
@@ -60,17 +60,37 @@ export default function Footer({
 					</div>
 					<span className="text-text-meta-lite hidden sm:flex">·</span>
 					<div className="gap-4 flex-1 hidden sm:flex w-full col-span-3 sm:col-span-1 items-center justify-between">
-						{cvLink && (
-							<a
-								href={cvLink}
-								target="_blank"
-								rel="noopener noreferrer"
-								className=" text-ink-subtle hover:text-ink transition-colors text-xs"
-							>
-								{downloadCvText}{' '}
-								<BsDownload size={12} className="inline mb-0.5 ml-1" />
-							</a>
-						)}
+						<div className="flex items-center gap-3">
+							{!isBlog ? (
+								<Link
+									href={`/en/blog`}
+									className="text-ink-subtle hover:text-ink transition-colors text-xs"
+								>
+									Blog
+								</Link>
+							) : (
+								<Link
+									href={'/'}
+									className="text-ink-subtle hover:text-ink transition-colors text-xs"
+								>
+									{portfolioText}
+								</Link>
+							)}
+							{cvLink && !isBlog && (
+								<>
+									<span className="text-text-meta-lite">·</span>
+									<a
+										href={cvLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-ink-subtle hover:text-ink transition-colors text-xs"
+									>
+										{downloadCvText}{' '}
+										<BsDownload size={12} className="inline mb-0.5 ml-1" />
+									</a>
+								</>
+							)}
+						</div>
 					</div>
 					<p className="text-xs text-ink-subtle col-span-3 text-center mt-4 sm:mt-0 hidden sm:block">
 						{builtWithText}{' '}

@@ -7,3 +7,7 @@ export const formatDate = (date: string, locale: string = 'es-ES') => {
 		{ month: 'short', year: 'numeric' },
 	);
 };
+
+export const readingTime = (body: string) => {
+	return Math.ceil(body.split(/\s+/).length / 200); // ~200wpm
+};
