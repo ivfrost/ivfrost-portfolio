@@ -24,9 +24,30 @@ export default function Footer({
 	builtWithText,
 	isBlog,
 }: FooterProps) {
+	const socials = socialLinks.length > 0 && (
+		<div className="flex gap-4">
+			{socialLinks.map((link) => {
+				const Icon = link.icon;
+				return (
+					<a
+						key={link.label}
+						href={link.href}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label={link.label}
+						className="text-ink-subtle hover:text-ink focus-visible:text-ink focus:outline-none"
+					>
+						{link.icon ? <Icon size={20} /> : link.label}
+					</a>
+				);
+			})}
+		</div>
+	);
+
 	return (
 		<footer className={`py-8 bg-background-alt ${className}`}>
 			<Container className="grid gap-4 grid-cols-3 items-center sm:flex">
+				{/* MOBILE TOP ROW */}
 				<div className="gap-4 sm:hidden flex w-full col-span-3 sm:col-span-1 items-center justify-between">
 					<Link
 						href="/"
@@ -34,24 +55,10 @@ export default function Footer({
 					>
 						{portfolioText}
 					</Link>
-					<div className="flex sm:hidden gap-4">
-						{socialLinks.map((link) => {
-							const Icon = link.icon;
-							return (
-								<a
-									key={link.label}
-									href={link.href}
-									target="_blank"
-									rel="noopener noreferrer"
-									aria-label={link.label}
-									className="text-ink-subtle hover:text-ink focus-visible:text-ink focus:outline-none"
-								>
-									{link.icon ? <Icon size={20} /> : link.label}
-								</a>
-							);
-						})}
-					</div>
+					{isBlog && socials}
 				</div>
+
+				{/* DESKTOP ROW */}
 				<div className="gap-2 sm:order-1 flex items-center justify-between w-full col-span-3">
 					<div className="gap-2 items-center hidden sm:flex">
 						<p className="text-xs w-full flex-1 text-ink-subtle">
@@ -59,18 +66,19 @@ export default function Footer({
 						</p>
 					</div>
 					<span className="text-text-meta-lite hidden sm:flex">·</span>
+
 					<div className="gap-4 flex-1 hidden sm:flex w-full col-span-3 sm:col-span-1 items-center justify-between">
 						<div className="flex items-center gap-3">
 							{!isBlog ? (
 								<Link
-									href={`/en/blog`}
+									href="/en/blog"
 									className="text-ink-subtle hover:text-ink transition-colors text-xs"
 								>
 									Blog
 								</Link>
 							) : (
 								<Link
-									href={'/'}
+									href="/"
 									className="text-ink-subtle hover:text-ink transition-colors text-xs"
 								>
 									{portfolioText}
@@ -90,8 +98,15 @@ export default function Footer({
 									</a>
 								</>
 							)}
+							{isBlog && (
+								<>
+									<span className="text-text-meta-lite">·</span>
+									{socials}
+								</>
+							)}
 						</div>
 					</div>
+
 					<p className="text-xs text-ink-subtle col-span-3 text-center mt-4 sm:mt-0 hidden sm:block">
 						{builtWithText}{' '}
 						<a
@@ -104,6 +119,8 @@ export default function Footer({
 						</a>
 					</p>
 				</div>
+
+				{/* MOBILE BOTTOM ROW */}
 				<div className="gap-2 items-center flex w-full sm:hidden col-span-3 justify-between">
 					<p className="text-xs text-ink-subtle">
 						&copy; {new Date().getFullYear()} {name ?? ''}

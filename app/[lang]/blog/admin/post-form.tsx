@@ -6,8 +6,10 @@ import Input from '@/components/atoms/Input';
 import Container from '@/components/layout/Container';
 import '@uiw/react-md-editor/markdown-editor.css';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState, useTransition } from 'react';
+import { BsArrowLeft } from 'react-icons/bs';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
@@ -49,7 +51,16 @@ export default function PostForm() {
 
 	return (
 		<Container className="py-16 w-3xl">
-			<h3 className="font-normal font-sans text-lg tracking-wider text-text-meta-lite mb-6 lowercase">
+			<div className="flex items-center justify-between">
+				<Link
+					href="/blog"
+					className="text-sm text-text-meta-lite hover:text-ink transition-colors font-mono lowercase flex items-center"
+				>
+					<BsArrowLeft size={14} className="mr-1.5" />
+					back to blog
+				</Link>
+			</div>
+			<h3 className="font-normal font-sans text-lg tracking-wider text-text-meta-lite mb-6 lowercase mt-8">
 				new post
 			</h3>
 

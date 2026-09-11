@@ -28,7 +28,10 @@ export default function ProjectList({
 				<p className="text-sm text-muted">No projects to display.</p>
 			)}
 			<p className="sm:text-right mt-8 sm:mt-12 pt-6 border-t border-border-subtle text-sm">
-				<TbInfoCircle size={12} className="inline-block align-middle mr-1.5" />
+				<TbInfoCircle
+					size={12}
+					className="inline-block align-middle mr-1.5 mb-0.5 text-text-meta"
+				/>
 				{blogCtaPart1}
 				<Link
 					href="/en/blog"

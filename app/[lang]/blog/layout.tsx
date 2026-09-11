@@ -43,6 +43,7 @@ export default async function BlogLayout({
 				builtWithText={dict.footer.builtWith}
 				portfolioText={dict.footer.portfolio}
 				isBlog
+				className="border-t border-border"
 			/>
 		</div>
 	);

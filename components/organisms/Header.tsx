@@ -72,7 +72,7 @@ export default function Header({
 						<>
 							<div className="flex items-center gap-4">
 								<Link
-									href={`/en/auth/signin`}
+									href={`/en/auth/signin?callbackUrl=${encodeURIComponent(pathname ?? '/en/blog')}`}
 									className="text-text-meta font-mono text-sm hover:text-ink transition-colors"
 								>
 									{!authed && !isSignIn && (
@@ -81,7 +81,12 @@ export default function Header({
 								</Link>
 								{authed && (
 									<>
-										<p className="text-text-meta font-mono text-sm">admin</p>
+										<Link
+											className="text-text-meta font-mono text-sm"
+											href={'/blog/admin'}
+										>
+											write
+										</Link>
 										{' · '}
 										<SignOutButton />
 									</>

@@ -4,12 +4,15 @@ import { deletePostAction, updatePostAction } from '@/actions/blog';
 import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Input';
 import Container from '@/components/layout/Container';
+import { postMarkdownComponents } from '@/components/molecules/PostMarkdown';
 import type { Post } from '@/lib/blog';
 import '@uiw/react-md-editor/markdown-editor.css';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useState, useTransition } from 'react';
 import { BsArrowLeft } from 'react-icons/bs';
+import rehypeHighlight from 'rehype-highlight';
+import remarkGfm from 'remark-gfm';
 
 const MDEditor = dynamic(() => import('@uiw/react-md-editor'), { ssr: false });
 
@@ -22,7 +25,7 @@ export default function EditPostForm({ post }: { post: Post }) {
 	const [isPending, startTransition] = useTransition();
 	const [isDeleting, startDeleteTransition] = useTransition();
 
-	function handleSubmit(e: React.FormEvent) {
+	function handleSubmit(e: React.SubmitEvent) {
 		e.preventDefault();
 		setError(null);
 
@@ -106,11 +109,20 @@ export default function EditPostForm({ post }: { post: Post }) {
 
 				<div data-color-mode="light">
 					<label className="block text-sm text-text-meta mb-2">body</label>
-					<MDEditor
-						value={body}
-						onChange={(v) => setBody(v ?? '')}
-						height={400}
-					/>
+					<div data-color-mode="light">
+						<MDEditor
+							value={body}
+							onChange={(v) => setBody(v ?? '')}
+							preview="live"
+							height={600}
+							visibleDragbar={false}
+							previewOptions={{
+								components: postMarkdownComponents,
+								rehypePlugins: [rehypeHighlight],
+								remarkPlugins: [remarkGfm],
+							}}
+						/>
+					</div>
 				</div>
 
 				{error && <p className="text-sm text-red-500">{error}</p>}
