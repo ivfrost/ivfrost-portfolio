@@ -49,12 +49,39 @@ export default function Footer({
 			<Container className="grid gap-4 grid-cols-3 items-center sm:flex">
 				{/* MOBILE TOP ROW */}
 				<div className="gap-4 sm:hidden flex w-full col-span-3 sm:col-span-1 items-center justify-between">
-					<Link
-						href="/"
-						className="text-ink-subtle hover:text-ink transition-colors text-xs"
-					>
-						{portfolioText}
-					</Link>
+					<div className="gap-3 flex items-center">
+						{isBlog ? (
+							<Link
+								href="/"
+								className="text-ink-subtle hover:text-ink transition-colors text-xs"
+							>
+								{portfolioText}
+							</Link>
+						) : (
+							<>
+								{cvLink && (
+									<>
+										<a
+											href={cvLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-ink-subtle hover:text-ink transition-colors text-xs"
+										>
+											{downloadCvText}{' '}
+											<BsDownload size={12} className="inline mb-0.5 ml-1" />
+										</a>
+										<span className="text-text-meta-lite text-xs">·</span>
+									</>
+								)}
+								<Link
+									href="/en/blog"
+									className="text-ink-subtle hover:text-ink transition-colors text-xs"
+								>
+									Blog
+								</Link>
+							</>
+						)}
+					</div>
 					{isBlog && socials}
 				</div>
 
@@ -65,43 +92,47 @@ export default function Footer({
 							&copy; {new Date().getFullYear()} {name ?? ''}
 						</p>
 					</div>
-					<span className="text-text-meta-lite hidden sm:flex">·</span>
+					<span className="text-text-meta-lite hidden sm:flex text-xs">·</span>
 
 					<div className="gap-4 flex-1 hidden sm:flex w-full col-span-3 sm:col-span-1 items-center justify-between">
 						<div className="flex items-center gap-3">
 							{!isBlog ? (
-								<Link
-									href="/en/blog"
-									className="text-ink-subtle hover:text-ink transition-colors text-xs"
-								>
-									Blog
-								</Link>
-							) : (
-								<Link
-									href="/"
-									className="text-ink-subtle hover:text-ink transition-colors text-xs"
-								>
-									{portfolioText}
-								</Link>
-							)}
-							{cvLink && !isBlog && (
 								<>
-									<span className="text-text-meta-lite">·</span>
-									<a
-										href={cvLink}
-										target="_blank"
-										rel="noopener noreferrer"
+									{cvLink && (
+										<>
+											<a
+												href={cvLink}
+												target="_blank"
+												rel="noopener noreferrer"
+												className="text-ink-subtle hover:text-ink transition-colors text-xs"
+											>
+												{downloadCvText}{' '}
+												<BsDownload size={12} className="inline mb-0.5 ml-1" />
+											</a>
+											<span className="text-text-meta-lite text-xs">·</span>
+										</>
+									)}
+									<Link
+										href="/en/blog"
 										className="text-ink-subtle hover:text-ink transition-colors text-xs"
 									>
-										{downloadCvText}{' '}
-										<BsDownload size={12} className="inline mb-0.5 ml-1" />
-									</a>
+										Blog
+									</Link>
 								</>
-							)}
-							{isBlog && (
+							) : (
 								<>
-									<span className="text-text-meta-lite">·</span>
-									{socials}
+									<Link
+										href="/"
+										className="text-ink-subtle hover:text-ink transition-colors text-xs"
+									>
+										{portfolioText}
+									</Link>
+									{isBlog && (
+										<>
+											<span className="text-text-meta-lite text-xs">·</span>
+											{socials}
+										</>
+									)}
 								</>
 							)}
 						</div>
