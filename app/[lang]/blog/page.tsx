@@ -1,6 +1,6 @@
 import Container from '@/components/layout/Container';
 import BlogSummaryList from '@/components/organisms/BlogSummaryList';
-import { getPosts } from '@/lib/blog';
+import { getPosts } from '@/stories/lib/blog';
 
 export default async function Home({ params }: PageProps<'/[lang]'>) {
 	const [posts] = await Promise.all([getPosts()]);

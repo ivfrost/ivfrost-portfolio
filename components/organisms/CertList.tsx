@@ -1,5 +1,5 @@
 'use client';
-import { formatDate } from '@/lib/utils';
+import { formatDate } from '@/stories/lib/utils';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';

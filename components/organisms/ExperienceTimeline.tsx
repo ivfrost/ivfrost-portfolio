@@ -1,6 +1,6 @@
-import ExperienceEntry from '../molecules/ExperienceEntry';
 import type { Experience } from '@/data/types';
-import { formatDate } from '@/lib/utils';
+import { formatDate } from '@/stories/lib/utils';
+import ExperienceEntry from '../molecules/ExperienceEntry';
 
 interface ExperienceTimelineProps {
 	entries: Experience[];

@@ -1,6 +1,6 @@
 import EducationEntry from '@/components/molecules/EducationEntry';
 import type { Education } from '@/data/types';
-import { formatDate } from '@/lib/utils';
+import { formatDate } from '@/stories/lib/utils';
 
 interface EducationTimelineProps {
 	entries: Education[];

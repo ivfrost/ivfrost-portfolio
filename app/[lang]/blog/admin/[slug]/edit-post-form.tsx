@@ -5,7 +5,7 @@ import Button from '@/components/atoms/Button';
 import Input from '@/components/atoms/Input';
 import Container from '@/components/layout/Container';
 import { postMarkdownComponents } from '@/components/molecules/PostMarkdown';
-import type { Post } from '@/lib/blog';
+import type { Post } from '@/stories/lib/blog';
 import '@uiw/react-md-editor/markdown-editor.css';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';

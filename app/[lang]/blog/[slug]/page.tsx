@@ -1,8 +1,8 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
 import Container from '@/components/layout/Container';
 import { postMarkdownComponents } from '@/components/molecules/PostMarkdown';
-import { getPost } from '@/lib/blog';
-import { readingTime } from '@/lib/utils';
+import { getPost } from '@/stories/lib/blog';
+import { readingTime } from '@/stories/lib/utils';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';

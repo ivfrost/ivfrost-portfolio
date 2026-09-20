@@ -1,4 +1,4 @@
-import type { PostSummary } from '@/lib/blog';
+import type { PostSummary } from '@/stories/lib/blog';
 import BlogSummaryEntry from '../molecules/BlogSummaryEntry';
 
 export interface BlogSummaryListProps {

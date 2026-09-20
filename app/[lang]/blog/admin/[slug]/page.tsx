@@ -1,5 +1,5 @@
 import { authOptions } from '@/app/api/auth/[...nextauth]/authOptions';
-import { getPost } from '@/lib/blog';
+import { getPost } from '@/stories/lib/blog';
 import { getServerSession } from 'next-auth';
 import { notFound, redirect } from 'next/navigation';
 import EditPostForm from './edit-post-form';
