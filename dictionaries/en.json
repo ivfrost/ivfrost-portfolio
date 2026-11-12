@@ -1,52 +1,52 @@
 {
-	"label": {
-		"featuredWork": "Featured Work",
-		"experience": "Professional Experience",
-		"training": "Education",
-		"contact": "Contact",
-		"studies": "Studies",
-		"certifications": "Certifications",
-		"featured": "Featured",
-		"recent": "Recent",
-		"name": "Name",
-		"message": "Message",
-		"status": "Status"
-	},
-	"hero": {
-		"role": "Full Stack Developer",
-		"about": "I like understanding how things actually work, not just getting them to run, and writing quality code that's easy to maintain and debug. Self-taught, backend-leaning. I run Linux daily, self-host services on Proxmox, and use Coolify and AWS for deployments.",
-		"openTo": "new opportunities",
-		"location": "Remote or Málaga",
-		"ctaLabel": "Contact me",
-		"statusText": "Open to new opportunities"
-	},
-	"nav": {
-		"featuredWork": "projects",
-		"experience": "experience",
-		"training": "education",
-		"contact": "contact",
-		"portfolio": "portfolio",
-		"blog": "blog"
-	},
-	"button": {
-		"showMore": "Show more",
-		"showLess": "Show less",
-		"sendMessage": "Send message",
-		"sending": "Sending...",
-		"submit": "Submit"
-	},
-	"featuredWork": {
-		"blog1": "Check out my ",
-		"blog2": " to see what I've been up to lately."
-	},
-	"contact": {
-		"desc": "Have a project in mind or want to get in touch? Send me a message and I'll get back to you as soon as I can.",
-		"successMessage": "Message sent successfully",
-		"errorMessage": "There was an error sending your message. Please try again later."
-	},
-	"footer": {
-		"builtWith": "Built with",
-		"downloadCv": "Download CV",
-		"portfolio": "My portfolio"
-	}
+  "label": {
+    "featuredWork": "Featured Work",
+    "experience": "Professional Experience",
+    "training": "Education",
+    "contact": "Contact",
+    "studies": "Studies",
+    "certifications": "Certifications",
+    "featured": "Featured",
+    "recent": "Recent",
+    "name": "Name",
+    "message": "Message",
+    "status": "Status"
+  },
+  "hero": {
+    "role": "Full Stack Developer",
+    "about": "Self-taught full stack developer, backend-leaning. I care about understanding how things work, not just making them run, and shipping quality code that's easier to maintain and debug. AWS Certified Developer – Associate, strengthening my cloud deployment and scalability skills.",
+    "openTo": "new opportunities",
+    "location": "Málaga, Spain · Remote or on-site anywhere in Spain",
+    "ctaLabel": "Contact me",
+    "statusText": "Open to new opportunities"
+  },
+  "nav": {
+    "featuredWork": "projects",
+    "experience": "experience",
+    "training": "education",
+    "contact": "contact",
+    "portfolio": "portfolio",
+    "blog": "blog"
+  },
+  "button": {
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "sendMessage": "Send message",
+    "sending": "Sending...",
+    "submit": "Submit"
+  },
+  "featuredWork": {
+    "blog1": "Check out my ",
+    "blog2": " to see what I've been up to lately."
+  },
+  "contact": {
+    "desc": "Have a project in mind or want to get in touch? Send me a message and I'll get back to you as soon as I can.",
+    "successMessage": "Message sent successfully",
+    "errorMessage": "There was an error sending your message. Please try again later."
+  },
+  "footer": {
+    "builtWith": "Built with",
+    "downloadCv": "Download CV",
+    "portfolio": "My portfolio"
+  }
 }

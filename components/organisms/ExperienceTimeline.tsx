@@ -24,8 +24,8 @@ export default function ExperienceTimeline({
 					company={entry.company}
 					location={entry.location}
 					modality={entry.modality}
-					startDate={formatDate(entry.startDate)}
-					endDate={formatDate(entry.endDate)}
+					startDate={formatDate(entry.startDate, lang)}
+					endDate={formatDate(entry.endDate, lang)}
 					summary={entry.summary}
 					description={entry.description}
 					lang={lang}

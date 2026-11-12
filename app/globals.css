@@ -22,6 +22,11 @@
 	--font-sans: var(--font-inter);
 	--font-mono: var(--font-ibm-plex-mono);
 
+	--text-xs: 0.875rem;
+	--text-xs--line-height: calc(1.25 / 0.875);
+	--text-sm: 1rem;
+	--text-sm--line-height: calc(1.5 / 1);
+
 	--color-code-bg: #1a1f1b;
 	--color-code-text: #cfd6c9;
 }
@@ -173,7 +178,7 @@ pre {
 .w-md-editor-text-input {
 	color: var(--color-ink) !important;
 	font-family: var(--font-mono) !important;
-	font-size: 0.875rem !important;
+	font-size: var(--text-sm) !important;
 	line-height: 1.6 !important;
 }
 
@@ -195,7 +200,7 @@ pre {
 	background-color: transparent !important;
 	color: var(--color-ink-subtle) !important;
 	font-family: var(--font-sans) !important;
-	font-size: 0.875rem !important;
+	font-size: var(--text-sm) !important;
 	line-height: 1.7 !important;
 }
 
@@ -212,7 +217,7 @@ pre {
 .wmde-markdown h5 {
 	color: var(--color-text-meta) !important;
 	font-family: var(--font-mono) !important;
-	font-size: 0.875rem !important;
+	font-size: var(--text-sm) !important;
 	letter-spacing: 0.05em;
 	text-transform: lowercase;
 	margin: 1.5rem 0 1rem !important;
@@ -221,7 +226,7 @@ pre {
 .wmde-markdown h6 {
 	color: var(--color-text-meta-lite) !important;
 	font-family: var(--font-mono) !important;
-	font-size: 0.8125rem !important;
+	font-size: var(--text-xs) !important;
 	margin: 1.5rem 0 0.75rem !important;
 }
 
@@ -230,7 +235,7 @@ pre {
 .wmde-markdown ol {
 	color: var(--color-ink-subtle) !important;
 	font-family: var(--font-sans) !important;
-	font-size: 0.875rem !important;
+	font-size: var(--text-sm) !important;
 	line-height: 1.7 !important;
 	margin-bottom: 0.75rem !important;
 }
@@ -266,7 +271,7 @@ pre {
 	border: 1px solid var(--color-border-subtle);
 	color: var(--color-ink) !important;
 	font-family: var(--font-mono) !important;
-	font-size: 0.8125rem !important;
+	font-size: var(--text-xs) !important;
 	padding: 1px 4px;
 }
 

@@ -1,52 +1,52 @@
 {
-	"label": {
-		"featuredWork": "Proyectos destacados",
-		"experience": "Experiencia profesional",
-		"training": "Formación",
-		"contact": "Contacto",
-		"studies": "Estudios",
-		"certifications": "Certificaciones",
-		"featured": "Destacadas",
-		"recent": "Recientes",
-		"name": "Nombre",
-		"message": "Mensaje",
-		"status": "Estado"
-	},
-	"hero": {
-		"role": "Desarrollador Full Stack",
-		"about": "Me gusta entender cómo funcionan las cosas realmente, no solo hacer que funcionen. Escribo código limpio y fácil de mantener. Autodidacta, con enfoque en backend. Uso Linux a diario, autoalojo servicios en Proxmox, y gestiono despliegues con Coolify y AWS.",
-		"openTo": "nuevas oportunidades",
-		"location": "Remoto o Málaga",
-		"ctaLabel": "Contáctame",
-		"statusText": "Abierto a nuevas oportunidades"
-	},
-	"nav": {
-		"featuredWork": "proyectos",
-		"experience": "experiencia",
-		"training": "formación",
-		"contact": "contacto",
-		"portfolio": "portfolio",
-		"blog": "blog"
-	},
-	"button": {
-		"showMore": "Mostrar más",
-		"showLess": "Mostrar menos",
-		"sendMessage": "Enviar mensaje",
-		"sending": "Enviando...",
-		"submit": "Enviar"
-	},
-	"featuredWork": {
-		"blog1": "Visita mi blog ",
-		"blog2": " para ver en que he estado trabajando ultimamente (en inglés)."
-	},
-	"contact": {
-		"desc": "¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y te responderé lo antes posible.",
-		"successMessage": "Mensaje enviado correctamente",
-		"errorMessage": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
-	},
-	"footer": {
-		"builtWith": "Creado con",
-		"downloadCv": "Descargar CV",
-		"portfolio": "Mi portfolio"
-	}
+  "label": {
+    "featuredWork": "Proyectos destacados",
+    "experience": "Experiencia profesional",
+    "training": "Formación",
+    "contact": "Contacto",
+    "studies": "Estudios",
+    "certifications": "Certificaciones",
+    "featured": "Destacadas",
+    "recent": "Recientes",
+    "name": "Nombre",
+    "message": "Mensaje",
+    "status": "Estado"
+  },
+  "hero": {
+    "role": "Desarrollador Full Stack",
+    "about": "Desarrollador full stack autodidacta, con enfoque en backend. Me importa entender cómo funcionan las cosas, no solo hacer que funcionen, y desarrollar código de calidad que sea más fácil de mantener y depurar. AWS Certified Developer – Associate, reforzando mis conocimientos de despliegue y escalabilidad en la nube.",
+    "openTo": "nuevas oportunidades",
+    "location": "Málaga, España · Remoto o presencial en toda España",
+    "ctaLabel": "Contáctame",
+    "statusText": "Abierto a nuevas oportunidades"
+  },
+  "nav": {
+    "featuredWork": "proyectos",
+    "experience": "experiencia",
+    "training": "formación",
+    "contact": "contacto",
+    "portfolio": "portfolio",
+    "blog": "blog"
+  },
+  "button": {
+    "showMore": "Mostrar más",
+    "showLess": "Mostrar menos",
+    "sendMessage": "Enviar mensaje",
+    "sending": "Enviando...",
+    "submit": "Enviar"
+  },
+  "featuredWork": {
+    "blog1": "Visita mi ",
+    "blog2": " para ver en qué he estado trabajando últimamente (en inglés)."
+  },
+  "contact": {
+    "desc": "¿Tienes un proyecto en mente o quieres ponerte en contacto? Escríbeme y te responderé lo antes posible.",
+    "successMessage": "Mensaje enviado correctamente",
+    "errorMessage": "Hubo un error al enviar tu mensaje. Por favor, inténtalo de nuevo más tarde."
+  },
+  "footer": {
+    "builtWith": "Creado con",
+    "downloadCv": "Descargar CV",
+    "portfolio": "Mi portfolio"
+  }
 }

@@ -47,7 +47,7 @@ export default function Hero({
 					{about && (
 						<div className="flex flex-col sm:flex-row sm:justify-between gap-6">
 							<div className="flex flex-col">
-								<p className="text-sm text-ink-subtle leading-relaxed max-w-prose">
+								<p className="text-sm text-ink-subtle leading-relaxed max-w-prose text-pretty">
 									{about}
 									{cvLink && ' '}
 									{cvLink && (

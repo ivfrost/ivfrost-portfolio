@@ -24,8 +24,8 @@ export default function EducationTimeline({
 					title={entry.title}
 					institution={entry.institution}
 					location={entry.location}
-					startDate={formatDate(entry.startDate)}
-					endDate={formatDate(entry.endDate)}
+					startDate={formatDate(entry.startDate, lang)}
+					endDate={formatDate(entry.endDate, lang)}
 					summary={entry.summary}
 					isRemote={entry.isRemote}
 					lang={lang}

@@ -70,11 +70,12 @@ export default function ContactForm({
 			className={`flex flex-col gap-4 sm:gap-8 ${className}`}
 			onSubmit={handleSubmit}
 		>
-			<p>{contactDesc}</p>
+			<p className="text-pretty">{contactDesc}</p>
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 				<Input
 					label={nameLabel!}
 					name="name"
+					autoComplete="name"
 					value={formData.name}
 					onChange={(value) => setFormData({ ...formData, name: value })}
 					required
@@ -83,6 +84,7 @@ export default function ContactForm({
 					label="Email"
 					name="email"
 					type="email"
+					autoComplete="email"
 					value={formData.email}
 					onChange={(value) => setFormData({ ...formData, email: value })}
 					required

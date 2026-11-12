@@ -12,7 +12,7 @@ interface SectionProps {
 }
 
 const sectionVariants = cva(
-	[`py-6 sm:py-10 bg-background relative border-b border-border`],
+	[`scroll-mt-16 py-6 sm:py-10 bg-background relative border-b border-border`],
 	{
 		variants: {
 			variant: {

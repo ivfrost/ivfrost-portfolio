@@ -1,162 +1,163 @@
 'use client';
-import { formatDate } from '@/stories/lib/utils';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { formatDate } from '@/stories/lib/utils';
 import Button from '../atoms/Button';
 import CertEntry from '../molecules/CertEntry';
 
 export interface CertListProps {
-	items: {
-		title: string;
-		issuer: string;
-		date: string;
-		href?: string;
-		pinned?: boolean;
-	}[];
-	heading?: string;
-	featuredLabel?: string;
-	recentLabel?: string;
-	showMoreText?: string;
-	showLessText?: string;
-	lang?: 'en' | 'es';
+  items: {
+    title: string;
+    issuer: string;
+    date: string;
+    expiresOn?: string;
+    href?: string;
+    pinned?: boolean;
+  }[];
+  heading?: string;
+  featuredLabel?: string;
+  recentLabel?: string;
+  showMoreText?: string;
+  showLessText?: string;
+  lang?: 'en' | 'es';
 }
 
 export default function CertList({
-	items,
-	heading,
-	featuredLabel,
-	recentLabel,
-	showMoreText,
-	showLessText,
-	lang = 'es',
+  items,
+  heading,
+  featuredLabel,
+  recentLabel,
+  showMoreText,
+  showLessText,
+  lang = 'es',
 }: CertListProps) {
-	const pinnedItems = items.filter((item) => !!item.pinned);
-	const recentItems = items
-		.filter((item) => !item.pinned)
-		.sort((a, b) => b.date.localeCompare(a.date));
-	const [isOpen, setIsOpen] = useState(false);
-	const firstEntryRef = useRef<HTMLDivElement>(null);
-	const fourthEntryRef = useRef<HTMLDivElement>(null);
-	const [entriesHeight, setEntriesHeight] = useState(70);
+  const pinnedItems = items.filter(item => !!item.pinned);
+  const recentItems = items
+    .filter(item => !item.pinned)
+    .sort((a, b) => b.date.localeCompare(a.date));
+  const [isOpen, setIsOpen] = useState(false);
+  const firstEntryRef = useRef<HTMLDivElement>(null);
+  const fourthEntryRef = useRef<HTMLDivElement>(null);
+  const [entriesHeight, setEntriesHeight] = useState(70);
 
-	useEffect(() => {
-		if (firstEntryRef.current && fourthEntryRef.current) {
-			const entryOneTop = firstEntryRef.current.getBoundingClientRect().top;
-			const entryFourBottom =
-				fourthEntryRef.current.getBoundingClientRect().bottom;
-			const entryHeight = entryFourBottom - entryOneTop;
-			setEntriesHeight(entryHeight - 1);
-		}
-	}, []);
+  useEffect(() => {
+    if (firstEntryRef.current && fourthEntryRef.current) {
+      const entryOneTop = firstEntryRef.current.getBoundingClientRect().top;
+      const entryFourBottom =
+        fourthEntryRef.current.getBoundingClientRect().bottom;
+      const entryHeight = entryFourBottom - entryOneTop;
+      setEntriesHeight(entryHeight - 10);
+    }
+  }, []);
 
-	return (
-		<>
-			<div className="pb-12">
-				<section>
-					<h3 className="font-normal font-sans text-lg tracking-wider text-text-meta-lite mb-6 lowercase block">
-						{heading}
-					</h3>
-					<div className="divide-y divide-border-subtle space-y-6">
-						<h4 className="mb-4 pb-1 block font-mono text-xs uppercase tracking-widest text-text-meta-lite">
-							{featuredLabel}
-						</h4>
-						{pinnedItems.map((item, idx) => {
-							const issuerNoBrackets = item.issuer
-								.replace(/\(.*?\)/g, '')
-								.trim();
-							return (
-								<CertEntry
-									key={item.title + idx}
-									title={item.title}
-									titleMeta={
-										item.date
-											? issuerNoBrackets + ` · ${formatDate(item.date, lang)}`
-											: issuerNoBrackets
-									}
-									credentialUrl={item.href}
-								/>
-							);
-						})}
-					</div>
-				</section>
-			</div>
-			<div>
-				<section>
-					<div className="divide-y divide-border-subtle space-y-6">
-						<h4 className="mb-4 pb-1 block font-mono text-xs uppercase tracking-widest text-text-meta-lite">
-							{recentLabel}
-						</h4>
-						<motion.div
-							initial={false}
-							animate={{
-								height: isOpen
-									? 'auto'
-									: recentItems.length > 5
-										? `${entriesHeight}px`
-										: 'auto',
-							}}
-							style={{ overflow: 'hidden' }}
-							className="divide-y divide-border-subtle space-y-6"
-						>
-							{recentItems.map((item, idx) => {
-								const issuerNoBrackets = item.issuer
-									.replace(/\(.*?\)/g, '')
-									.trim();
-								return (
-									<CertEntry
-										ref={
-											idx === 0
-												? firstEntryRef
-												: idx === 3
-													? fourthEntryRef
-													: null
-										}
-										key={item.title + idx}
-										title={item.title}
-										titleMeta={
-											item.date
-												? issuerNoBrackets + ` · ${formatDate(item.date, lang)}`
-												: issuerNoBrackets
-										}
-										credentialUrl={item.href}
-									/>
-								);
-							})}
-						</motion.div>
-						<Button
-							type="button"
-							variant="outline"
-							size="small"
-							onClick={() => setIsOpen(!isOpen)}
-							className={`w-full sm:w-auto sm:ml-auto mt-6 ${
-								recentItems.length > 5 ? 'block' : 'hidden'
-							}`}
-						>
-							<div className="flex items-center justify-center text-ink-subtle hover:text-ink transition-colors">
-								<span>{isOpen ? showLessText : showMoreText}</span>
-								<ChevronDown
-									size={17}
-									strokeWidth={1.5}
-									className={`ml-2 transition-transform text-ink-subtle ${
-										isOpen ? 'rotate-180' : 'rotate-0'
-									}`}
-								/>
-							</div>
-						</Button>
-						{recentItems.length === 0 && (
-							<p className="text-sm text-muted">
-								No hay certificaciones recientes para mostrar.
-							</p>
-						)}
-					</div>
-				</section>
-				{items.length === 0 && (
-					<p className="text-sm text-muted">
-						No hay certificaciones para mostrar.
-					</p>
-				)}
-			</div>
-		</>
-	);
+  return (
+    <>
+      <div className="pb-12">
+        <section>
+          <h3 className="font-normal font-sans text-lg tracking-wider text-text-meta-lite mb-6 lowercase block">
+            {heading}
+          </h3>
+          <div className="divide-y divide-border-subtle space-y-6">
+            <h4 className="mb-4 pb-1 block font-mono text-xs uppercase tracking-widest text-text-meta-lite">
+              {featuredLabel}
+            </h4>
+            {pinnedItems.map((item, idx) => {
+              const issuerNoBrackets = item.issuer
+                .replace(/\(.*?\)/g, '')
+                .trim();
+              return (
+                <CertEntry
+                  key={item.title + idx}
+                  title={item.title}
+                  titleMeta={
+                    item.date
+                      ? issuerNoBrackets + ` · ${formatDate(item.date, lang)}`
+                      : issuerNoBrackets
+                  }
+                  credentialUrl={item.href}
+                />
+              );
+            })}
+          </div>
+        </section>
+      </div>
+      <div>
+        <section>
+          <div className="divide-y divide-border-subtle space-y-6">
+            <h4 className="mb-4 pb-1 block font-mono text-xs uppercase tracking-widest text-text-meta-lite">
+              {recentLabel}
+            </h4>
+            <motion.div
+              initial={false}
+              animate={{
+                height: isOpen
+                  ? 'auto'
+                  : recentItems.length > 5
+                    ? `${entriesHeight}px`
+                    : 'auto',
+              }}
+              style={{ overflow: 'hidden' }}
+              className="divide-y divide-border-subtle space-y-6"
+            >
+              {recentItems.map((item, idx) => {
+                const issuerNoBrackets = item.issuer
+                  .replace(/\(.*?\)/g, '')
+                  .trim();
+                return (
+                  <CertEntry
+                    ref={
+                      idx === 0
+                        ? firstEntryRef
+                        : idx === 3
+                          ? fourthEntryRef
+                          : null
+                    }
+                    key={item.title + idx}
+                    title={item.title}
+                    titleMeta={
+                      item.date
+                        ? issuerNoBrackets + ` · ${formatDate(item.date, lang)}`
+                        : issuerNoBrackets
+                    }
+                    credentialUrl={item.href}
+                  />
+                );
+              })}
+            </motion.div>
+            <Button
+              type="button"
+              variant="outline"
+              size="small"
+              onClick={() => setIsOpen(!isOpen)}
+              className={`w-full sm:w-auto sm:ml-auto mt-6 ${
+                recentItems.length > 5 ? 'block' : 'hidden'
+              }`}
+            >
+              <div className="flex items-center justify-center text-ink-subtle hover:text-ink transition-colors">
+                <span>{isOpen ? showLessText : showMoreText}</span>
+                <ChevronDown
+                  size={17}
+                  strokeWidth={1.5}
+                  className={`ml-2 transition-transform text-ink-subtle ${
+                    isOpen ? 'rotate-180' : 'rotate-0'
+                  }`}
+                />
+              </div>
+            </Button>
+            {recentItems.length === 0 && (
+              <p className="text-sm text-muted">
+                No hay certificaciones recientes para mostrar.
+              </p>
+            )}
+          </div>
+        </section>
+        {items.length === 0 && (
+          <p className="text-sm text-muted">
+            No hay certificaciones para mostrar.
+          </p>
+        )}
+      </div>
+    </>
+  );
 }
